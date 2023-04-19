@@ -6,7 +6,7 @@
   display: inline-block;
   white-space: nowrap;
   vertical-align: middle;
-  font-family: 'Volkhov', serif;
+  font-family: 'Noto Sans KR', 'Volkhov', serif;
   font-size: 12px;
   text-align: center;
   padding: 8px 15px;
@@ -22,7 +22,7 @@
   &--secondary {
     color: $white-color;
     background-color: $secondary-color;
-    background: linear-gradient(135deg, #a2a2bd 0%,#cfcfdd 100%);
+    background: linear-gradient(135deg, #a2a2bd 0%, #cfcfdd 100%);
   }
 
   &--round {
@@ -30,7 +30,7 @@
   }
 
   &--shadow {
-    box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, .15);
+    box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
     &:hover {
       box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
     }

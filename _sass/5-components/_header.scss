@@ -31,7 +31,7 @@
     position: relative;
     width: 100%;
     padding: 10px 10px 10px 40px;
-    border: 1px solid $blue-lighter;
+    border: 1px solid $gray;
     border-radius: 30px;
     outline: none;
     color: $gray;
@@ -92,7 +92,7 @@
       font-size: 10px;
       text-transform: uppercase;
       white-space: nowrap;
-      border: 1px solid $blue-lighter;
+      border: 1px solid $gray-light;
       box-shadow: 0 1px 0px rgba(132, 135, 138, 0.4);
       will-change: transform;
       transform: translateY(0px);
