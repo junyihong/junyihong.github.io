@@ -1,0 +1,53 @@
+title: JUNYIHONG's BLOG
+description: JUN.
+baseurl: '' # the subpath of your site, e.g. /blog
+url: 'https://junyihong.github.io' # the base hostname & protocol for your site, e.g. http://example.com
+
+# Author
+author-name: JUNYIHONG
+author-image: 1.jpg
+author-job: Web Developer
+author-email: junyihong@naver.com # Add your email for contant form.
+author-twitter: artemsheludko_ # Add your twitter account
+about-author: 준이의 공부한 것들 기록하는 공간
+
+# Social settings
+social-twitter: junyihong_
+social-facebook:
+social-github: junyihong
+social-pinterest: junyihong
+social-instagram: junyihong_
+social-youtube:
+social-vk:
+social-linkedin:
+
+# Newsletter
+mailchimp: # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
+
+# Google Analytics
+google-analytics: # Add your identifier. For example UA-99631805-1
+
+# Comment Section (Disqus)
+disqus-identifier: gobatjun # Add your shortname for Disqus Comment. For example mr-brown
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-paginate
+
+paginate: 7
+paginate_path: '/page/:num/'
+
+include:
+  - _pages
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
