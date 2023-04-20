@@ -11,6 +11,7 @@ categories: Free
 
 ## 노션 단축키
 
+<hr/>
 <aside>
 📌 Notion 에 익숙해지면 편리할 것 같다.
 
@@ -26,6 +27,7 @@ import Notion from 'react-notion';
 ```
 
 1.  슬래시( / ) 로 명령 호출하기
+
     - 예시<br>
       - `/페이지` : 페이지 만들기 <br>
       - `/표` : 만들기<br>
@@ -35,16 +37,18 @@ import Notion from 'react-notion';
       - `/보라색 배경` : 배경색 변경<br>
 
 2.  각종 기호 활용하기
+
     - 예시<br>
       - `#` &nbsp;&nbsp;&nbsp;&nbsp;: 제목1 (큰 제목)<br>
       - `##`&nbsp;&nbsp; : 제목2 (중간 제목)<br>
       - `###`&nbsp; : 제목3 (작은 제목)<br>
       - `---`&nbsp;&nbsp;&nbsp;&nbsp; : 구분선 (마이너스 3개)<br>
-      - `>` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : 토글 생성<br>
+      - `>` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 토글 생성<br>
       - `+값` : 해당 이름으로 페이지 생성<br>
-      - `[]`&nbsp;&nbsp;&nbsp;&nbsp;  : 체크박스 생성 (대괄호 열닫)<br>
+      - `[]`&nbsp;&nbsp;&nbsp;&nbsp; : 체크박스 생성 (대괄호 열닫)<br>
 
 3.  입력 팁<br>
+
     - 예시<br>
       - `Shift+Enter` : 같은 블럭 내 다음 줄로<br>
       - `Tab` : 들여쓰기 ( Shift + Tab : 들여쓰기 취소)<br>
