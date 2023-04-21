@@ -7,30 +7,37 @@
 */
 
 body,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul,
-fieldset, legend,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+fieldset,
+legend,
 figure,
 hr {
-  margin:  0;
+  margin: 0;
   padding: 0;
 }
-
 
 /**
   Remove trailing margins from nested lists.
 */
 
 li > {
-
   ul,
   ol {
     margin-bottom: 0;
   }
-
 }
-
 
 /**
   Remove default table spacing.
@@ -39,4 +46,14 @@ li > {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  border: 2px solid rgb(190, 190, 190);
+}
+tr,
+td,
+th {
+  border: 1px solid rgb(190, 190, 190);
+}
+td {
+  padding: 10px;
+  text-align: center;
 }
