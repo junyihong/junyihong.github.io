@@ -6,13 +6,12 @@
   color: black;
 }
 .language-plaintext {
-  background-color: gray;
-  font-weight: 700;
-  color: #002fff;
+  background-color: rgb(43, 43, 43);
+  color: #fcfcfe;
   font-family: monospace, 'Noto Sans KR';
 }
 .highlight {
-  background: #f7f7f7;
+  background: rgba(0, 0, 0, 0.6);
 
   .highlighter-rouge & {
     background: rgba(0, 0, 0, 0.6);
