@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   'use strict';
 
   /* =======================
@@ -11,31 +10,31 @@ $(document).ready(function () {
     resultsContainer: document.getElementById('js-results-container'),
     json: '/search.json',
     searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '<li>No results found</li>'
-  })
+    noResultsText: '<li>No results found</li>',
+  });
 
   /* =======================
   // Responsive videos
   ======================= */
 
   $('.c-wrap-content').fitVids({
-    'customSelector': ['iframe[src*="ted.com"]']
+    customSelector: ['iframe[src*="ted.com"]'],
   });
 
   /* =======================================
   // Switching between posts and categories
   ======================================= */
 
-  $('.c-nav__list > .c-nav__item').click(function() {
+  $('.c-nav__list > .c-nav__item').click(function () {
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
     $(this).addClass('is-active');
     if ($('.c-nav__item:last-child').hasClass('is-active')) {
       $('.c-posts').css('display', 'none').removeClass('o-opacity');
-      $('.c-load-more').css('display', 'none')
+      $('.c-load-more').css('display', 'none');
       $('.c-categories').css('display', '').addClass('o-opacity');
     } else {
       $('.c-posts').css('display', '').addClass('o-opacity');
-      $('.c-load-more').css('display', '')
+      $('.c-load-more').css('display', '');
       $('.c-categories').css('display', 'none').removeClass('o-opacity');
     }
   });
@@ -44,7 +43,7 @@ $(document).ready(function () {
   // Adding ajax pagination
   ======================= */
 
-  $(".c-load-more").click(loadMorePosts);
+  $('.c-load-more').click(loadMorePosts);
 
   function loadMorePosts() {
     var _this = this;
@@ -52,7 +51,7 @@ $(document).ready(function () {
     var nextPage = parseInt($postsContainer.attr('data-page')) + 1;
     var totalPages = parseInt($postsContainer.attr('data-totalPages'));
 
-    $(this).addClass('is-loading').text("Loading...");
+    $(this).addClass('is-loading').text('Loading...');
 
     $.get('/page/' + nextPage, function (data) {
       var htmlData = $.parseHTML(data);
@@ -78,10 +77,12 @@ $(document).ready(function () {
     var currentTag = $(this).attr('href'),
       currentTagOffset = $(currentTag).offset().top;
 
-    $('html, body').animate({
-      scrollTop: currentTagOffset - 10
-    }, 400);
-
+    $('html, body').animate(
+      {
+        scrollTop: currentTagOffset - 10,
+      },
+      400
+    );
   });
 
   /* =======================
@@ -93,11 +94,45 @@ $(document).ready(function () {
   });
   $(window).scroll(function () {
     if ($(this).scrollTop() > $(window).height()) {
-      $('.c-top').addClass("c-top--active");
+      $('.c-top').addClass('c-top--active');
     } else {
-      $('.c-top').removeClass("c-top--active");
-    };
+      $('.c-top').removeClass('c-top--active');
+    }
   });
+});
 
+// ------------------------------------------------------------------------
+//Check out more cool stuff on my site: https://rilling.dev/
 
+/*Only needed for the controls*/
+var phone = document.getElementById('phone_1'),
+  iframe = document.getElementById('frame_1');
+
+/*View*/
+function updateView(view) {
+  if (view) {
+    phone.className = 'phone view_' + view;
+  }
+}
+
+/*Controls*/
+function updateIframe() {
+  iframe.src = document.getElementById('iframeURL').value;
+
+  phone.style.width = document.getElementById('iframeWidth').value + 'px';
+  phone.style.height = document.getElementById('iframeHeight').value + 'px';
+
+  /*Idea by /u/aerosole*/
+  document.getElementById('wrapper').style.perspective =
+    document.getElementById('iframePerspective').checked ? '1000px' : 'none';
+}
+updateIframe();
+
+/*Events*/
+document.getElementById('controls').addEventListener('change', function () {
+  updateIframe();
+});
+
+document.getElementById('views').addEventListener('click', function (evt) {
+  updateView(evt.target.value);
 });
