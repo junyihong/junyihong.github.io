@@ -2,9 +2,9 @@
 layout: post
 title: 'Big Calendar 활용하기 2'
 date: 2023-05-11 11:41:00    +0900
-image: BigCalendar.jpg
+image: BigCalendar2.jpg
 tags: [리액트, React, BigCalenar]
-categories: React, Component
+categories: React Component
 ---
 
 # 'Big Calendar 활용하기 2'

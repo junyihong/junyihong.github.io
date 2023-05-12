@@ -4,7 +4,7 @@ title: 'Big Calendar 활용하기'
 date: 2023-05-09 09:32:00    +0900
 image: BigCalendar.jpg
 tags: [리액트, React]
-categories: React, Component
+categories: React Component
 ---
 
 # 'Big Calendar 활용하기'
