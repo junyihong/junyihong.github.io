@@ -1,0 +1,234 @@
+---
+layout: post
+title: '소프트웨어 설계 - 2'
+date: 2023-05-16 12:19:43 +0900
+image: cert2.jpg
+tags: [imformation, process, certificate, 정보처리기사, 정처기]
+categories: certificate
+---
+
+# 소프트웨어 설계 -2
+
+### **UML(Unified Modeling Language)의 개요**
+
+### **UML(Unified Modeling Language)**
+
+시스템 개발 과정에서 시스템 개발자와 고객 또는 개발자 상호 간의
+의사소통이 원활하게 이루어지도록 표준화한 대표적인 객체지향 모델링 언어다.
+
+럼바우, Booch, Jacobson 등의 객체지향 방법론의 장점을 통합했다.
+
+OMG(Object Management Group)에서 표준으로 지정.
+
+- **UML의 구성 요소**
+
+✓ 사물(Things)
+
+✓ 관계(Relationship)
+
+✓ 다이어그램(Diagram)
+
+### **UML - 사물(Things)**
+
+다이어그램 안에서 관계가 형성될 수 있는 대상.
+
+모델을 구성하는 가장 중요한 기본 요소.
+
+- **사물의 종류**
+
+| 사물 | 내용 |
+| --- | --- |
+| 구조 사물(Structural Things) | ✓ 시스템의 개념적, 물리적 요소를 표현✓ 클래스, 유스케이스, 컴포넌트, 노드 등 |
+| 행동 사물(Behavioral Things) | ✓ 시간과 공간에 따른 요소들의 행위를 표현✓ 상호작용, 상태 머신 등 |
+| 그룹 사물(Group Things) | ✓ 요소들을 그룹으로 묶어서 표현✓ 패키지 |
+| 주해 사물(Annotation Things) | ✓ 부가적인 설명이나 제약조건 등을 표현✓ 노드 |
+
+---
+
+## **Section 11**
+
+### **UML - 관계(Relationship)**
+
+사물과 사물 사이의 연관성을 표현하는 것
+
+- **관계의 종류**
+
+✓ 연관 관계
+
+✓ 집합 관계
+
+✓ 포함 관계
+
+✓ 일반화 관계
+
+✓ 의존 관계
+
+✓ 실체화 관계
+
+### **연관(Association) 관계**
+
+2개 이상의 사물이 서로 관련되어 있는 관계.
+
+실선으로 연결하여 표현.
+
+방향성은 화살표로 표현.
+
+양방향 관계의 경우 화살표를 생략, 실선으로만 표현.
+
+다중도를 선 위에 표시한다.
+
+| 다중도 | 의미 |
+| --- | --- |
+| 1 | 1개의 객체가 연관되어 있음 |
+| n | n개의 객체가 연관되어 있음 |
+| 0..1 | 연관된 객체가 없거나 1개만 존재 |
+| 0..* 또는 * | 연관된 객체가 없거나 다수 |
+| 1..* | 연관된 객체가 적어도 1개 이상임 |
+| 1..n | 연관된 객체가 적어도 n개 이상임 |
+| n..m | 연관된 객체가 최소 n개에서 최대 m개 |
+
+![https://blog.kakaocdn.net/dn/tGuuV/btrbhX0tTP6/nKiDBZ0uGMJknZUVof7zpk/img.png](https://blog.kakaocdn.net/dn/tGuuV/btrbhX0tTP6/nKiDBZ0uGMJknZUVof7zpk/img.png)
+
+연관 관계 1
+
+'사람' 쪽에 표기된 다중도가 '1'
+
+∴ 집은 한 사람에 의해서만 소유 가능
+
+'집' 쪽에 표기된 다중도가 '1'
+
+∴ 사람은 집을 하나만 소유 가능
+
+![https://blog.kakaocdn.net/dn/G06ke/btrbpQFLJ6k/wApEg8kh2QMW8XgAomHJc1/img.png](https://blog.kakaocdn.net/dn/G06ke/btrbpQFLJ6k/wApEg8kh2QMW8XgAomHJc1/img.png)
+
+연관 관계 2
+
+'선생님' 쪽에 표기된 다중도가 '1..*'
+
+∴ 학생은 한 명 이상의 선생님으로부터 가르침을 받음.
+
+'학생' 쪽에 표기된 다중도가 '1..*'
+
+∴ 선생님은 한 명 이상의 학생을 가르침
+
+### **집합(Aggregation) 관계**
+
+하나의 사물이 다른 사물에 포함되어 있는 관계.
+
+포함하는 쪽과 포함되는 쪽은 서로 독립적인 관계.
+
+포함되는 쪽에서 포함하는 쪽으로 빈 마름모를 연결해 표현.
+
+![https://blog.kakaocdn.net/dn/cNfK4W/btrbmy6Hw5M/099KbZkS4KlRaotgxjUi8K/img.png](https://blog.kakaocdn.net/dn/cNfK4W/btrbmy6Hw5M/099KbZkS4KlRaotgxjUi8K/img.png)
+
+집합 관계
+
+### **포함(Composition) 관계**
+
+포함하는 사물의 변화가 포함되는 사물에게 영향을 미치는 관계.
+
+집합 관계와 달리 서로 독립적이지 못함.
+
+포함되는 쪽에서 포함하는 쪽으로 속이 채워진 마름모를 연결해 표현.
+
+![https://blog.kakaocdn.net/dn/byHiGh/btrbe4Tj0Zv/RkScfK9RicfTyXWMUkGolK/img.png](https://blog.kakaocdn.net/dn/byHiGh/btrbe4Tj0Zv/RkScfK9RicfTyXWMUkGolK/img.png)
+
+포함 관계
+
+### **일반화(Generalization) 관계**
+
+하나의 사물이 다른 사물에 비해 더
+
+일반적이거나 구체적인 관계.
+
+일반적인 개념을 상위(부모),
+
+보다 구체적인 개념을 하위(자식)이라고 한다.
+
+하위에서 상위로 속이 빈 화살표를 연결하여 표현한다.
+
+![https://blog.kakaocdn.net/dn/P9Kh7/btrbkhj7lMf/nyqCEgdz5ojKZrKsCEGfEK/img.png](https://blog.kakaocdn.net/dn/P9Kh7/btrbkhj7lMf/nyqCEgdz5ojKZrKsCEGfEK/img.png)
+
+일반화 관계
+
+### **의존(Dependency) 관계**
+
+서로에게 영향을 주는 짧은 시간 동안만
+
+연관을 유지하는 관계.
+
+영향을 주는 사물(이용자)이
+
+영향을 받는 사물(제공자) 쪽으로
+
+점선 화살표를 연결하여 표현한다.
+
+![https://blog.kakaocdn.net/dn/dqYgrE/btrbpPfNyye/XCvV5xZqTdTaDIsDXLewhk/img.png](https://blog.kakaocdn.net/dn/dqYgrE/btrbpPfNyye/XCvV5xZqTdTaDIsDXLewhk/img.png)
+
+의존 관계
+
+### **실체화(Realization) 관계**
+
+사물이 할 수 있거나 해야 하는 기능으로,
+
+서로를 그룹화할 수 있는 관계.
+
+사물에서 기능 쪽으로 속이 빈 점선 화살표를 연결하여 표현.
+
+![https://blog.kakaocdn.net/dn/I1GhN/btrbe5LuEia/RzZGgK0yYPmk1H1uDtb7XK/img.png](https://blog.kakaocdn.net/dn/I1GhN/btrbe5LuEia/RzZGgK0yYPmk1H1uDtb7XK/img.png)
+
+실체화 관계
+
+---
+
+## **Section 12**
+
+### **UML - 다이어그램**
+
+### **다이어그램(Diagram)**
+
+사물과 관계를 도형으로 표현한 것
+
+정적 모델링 - 구조적 다이어그램
+
+동적 모델링 - 행위 다이어그램
+
+### **구조적 다이어그램 종류**
+
+| 종류 | 내용 |
+| --- | --- |
+| 클래스 다이어그램(Class Diagram) | 클래스와 클래스가 가지는 속성, 클래스 사이의 관계를 표현 |
+| 객체 다이어그램(Object Diagram) | ✓ 클래스에 속한 사물(객체)들, 즉 인스턴스를 특정 시점의 객체와 객체 사이의 관계로 표현✓ 럼바우 객체지향 분석 기법에서 객체 모델리이에 활용됨 |
+| 컴포넌트 다이어그램(Component Diagram) | ✓ 실제 구현 모듈인 컴포넌트 간의 관계나 인터페이스를 표현함✓ 구현 단계에서 사용됨 |
+| 배치 다이어그램(Deployment Diagram) | ✓ 결과물, 프로세스, 컴포넌트 등 물리적 요소들의 위치를 표현함✓ 구현 단계에서 사용됨 |
+| 복합체 구조 다이어그램(Composite Structure Diagram) | 클래스나 컴포넌트가 복합 구조를 갖는 경우 그 내부 구조를 표현함 |
+| 패키지 다이어그램(Package Diagram) | 유스케이스나 클래스 등의 모델 요소들을 그룹화한 패키지들의 관계를 표현함 |
+
+키워드 : 관계, 구조, 위치 등
+
+### **행위 다이어그램 종류**
+
+| 종류 | 내용 |
+| --- | --- |
+| 유스케이스 다이어그램(Use Case Diagram) | ✓ 사용자의 요구를 분석하는 것으로, 기능 모델링 작업에 사용✓ 사용자(Actor)와 사용 사례(Use Case)로 구성됨 |
+| 시퀀스 다이어그램(Sequence Diagram) | 상호 작용하는 시스템이나 객체들이 주고받는 메시지를 표현함 |
+| 커뮤니케이션 다이어그램(Communication Diagram) | 동작에 참여하는 객체들이 주고받는 메시지와 객체들 간의 연관 관계를 표현함 |
+| 상태 다이어그램(State Diagram) | ✓ 하나의 객체가 자신이 속한 클래스의 상태 변화 혹은 다른 객체와의 상호 작용에 따라 상태가 어떻게 변화하는지를 표현함✓ 럼바우 객체지향 분석 기법에서 동적 모델링에 활용됨 |
+| 활동 다이어그램(Activity Diagram) | 시스템이 어떤 기능을 수행하는지 객체의 처리 로직이나 조건에 따른 처리의 흐름을 순서에 따라 표현함 |
+| 상호작용 개요 다이어그램(Interaction Overview Diagram) | 상호작용 다이어그램 간의 제어 흐름을 표현함 |
+| 타이밍 다이어그램(Timing Diagram) | 객체 상태 변화와 시간 제약을 명시적으로 표현함 |
+
+키워드 : 요구 분석, 메시지, 상태 변화, 로직, 흐름, 제약 등
+
+### **스테레오 타입(StreoType)**
+
+UML에서 표현하는 기본 기능 외에 추가적인 기능을 표현하는 것.
+
+겹 화살표 <<>> 사이에 표현할 형태를 기술한다.
+| 표현 형태 | 의미 |
+| --- | --- |
+| <<include>> | 연결된 다른 UML 요소에 대해 포함 관계에 있는 경우 |
+| <<extend>> | 연결된 다른 UML 요소에 대해 확장 관계에 있는 경우 |
+| <<interface>> | 인터페이스를 정의하는 경우 |
+| <<exception>> | 예외를 정의하는 경우 |
+| <<constructor>> | 생성자 역할을 수행하는 경우 |
