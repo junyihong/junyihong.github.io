@@ -47,13 +47,23 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 2px solid rgb(190, 190, 190);
+  min-width: 600px;
 }
 tr,
 td,
 th {
   border: 1px solid rgb(190, 190, 190);
+  padding: 4px 8px;
 }
-td {
+tr,td {
   padding: 10px;
   text-align: center;
+  background-color: white;
+}
+th {
+  text-align: center;
+  background-color: rgb(173, 213, 254);
+}
+td:not(:first-child) {
+  text-align: left;
 }
