@@ -223,7 +223,7 @@ categories: certificate
 | PSL/PSA | PSL과 PSA를 사용하는 자동화 도구미시간 대학에서 개발 |
 | TAGS | 시스템 공학 방법 응용에 대한 자동 접근 방법개발 주기의 전 과정에 이용할 수 있는 통합 자동화 도구 |
 
-### **HIP(Hierarchy Input Process Output)**
+### **HIPO(Hierarchy Input Process Output)**
 
 시스템 실행 과정인 입력, 처리, 출력의 기능을 표현한 것이다.
 
