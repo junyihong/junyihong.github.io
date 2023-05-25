@@ -14,7 +14,7 @@ categories: certificate
 
 Realization (실체화 ) : 한 객체가 다른 객체에 의해 오퍼레이션을 수행하도록 지정
 
-<img src="{{site.baseurl}}/images/odab/2.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/odab/2.png" alt="Image description" style="width: 60%; **height**: 60%; margin-bottom: 20px">
 
 기존 시스템과 신규 시스템의 성능 비교는 구현단계에서 시행
 

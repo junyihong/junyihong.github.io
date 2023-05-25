@@ -1,0 +1,137 @@
+---
+layout: post
+title: '정보시스템 구축 관리'
+date: 2023-05-25 17:50:43 +0900
+image: cert5.jpg
+tags: [imformation, process, certificate, 정보처리기사, 정처기]
+categories: certificate
+---
+
+# 정보처리기사 6
+
+> 소프트웨어 개발 모형
+> 
+> 
+> > 폭포수 모형(Waterfall Model)
+> > 
+> > - **보헴(Boehm)**이 제안
+> 
+> > 프로토타입(Prototype)
+> > 
+> > - 원형 모형
+> 
+> > 나선형 모형
+> > 
+> > - **보헴(Boehm)**이 제안
+> > - 점진적 모형(계획 및 정의 -> 위험 분석 -> 개발 및 검증 -> 고객 평가)
+> 
+> > 애자일 모형
+> > 
+> > - 고객
+
+> Bell-Lapadula 모델
+> 
+> 
+> 기밀성에 따라 상하 관계가 구분된 정보를 보호
+> 
+
+> SPICE 모델
+> 
+> - Software Process Improvement and Capability dEtermination
+> - 소프트웨어 처리 개선 및 능력 평가 기준 국제 표준
+> - 단계: 불완전 -> 수행 -> 관리 -> 확립 -> 예측 -> 최적화
+
+> 암호화 기법
+> 
+> 
+> > 개인키(Private Key Encryption)
+> > 
+> > - **블록** 암호화: DES, AES, SEED, ARIA
+> > - **스트림** 암호화: LFSR, RC4
+> 
+> > 공개키(Public Key Encryption)
+> > 
+> > - 암호화 - 공개키, 복호화 - 비밀키
+> > - RSA: 큰 숫자 소인수분해 어려운 것에 기반
+
+> 해시(Hash)
+> 
+> - **종류**: **SHA** 시리즈, MD4, MD5, N-NASH, SNEFRU 등
+
+> 소프트웨어 비용 추정 모형
+> 
+> 
+> > COCOMO 모형
+> > 
+> > - **코드 라인**
+> > - 보헴(Boehm)이 제안
+> > - **조직형(Organic), 반분리형(Semi-Detached), 내장형(Embedded)**
+> > - LOC(원시 코드 라인 수)에 의한
+> 
+> > Putnam 모형
+> > 
+> > - 노력의 분포
+> > - SLIM
+> 
+> > 기능점수(FP, Function-Point) 모형
+> > 
+> > - 알브레히트(Albrecht)가 제안
+> > - 가중치
+> > - ESTIMACS
+
+> 스토리지 시스템
+> 
+> 
+> > DAS(Direct Attached Storage): 서버 <-전용 케이블-> 저장장치, 외장하드
+> > 
+> 
+> > NAS(Network Attached Storage): 서버 <-네트워크-> 저장장치
+> > 
+> 
+> > SAN(Storage Area Network): DAS+NAS
+> > 
+
+> 접근통제
+> 
+> 
+> > 기술
+> > 
+> > - **임의 접근통제(DAC**, Discretionary Access Control): 데이터에 접근하는 사용자의 신원
+> > - **강제 접근통제(MAC**, Mandatory Access Control): 주체와 객체 등급 비교
+> > - **역할기반 접근통제(RBAC**, Role Based Control): 사용자의 역할
+> 
+> > 3요소
+> > 
+> > 
+> > 접근통제 정책, 접근통제 메커니즘, 접근통제 보안모델
+> > 
+
+> 랜섬웨어(Ransomware): 문서 암호화 시킴
+> 
+> 
+> **`파밍(Pharming)`**: 도메인 탈취, DNS 이름 속여 진짜 사이트인 것 처럼
+> 
+> **`피싱(Phishing)`**: 낚시, 허위 웹 사이트
+> 
+> **`크로스사이트 스크립팅(XSS)`**: 웹 페이지에 악의적 스크립트 삽입
+> 
+
+> 다중화 기술
+> 
+> 
+> > 주파수 분할 다중화기(FDM, Frequency Division Multiplexer)
+> > 
+> > 
+> > **시분할 다중화기(TDM, Time** Division Multiplexer)
+> > 
+> > **코드분할 다중화기(CDM**, Code Division Multiplexing)
+> > 
+> > **파장 분할 다중화기(WDM**, Wavelength Division Multiplexing)
+> > 
+
+> RIP(Routing Information Protocol)
+> 
+> - 라우팅 프로토콜
+> - 현재 가장 널리 사용됨
+> - 최대 홉 수: 15
+> - 소규모
