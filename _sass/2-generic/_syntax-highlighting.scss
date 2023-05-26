@@ -29,7 +29,7 @@
     color: rgb(255, 149, 0);
   } // Keyword
   .o {
-    color: rgb(255, 0, 136);
+    color: rgb(255, 255, 255);
     font-weight: bold;
   } // Operator
   .cm {
@@ -94,6 +94,7 @@
   } // Keyword.Constant
   .kd {
     font-weight: bold;
+    color: orange;
   } // Keyword.Declaration
   .kp {
     font-weight: bold;
@@ -102,24 +103,24 @@
     font-weight: bold;
   } // Keyword.Reserved
   .kt {
-    color: #458;
+    color: #ff9500;
     font-weight: bold;
   } // Keyword.Type
   .m {
     color: #06dfdf;
   } // Literal.Number
   .s {
-    color: #d14;
+    color: rgb(49, 255, 90);
   } // Literal.String
   .na {
-    color: #008080;
+    color: #f5ffbd;
   } // Name.Attribute
   .nb {
     color: #00a0fd;
     font-weight: bold;
   } // Name.Builtin
   .nc {
-    color: #458;
+    color: rgb(250, 251, 253);
     font-weight: bold;
   } // Name.Class
   .no {
@@ -164,28 +165,28 @@
     color: #06dfdf;
   } // Literal.Number.Oct
   .sb {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Backtick
   .sc {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Char
   .sd {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Doc
   .s2 {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Double
   .se {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Escape
   .sh {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Heredoc
   .si {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Interpol
   .sx {
-    color: #d14;
+    color: rgb(234, 229, 74);
   } // Literal.String.Other
   .sr {
     color: rgb(255, 0, 111);
