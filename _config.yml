@@ -32,6 +32,10 @@ disqus-identifier: gobatjun # Add your shortname for Disqus Comment. For example
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-paginate

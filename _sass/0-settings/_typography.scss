@@ -2,12 +2,18 @@
 	TYPOGRAPHY
 =============== */
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 // Body font
 $base-font-size: 15px;
 $base-font-style: normal;
 $base-font-variant: normal;
 $base-font-weight: 400;
-$base-font-family: 'Noto Sans KR', 'Open Sans', Helvetica Neue, Helvetica, Arial,
+$base-font-family: 'GmarketSansMedium', 'Noto Sans KR', 'Open Sans', Helvetica Neue, Helvetica, Arial,
   sans-serif;
 $base-line-height: 28px;
 
