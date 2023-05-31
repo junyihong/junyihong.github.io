@@ -53,7 +53,7 @@ Gradle의 빌드가 끝나면 이러한 프로젝트의 형태가 만들어지�
 tomcat을 활용하기 위해, 목록에 있던 build.gradle파일을 열어서 dependencies를 추가해주어야 한다.
 
 ```java
-	implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
+  implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
   implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42'
   // tomcat-embed 관련
 
