@@ -2,13 +2,12 @@
 layout: post
 title: 'Java - 1'
 date: 2023-05-25 17:50:43 +0900
-image: /java/java1.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---
 
 # JAVA 01
-
 
 ## HelloJava
 
@@ -34,6 +33,7 @@ public class HelloJava {
 	}	// 메인 메소드의 끝
 }// 클래스의 끝
 ```
+
 <br/>
 <br/>
 ## printf (print formatted) 활용예제
@@ -64,6 +64,7 @@ public class PrintF {
 **`printf`** 함수는 여러 가지 형식 지정자(format specifier)를 사용하여 출력할 데이터를 지정할 수 있습니다. 형식 지정자는 **`%`** 기호와 함께 사용되며, 출력될 데이터의 유형과 형식을 지정합니다. 일반적인 형식 지정자로는 **`%d`**(정수), **`%f`**(부동 소수점 수), **`%c`**(문자), **`%s`**(문자열) 등이 있습니다.
 <br/>
 <br/>
+
 ## Do-While 문 예제
 
 ```java
@@ -131,6 +132,7 @@ public static void main(String[] args) {
 **`do-while`** 문의 특징은 조건 검사가 반복 실행 후에 이루어진다는 점입니다. 따라서 코드 블록은 최소한 한 번은 실행되며, 이후에 조건을 확인하여 추가적인 반복을 결정합니다.
 <br/>
 <br/>
+
 ## ReverseString 예제 (문자열 거꾸로 만들기)
 
 ```java
@@ -145,24 +147,24 @@ public class ReverseString{
 
 		// Scanner 객체를 생성하고 변수 scan이 그 객체를 가리키게 한다
 		Scanner scan01 = new Scanner(System.in);
-		
+
 		// 문자열을 입력받는다
-		System.out.print("문자열을 입력하세요: ");			
+		System.out.print("문자열을 입력하세요: ");
 		str = scan01.nextLine();
 
-    // 입력 문자열을 출력한다			
+    // 입력 문자열을 출력한다
 		System.out.println("입력하신 문자는 '" + str +"' 입니다." );
-		
-		// 문자열의 길이를 구한다			
+
+		// 문자열의 길이를 구한다
 		length = str.length();
 		System.out.println("'" + str + "'의 길이는 "+ length + "입니다.");
-		
+
 		// 반복문을 이용해 뒤에서부터 하나씩 꺼내서 outputStr에 추가
 		for(int i = 1; i <= length; i++ ) {
 			ch = str.charAt(length-i);
 			outputStr += ch;
 		}
-		System.out.println("거꾸로하면 '" + outputStr + "' 입니다!");	
+		System.out.println("거꾸로하면 '" + outputStr + "' 입니다!");
     }
 }
 ```

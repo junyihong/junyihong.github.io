@@ -2,7 +2,7 @@
 layout: post
 title: 'Java - 2'
 date: 2023-05-30 10:00:00 +0900
-image: /java/java2.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---
@@ -94,7 +94,7 @@ public class Exercise2 {
 <br/>
 ### Exercise3 - n 구하기
 
- 1+3+5+7+9+...+n 의값이 최초로 1,000 이상이 되는 n의 값과 그 수까지의 합을 구하라.
+1+3+5+7+9+...+n 의값이 최초로 1,000 이상이 되는 n의 값과 그 수까지의 합을 구하라.
 
 ```java
 public class Exercise3 {
@@ -105,7 +105,7 @@ public class Exercise3 {
 // 3. 1000이상이면 마지막으로 더한 홀수와 그 홀수까지의 합을 출력한 후 종료한다.
 // 4. 1000이상이 아니면 그 다음 홀수를 이용해서 다시 1번 과정을 반복한다.
 	public static void main(String[] args) { // while...if
-		
+
 		int num = 1;
 		int sum = 0;
 		while(true) {
@@ -143,22 +143,22 @@ public class Exercise4 {
 //	1. 143의 약수의 개수를 구한다.
 //	2. 약수의 개수가 두개 인지 확인한다.
 //	3. 약수의 개수가 두 개이면 소수이고, 아니면 합성수이다.
-	
+
 	public static void main(String[] args) {
 		Scanner scan01 = new Scanner(System.in);
 		System.out.println("약수를 구할 숫자를 입력하세요. ");
 		int num = scan01.nextInt();
 		int count = 0;
-		
+
 		for(int i = 1; i <= num; i++) {
 			if (num % i == 0) {
 				System.out.println("약수 : " + i);
 				count++;
 			}
 		}
-		
+
 		System.out.println(num + "의 약수의 개수 : " + count);
-		
+
 		if(count == 2) {
 			System.out.println(num + " 은 소수입니다.");
 		} else {
@@ -197,23 +197,23 @@ public class Exercise5 {
 		int num = 2;
 		int count = 0;
 		int order = 0;
-		
+
 		while (true) {	// 1. num의 약수의 개수를 구한다.
-			
+
 			for(int i = 1; i <= num; i++) {
 				if (num % i == 0) {
 					count++;
 					// 약수의 개수만큼 count를 올리고
-				}	
+				}
 			}
-			
-			if(count == 2) 
+
+			if(count == 2)
 				order += 1;
 			// count가 두개이면, 즉 약수가 두개이면 order를 하나 올린다.
 			if(order == 20)
 				break;
 			// order가 20 이면 while문 종료
-			else 
+			else
 				num++;
 				count = 0;
 			// order가 20이 아니면 num을 올리고 카운트를 초기화해준다.
@@ -249,10 +249,10 @@ public class CalParkingFree {
 	// @입력 매개변수들:
 	// ptime - 주차시간
 	// @반환 값: 주차요금
-	static double calculateFee(double ptime) 
+	static double calculateFee(double ptime)
 	{
 		double fee = 0.0;
-		
+
 		if (ptime > 0.0) {
 			if (ptime <= 1.0)
 				fee = 1000;
@@ -263,7 +263,7 @@ public class CalParkingFree {
 		} else  {
 			ptime = ptime + 24.0;
 			fee = 1000 + Math.ceil(ptime - 1.0) * 500;
-			
+
 		}
 		System.out.println("주차시간 : " + ptime + "(시간)");
 		return fee;
@@ -273,7 +273,7 @@ public class CalParkingFree {
 		double entrytime;
 		double exittime;
 		double fee;
-		
+
 		// 반복문의 계속 수행 여부를 나타내는 변수를 선언한다.
 		String flag;
 		// 키보드로부터 입력하는 데이터를 읽기 위한 Scanner 객체를 만든다.
@@ -283,7 +283,7 @@ public class CalParkingFree {
 		do {
 			// 주차장에 들어온 시간과 나간 시간을 입력하라고 요청한다.
 			System.out.print("들어온 시간을 입력하세요: (HHmm 형식) \t");
-			entrytime = scan.nextDouble() / 100; 
+			entrytime = scan.nextDouble() / 100;
 			System.out.print("나간 시간을 입력하세요: (HHmm 형식) \t");
 			exittime = scan.nextDouble() / 100;
 			// 주차요금을 계산하고 출력한다.
@@ -315,5 +315,3 @@ public class CalParkingFree {
 14. 사용자에게 계속하기 여부를 묻고, "y" 또는 "n"으로 입력받습니다.
 15. 사용자가 "y"를 입력한 경우 반복문을 계속 수행합니다.
 16. 사용자가 "n"을 입력한 경우 반복문을 종료합니다.
-
-

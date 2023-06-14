@@ -2,7 +2,7 @@
 layout: post
 title: 'Java - 10'
 date: 2023-06-13 10:13:00 +0900
-image: /java/java10.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---

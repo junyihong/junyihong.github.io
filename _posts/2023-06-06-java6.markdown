@@ -2,7 +2,7 @@
 layout: post
 title: 'Java - 6'
 date: 2023-06-06 14:15:00 +0900
-image: /java/java6.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---
@@ -69,7 +69,7 @@ interface PhoneInterface{
 	final int TIMEOUT = 10000;
 	void sendCall();
 	void receiveCall();
-	
+
 	// default 메소드 : 인터페이스의 메소드 중 하나는 일반 클래스의 메소드처럼 동작이 정의될 수 있다.
 	// default 메소드를 활용하면 자바에서도 다중상속을 할 수 있다.
 	default void printLogo() { 	// default 메소드
@@ -107,12 +107,13 @@ public class Phone {
 		phone.flash();
 	}
 }
-// 자체로는 객체 생성이 불가능하지만 이를 사용하려면 
+// 자체로는 객체 생성이 불가능하지만 이를 사용하려면
 // 1 ) 추상클래스를 일반 클래스에 상속하여 객체를 생성할 수 있다.
 // 2 ) 익명 이너클래스를 사용하면 컴파일러가 내부적으로 클래스를 생성한 후 메서드 오버라이드를 수행
 // 		(클래스이름을 알 수 없다.) 1회용이다.
 // 미완성 메서드로 완성하여 해당 객체를 생성할 수 있다.
 ```
+
 <br/>
 
 ```java
@@ -143,14 +144,14 @@ class SmartPhone extends PDA implements MobliePhoneInterface, MP3Interface{
 	public void sendSMS() {
 		System.out.println("문자갑니다.");
 	}
-	
+
 	@Override
 	public void recieveSMS() {
 		System.out.println("문자왔어요~");
 	}
 	@Override
 	public void play() {
-		System.out.println("음악 재생합니다.");	
+		System.out.println("음악 재생합니다.");
 	}
 	@Override
 	public void stop() {
@@ -196,10 +197,10 @@ public class MyOuter1 {
 		return age;
 	}
 	static class Inner {
-		
+
 		private String address;	// 자신만의 인스턴스 값을 가질 수 있다.
 		static String tel= " 010-1111-2222 ";
-		
+
 		public Inner ( String address) {
 			this.address = address;
 		}
@@ -230,18 +231,18 @@ public class MyOuterInnerTest {
 static 내부 클래스를 사용하여 고객 정보를 출력하는 예제입니다.
 
 1. **`MyOuter1`** 클래스:
-    - **`MyOuter1`** 클래스는 외부 클래스로, 고객의 이름과 나이를 저장하는 멤버 변수를 가지고 있습니다.
-    - 생성자를 통해 이름과 나이를 초기화합니다.
-    - **`getName()`**과 **`getAge()`** 메서드를 통해 이름과 나이를 반환합니다.
-    - **`static`**으로 정의된 **`Inner`** 내부 클래스를 포함합니다.
+   - **`MyOuter1`** 클래스는 외부 클래스로, 고객의 이름과 나이를 저장하는 멤버 변수를 가지고 있습니다.
+   - 생성자를 통해 이름과 나이를 초기화합니다.
+   - **`getName()`**과 **`getAge()`** 메서드를 통해 이름과 나이를 반환합니다.
+   - **`static`**으로 정의된 **`Inner`** 내부 클래스를 포함합니다.
 2. **`Inner`** 내부 클래스:
-    - **`Inner`** 클래스는 **`MyOuter1`** 클래스의 정적(static) 내부 클래스입니다.
-    - **`address`**라는 멤버 변수와 **`tel`**라는 정적(static) 멤버 변수를 가지고 있습니다.
-    - 생성자를 통해 주소를 초기화합니다.
-    - **`getUserInfo()`** 메서드를 통해 주소와 전화번호를 반환합니다. 외부 클래스의 이름과 나이에 접근할 수 없습니다.
+   - **`Inner`** 클래스는 **`MyOuter1`** 클래스의 정적(static) 내부 클래스입니다.
+   - **`address`**라는 멤버 변수와 **`tel`**라는 정적(static) 멤버 변수를 가지고 있습니다.
+   - 생성자를 통해 주소를 초기화합니다.
+   - **`getUserInfo()`** 메서드를 통해 주소와 전화번호를 반환합니다. 외부 클래스의 이름과 나이에 접근할 수 없습니다.
 3. **`MyOuterInnerTest`** 클래스:
-    - **`main`** 메서드에서는 **`MyOuter1.Inner`**를 통해 **`Inner`** 클래스의 객체를 생성합니다.
-    - **`getUserInfo()`** 메서드를 호출하여 고객 정보를 출력합니다.
+   - **`main`** 메서드에서는 **`MyOuter1.Inner`**를 통해 **`Inner`** 클래스의 객체를 생성합니다.
+   - **`getUserInfo()`** 메서드를 호출하여 고객 정보를 출력합니다.
 
 주어진 코드에서는 **`Inner`** 클래스의 **`getUserInfo()`** 메서드에서 외부 클래스의 이름과 나이에 접근할 수 없으므로, "주소는: 세종시 세종구, 전화번호: 010-1111-2222"와 같이 주소와 정적 멤버 변수인 전화번호만 출력됩니다.
 

@@ -2,7 +2,7 @@
 layout: post
 title: 'Java - 5'
 date: 2023-06-05 09:30:00 +0900
-image: /java/java5.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---
@@ -46,7 +46,7 @@ public class Tic_Tac_Toe {
 			}
 			// 비어있는 위치 찾기
 			int i = 0, j = 0;
-			
+
 			for (i = 0; i < 3; i++) {
 				for (j = 0; j < 3; j++) {
 					if (board[i][j] == ' ') {
@@ -71,9 +71,9 @@ TIC-TAE-TOE.java를 만들었으나 몇가지 문제가 있습니다.
 2. 게임 종료 조건이 없음: 현재 코드에서는 무한 반복문(**`do-while`**)을 사용하고 있으며, 게임 종료 조건이 없어서 게임이 끝나지 않습니다.
 3. 컴퓨터가 수를 놓는 로직이 누락됨: 컴퓨터가 자동으로 수를 놓는 부분이 없어서 게임이 사용자의 입력만으로 진행됩니다.
 
-1. **`ArrayIndexOutOfBoundsException`**: 사용자로부터 입력 받은 좌표 **`x`**와 **`y`**를 바탕으로 **`board[x][y]`**를 접근하는 부분에서 배열 인덱스 범위를 초과할 수 있습니다. 이는 사용자가 0, 1 또는 2 이외의 값을 입력할 때 발생할 수 있습니다.
-2. 게임 종료 조건이 없음: 현재 코드에서는 무한 반복문(**`do-while`**)을 사용하고 있으며, 게임 종료 조건이 없어서 게임이 끝나지 않습니다.
-3. 컴퓨터가 수를 놓는 로직이 누락됨: 컴퓨터가 자동으로 수를 놓는 부분이 없어서 게임이 사용자의 입력만으로 진행됩니다.
+4. **`ArrayIndexOutOfBoundsException`**: 사용자로부터 입력 받은 좌표 **`x`**와 **`y`**를 바탕으로 **`board[x][y]`**를 접근하는 부분에서 배열 인덱스 범위를 초과할 수 있습니다. 이는 사용자가 0, 1 또는 2 이외의 값을 입력할 때 발생할 수 있습니다.
+5. 게임 종료 조건이 없음: 현재 코드에서는 무한 반복문(**`do-while`**)을 사용하고 있으며, 게임 종료 조건이 없어서 게임이 끝나지 않습니다.
+6. 컴퓨터가 수를 놓는 로직이 누락됨: 컴퓨터가 자동으로 수를 놓는 부분이 없어서 게임이 사용자의 입력만으로 진행됩니다.
 <hr/>
 
 ### 수정된 TIC-TAC-TOE.java
@@ -179,7 +179,7 @@ public class Tic_Tac_Toe {
 }
 ```
 
-출력화면 : 
+출력화면 :
 
 <img src="{{site.baseurl}}/images/java/1.png" alt="Image description" style="width: 30%; height: 30%; margin-bottom: 20px">
 
@@ -200,10 +200,10 @@ public class City {
 	public void readInput() {
 		System.out.println("도시 이름을 입력하세요. : ");
 		this.name = scan01.next();
-		
+
 		System.out.println("현재 인구 수를 입력하세요. : ");
 		this.populationAmount = scan01.nextInt();
-		
+
 		System.out.println("인구 증가율을 입력하세요. : ");
 		this.growthRate = scan01.nextInt();
 	}
@@ -219,7 +219,7 @@ public class City {
 		// 예상 인구 반환
 		if(populationAmount > 0)
 			return (int)populationAmount;
-		else 
+		else
 			return 0;
 	}
 }
@@ -241,7 +241,7 @@ import java.util.*;
 public class CityDriver {
 	public static void main(String[] args) {
 		Scanner scan01 = new Scanner(System.in);
-		
+
 		// City 객체 참조 변수
 		City aCity;
 		// 예상 인구
@@ -253,22 +253,22 @@ public class CityDriver {
 		{
 			// City 객체를 생성하고 aCity가 가리키게 한다.
 			aCity = new City();
-			
+
 			System.out.println("기간을 입력하세요. 단위 : n (년)");
 			int years = scan01.nextInt();
-			
+
 			// aCity의 도시 이름, 인구와 인구 증가율을 읽어 들인다.
 			aCity.readInput();
-			
+
 			// aCity의 도시 이름, 인구와 인구 증가율을 출력한다.
 			aCity.writeOutput();
-			
+
 			// aCity의 10년 후 인구를 계산한다.
 			newPopulation = aCity.computeFuturePopulation(years);
-			
+
 			// aCity의 예상 인구를 출력한다.
 			System.out.println(years + "년 후 예상 인구는 " + newPopulation + "명 입니다.");
-			
+
 			// 계속 여부를 입력 받는다.
 			System.out.println("계속하기를 원하세요? (true or false) : ");
 			again = scan01.nextBoolean();
@@ -326,7 +326,7 @@ public class Button1 extends JFrame {
 		setForeground(Color.BLUE);
 		setSize(200, 200);
 		setVisible(true);	// 보여주는 값을 참으로해서 보여주겠다.
-	}	
+	}
 	public static void main(String[] args) {
 		new Button1();
 		// main() 메소드에서 Button1 클래스 생성
@@ -353,10 +353,9 @@ public class Button1 extends JFrame {
 
 **`main()`** 메서드에서 **`Button1`** 클래스를 생성하고 실행하면 프레임이 생성되고 버튼이 표시됩니다.
 
-출력화면 : 
+출력화면 :
 
 <img src="{{site.baseurl}}/images/java/2.png" alt="Image description" style="width: 30%; height: 30%; margin-bottom: 20px">
-
 
 <hr/>
 
@@ -397,12 +396,12 @@ class Rect extends Shape {
 }
 class Circle extends Shape {
 	public void draw() {	// 메소드 오버라이딩
-		System.out.println("Circle");	
+		System.out.println("Circle");
 	}
 }
 
 //---------------------------------------------------------------
-실행결과: 
+실행결과:
 
 Line
 Shape
@@ -428,7 +427,7 @@ public class MethodOverloading {
 	String title;
 	String author;
 	// 아래 생성자의 매개변수 수가 다르다
-	
+
 	// 작자 미상일 경우 활용한다.
 	// 즉, input 값, 매개변수가 하나일 때 활용
 	public OverLoading(String t) {
@@ -466,7 +465,7 @@ public class MethodOverloading {
 
 <hr/>
 
-### Upcasting.java  - 업캐스팅
+### Upcasting.java - 업캐스팅
 
 ```java
 // 업캐스팅(upcasting)은 객체 지향 프로그래밍에서 특히 상속 계층에서 사용되는 개념
@@ -486,7 +485,7 @@ class Dog extends Animal {
 		System.out.println("Dog is wagging its tail");
 	}
 }	// 부모 클래스를 선언하고 자식클래스를 생성하여 부모는 자식을 사용할 수 있다.
-	
+
 public class Upcasting {
 	public static void main(String[] args) {
 		Animal myAnimal = new Dog();
@@ -510,7 +509,7 @@ public class Upcasting {
 
 <hr/>
 
-### DownCasting.java   -  다운캐스팅
+### DownCasting.java - 다운캐스팅
 
 ```java
 class Parent {
@@ -534,7 +533,7 @@ public class Downcasting{
 	public static void main(String[] args) {
 		Parent p = new Child();		// 업캐스팅
 		p.sayHello(); 				// 출력 : "Hello from Child"
-		
+
 		if (p instanceof Child) {	// p를 Child타입으로 캐스팅하겠다.
 			Child c = (Child) p;	// 다운캐스팅
 			c.sayGoodbye(); 		// 출력 : "Goodbye from Child"

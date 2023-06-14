@@ -2,7 +2,7 @@
 layout: post
 title: 'Java - 8'
 date: 2023-06-09 18:25:00 +0900
-image: /java/java8.jpg
+image: /java/java.jpg
 tags: [java]
 categories: JAVA
 ---
