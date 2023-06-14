@@ -49,7 +49,4 @@ categories: works
   </div>
 </div>
 <div id="linkBack" style="position:absolute;right:0px;bottom:0px;background-color:#333;margin:0;width:60px;padding:5px"><a href="http://www.f-rilling.com/projects/" target="_blank" style="font-size:14px;text-decoration:none;color:#fff;padding:0 0 0 5px;font-family:sans-serif">My Site</a></div>
-
-<!-- <div style="display: flex; justify-content: center;">
-<iframe src="https://junyihong.github.io/kakao-clone/" width="400px" height="600px"></iframe>
-</div> -->
+<script src="/js/kakao.js"></script>
