@@ -56,4 +56,4 @@ exclude:
   - Gemfile.lock
   - vendor
 
-category_dir: categories
+category_dir: category
