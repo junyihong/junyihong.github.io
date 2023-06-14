@@ -1,9 +1,7 @@
 $(document).ready(function () {
   'use strict';
 
-  /* =======================
   // Simple Search Settings
-  ======================= */
 
   SimpleJekyllSearch({
     searchInput: document.getElementById('js-search-input'),
@@ -13,17 +11,13 @@ $(document).ready(function () {
     noResultsText: '<li>No results found</li>',
   });
 
-  /* =======================
   // Responsive videos
-  ======================= */
 
   $('.c-wrap-content').fitVids({
     customSelector: ['iframe[src*="ted.com"]'],
   });
 
-  /* =======================================
   // Switching between posts and categories
-  ======================================= */
 
   $('.c-nav__list > .c-nav__item').click(function () {
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
@@ -39,9 +33,7 @@ $(document).ready(function () {
     }
   });
 
-  /* =======================
   // Adding ajax pagination
-  ======================= */
 
   $('.c-load-more').click(loadMorePosts);
 
@@ -67,9 +59,7 @@ $(document).ready(function () {
     });
   }
 
-  /* ==============================
   // Smooth scroll to the tags page
-  ============================== */
 
   $('.c-tag__list a').on('click', function (e) {
     e.preventDefault();
@@ -85,9 +75,7 @@ $(document).ready(function () {
     );
   });
 
-  /* =======================
   // Scroll to top
-  ======================= */
 
   $('.c-top').click(function () {
     $('html, body').stop().animate({ scrollTop: 0 }, 'slow', 'swing');
@@ -100,9 +88,6 @@ $(document).ready(function () {
     }
   });
 });
-
-// ------------------------------------------------------------------------
-//Check out more cool stuff on my site: https://rilling.dev/
 
 /*Only needed for the controls*/
 var phone = document.getElementById('phone_1'),
