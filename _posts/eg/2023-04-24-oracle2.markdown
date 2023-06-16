@@ -1,0 +1,175 @@
+---
+layout: post
+title: '오라클 - 2'
+date: 2023-04-24 09:10:00 +0900
+image: database2.jpg
+tags: [Database, oracle, 데이터베이스, 오라클]
+categories: Oracle
+---
+
+<hr/>
+# '오라클 - 사용자 생성부터 CRUD까지'
+
+<hr/>
+
+### **⭐ Primary Key**
+
+// topic 테이블을 생성할 때 제약조건을 건다.
+
+```sql
+CREATE TABLE topic (
+    id NUMBER NOT NULL,
+    title VARCHAR2(50) NOT NULL,
+description VARCHAR2(2000),
+    created DATE NOT NULL,
+    CONSTRAINT PK_TOPIC PRIMARY KEY(id)
+);
+```
+
+프라이머리키를 지정하는것은 굉장히 중요하다.
+검색할 때 시간이 비약적으로 단축된다.
+
+```sql
+INSERT INTO topic
+    (id, title, description, created)
+VALUES
+    (1, 'ORACLE', 'ORACLE is ...', SYSDATE);
+```
+
+동일하게 추가해주면 됨
+
+<br/>
+
+<hr/>
+
+### **⭐시퀀스 추가하기**
+
+```sql
+CREATE SEQUENCE SEQ_TOPIC;
+```
+
+시퀀스 : 고유한 숫자 값을 자동으로 생성해주는 객체이다.
+시퀀스는 일련번호를 자동으로 생성하기 위해 사용한다.
+
+```sql
+INSERT INTO topic
+      (id, title, description, created)
+      VALUES
+      (SEQ_TOPIC.NEXTVAL, 'ORACLE', 'ORACLE is ...', SYSDATE);
+INSERT INTO topic
+      (id, title, description, created)
+      VALUES
+      (SEQ_TOPIC.NEXTVAL, 'MySQL', 'MySQL is ...', SYSDATE);
+INSERT INTO topic
+      (id, title, description, created)
+      VALUES
+      (SEQ_TOPIC.NEXTVAL, 'SQL Server', 'SQL Server is ...', SYSDATE);
+INSERT INTO topic
+      (id, title, description, created)
+      VALUES
+      (SEQ_TOPIC.NEXTVAL, 'MongoDB', 'MongoDB is ...', SYSDATE);
+```
+
+`SEQ_TOPIC.NEXTVAL` -> 시퀀스가 갖고있던 숫자에서 1을 더해서 자동으로 지정된다.
+
+현재 시퀀스 알아보기
+`SELECT SEQ_TOPIC.CURRVAL FROM topic;`
+근데 이 방법을 사용하면 3일때는 시퀀스가 333이 출력되고 4일때는 4444가, 5일때는 55555가 출력된다.
+
+`SELECT SEQ_TOPIC.CURRVAL FROM DUAL;`
+
+DUAL 일종의 가상 테이블. 시퀀스 값을 조회할때 DUAL 테이블을 사용하여 값을 조회함.
+이 방법을 사용하면 행의 수만큼 시퀀스가 출력되는것 을 방지할 수 있음.
+
+<hr/>
+<br/>
+
+### **⭐ 서버와 클라이언트**
+
+데이터베이스에서 정보를 제공하는 것이 서버,
+
+정보를 요청하는 것이 클라이언트.
+
+<br/>
+
+---
+
+### **⭐ 관계형 데이터베이스**
+
+하나의 테이블에서, 한 행안에 여러 정보들이 담겨있을 것이다.
+topic 테이블에서 author가 junyihong이고 profile이 developer인 정보가 있는데,
+이러한 정보가 1억개 있고 직업을 수정하려 한다면, 우리는 1억개를 수정해야 한다.
+하지만 author 테이블을 따로만들어서 topic에 author_id를 지정한다면,
+topic은 그대로 두고 author테이블에서 junyihong의 profile만을 수정해주면된다.
+
+### **🎯 TOPIC**
+
+| ID  | TITLE      | DESCRIPTION    | CREATED  | AUTHOR_id |
+| --- | ---------- | -------------- | -------- | --------- |
+| 1   | ORACLE     | ORACLE is…     | 23/04/14 | 1         |
+| 2   | MySQL      | My SQL is…     | 23/04/14 | 1         |
+| 3   | SQL SERVER | SQL Server is… | 23/04/14 | 2         |
+| 4   | MongoDB    | MongoDB is…    | 23/04/14 | 3         |
+
+<br/>
+
+### **🎯 AUTHOR**
+
+| ID  | name      | PROFILE        |
+| --- | --------- | -------------- |
+| 1   | junyihong | developer      |
+| 2   | duru      | DBA            |
+| 3   | taeho     | Data Scientist |
+
+<br/>
+
+이렇게 정보를 테이블을 쪼개어 나누어넣는 것을 테이블 분해라 하고,
+이러한 데이터베이스 형태를 '관계형 데이터베이스' 라고 한다. <br/>
+`TOPIC.ID`와 `AUTHOR.ID`는 SEQ(시퀀스)를 통해 작성하였음.
+
+<br/>
+
+<hr/>
+
+### **⭐ 워크시트 사용하기**
+
+JUNYIHONG-ORACLE에서 우클릭 > SQL 워크시트 열기 클릭
+
+```sql
+INSERT INTO author (id, name, profile)
+VALUES (SEQ_AUTHOR.NEXTVAL, 'junyihong', 'developer');
+```
+
+<br/>
+
+<hr/>
+
+### **⭐ JOIN 사용하기**
+
+`SELECT * FROM topic LEFT JOIN author ON topic_author_id = autor.id;`
+// topic 테이블과 author 테이블을 결합
+// author_id가 동일한 것끼리 매칭
+// topic + author 의 형태로 나타남 / LEFT는 author 기준
+
+```sql
+SELECT
+    T.id TOPIC_ID,
+    title,
+    name
+FROM topic T
+    LEFT JOIN author A
+    ON T.author_id = A.id
+WHERE
+    T.id = 1
+   ;
+```
+
+테이블 topic의 별명을 T로 설정하고 id와 title과 name을 선택해서 가져온다.
+
+이때 topic.id 는 출력시 TOPIC_id로 출력되도록 별명을 설정해둔다.
+
+테이블 author 의 별명을 A로 설정하고 왼쪽으로 JOIN을 한다.
+
+조건은 테이블 topic의 author_id와 테이블 author의 id가 동일
+
+WHERE은 추가조건으로, topic.id가 1인 것만 가져온다는 의미.

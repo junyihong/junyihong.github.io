@@ -1,0 +1,20 @@
+---
+layout: post
+title: '소프트웨어 설계 - 301'
+date: 2023-05-18 09:19:43 +0900
+image: cert-note.jpg
+tags: [imformation, process, certificate, 정보처리기사, 정처기]
+categories: certificate
+---
+
+# 소프트웨어 설계 필기노트
+
+<img src="{{site.baseurl}}/images/pilgi/1.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/2.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/3.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/4.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/5.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/6.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/7.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/pilgi/8.jpg" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+
