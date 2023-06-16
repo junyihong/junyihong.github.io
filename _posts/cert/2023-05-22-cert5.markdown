@@ -1,127 +1,176 @@
 ---
-layout: post
-title: '정보처리기사 오답노트 1'
-date: 2023-05-19 17:50:43 +0900
-image: cert5.jpg
-tags: [imformation, process, certificate, 정보처리기사, 정처기]
-categories: certificate
+permalink: /cert/cert5
+title: "정보처리기사 오답노트"
+categories:
+  - certificate
+tags:
+  - information
+  - certificate
+  - 정보처리기사
+  - 정처기
+toc: true
+toc_sticky: true
+toc_label: "정보처리기사 오답노트"
 ---
 
-# 소프트웨어 설계 5 / 오답노트
+![img](/images/cert-note.jpg)
 
-# 오답노트
-<img src="{{site.baseurl}}/images/odab/1.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 1번
+
+<img src="{{site.baseurl}}/images/odab/1.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 Realization (실체화 ) : 한 객체가 다른 객체에 의해 오퍼레이션을 수행하도록 지정
 
-<img src="{{site.baseurl}}/images/odab/2.png" alt="Image description" style="width: 60%; **height**: 60%; margin-bottom: 20px">
+### 2번
+
+<img src="{{site.baseurl}}/images/odab/2.png" alt="Image description" style="width: 100%; **height**: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 기존 시스템과 신규 시스템의 성능 비교는 구현단계에서 시행
 
-<img src="{{site.baseurl}}/images/odab/3.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 3번
+
+<img src="{{site.baseurl}}/images/odab/3.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 검증은 개발자가 의도한대로 요구사항에 맞게 구현되었는지를 보장
 
 확인은 사용자의 의도대로 구현되었는지를 보장
 
-<img src="{{site.baseurl}}/images/odab/4.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 4번
+
+<img src="{{site.baseurl}}/images/odab/4.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 버블정렬 : 1과 2를 비교, 2와 3을 비교 … n-1과 n 을 비교하는게 Pass 1임
 
-<img src="{{site.baseurl}}/images/odab/5.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 5번
+
+<img src="{{site.baseurl}}/images/odab/5.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 테스트 수행 도구
 
 : 자료 흐름도, 기능 테스트, 입력 도메인 분석, 랜덤 테스트
 
-<img src="{{site.baseurl}}/images/odab/6.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 6번
+
+<img src="{{site.baseurl}}/images/odab/6.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 선택정렬은 큐(Que)를 이용.
 
 선택정렬 : 가장 작은값을 위치가 정렬되어지지 않은 최초의 값과 바꿈
 
-스택을 이용한 방법 : 재귀호출, 후위표현의 연산, 깊이우선탐색 
+스택을 이용한 방법 : 재귀호출, 후위표현의 연산, 깊이우선탐색
 
-<img src="{{site.baseurl}}/images/odab/7.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 7번
 
-<img src="{{site.baseurl}}/images/odab/8.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/odab/7.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
-<img src="{{site.baseurl}}/images/odab/9.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 8번
+
+<img src="{{site.baseurl}}/images/odab/8.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+
+### 9번
+
+<img src="{{site.baseurl}}/images/odab/9.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 카디널리티 : 튜플의 수
 
 속성은 데이터베이스를 구성하는 가장 작은 논리적 단위
 
-<img src="{{site.baseurl}}/images/odab/10.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 10번
+
+<img src="{{site.baseurl}}/images/odab/10.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 검색이상은 존재조차 하지않는걸로;
 
-<img src="{{site.baseurl}}/images/odab/11.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 11번
 
-<img src="{{site.baseurl}}/images/odab/12.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/odab/11.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
-<img src="{{site.baseurl}}/images/odab/13.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 12번
+
+<img src="{{site.baseurl}}/images/odab/12.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+
+### 13번
+
+<img src="{{site.baseurl}}/images/odab/13.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 보통은 프로세스 수행에 보내는 시간이 더 큰가보다 / 교환시간이 더 크면 스레싱현상이라 칭함
 
-<img src="{{site.baseurl}}/images/odab/14.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 14번
 
-<img src="{{site.baseurl}}/images/odab/15.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+<img src="{{site.baseurl}}/images/odab/14.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+
+### 15번
+
+<img src="{{site.baseurl}}/images/odab/15.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 &n= 변수 n의 주소값
 
 pt= 포인터 pt가 가리키고 있는 주소에 저장된 값 = 변수 n
 
-&pt = *(포인터 pt의 주소값)= 포인터 pt의 주소가 가리키고 있는 주소에 저장된 값 = 변수 n의 주소
+&pt = \*(포인터 pt의 주소값)= 포인터 pt의 주소가 가리키고 있는 주소에 저장된 값 = 변수 n의 주소
 
 주소값은 연산 x
 
-<img src="{{site.baseurl}}/images/odab/16.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 16번
+
+<img src="{{site.baseurl}}/images/odab/16.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 작을때와 클때 각각 장단점이 있다.
 
-<img src="{{site.baseurl}}/images/odab/17.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 17번
+
+<img src="{{site.baseurl}}/images/odab/17.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 4번을 제외한 1~3번을 알아두기
 
-<img src="{{site.baseurl}}/images/odab/18.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 18번
 
-시프트가 관계연산자들보다 빠름 
+<img src="{{site.baseurl}}/images/odab/18.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
-<img src="{{site.baseurl}}/images/odab/19.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+시프트가 관계연산자들보다 빠름
+
+### 19번
+
+<img src="{{site.baseurl}}/images/odab/19.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 2 ~ 3번 기억하기기
 
-<img src="{{site.baseurl}}/images/odab/20.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 20번
 
-클라우드 컴퓨팅 플랫폼  // ‘단어 앞글자’ as a Service
+<img src="{{site.baseurl}}/images/odab/20.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
-<img src="{{site.baseurl}}/images/odab/21.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+클라우드 컴퓨팅 플랫폼 // ‘단어 앞글자’ as a Service
 
-<img src="{{site.baseurl}}/images/odab/22.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 21번
+
+<img src="{{site.baseurl}}/images/odab/21.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+
+### 22번
+
+<img src="{{site.baseurl}}/images/odab/22.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 해쉬 기법은 단방향이고,
 
 공개키 암호화 방식은 양방향이다.
 
-<img src="{{site.baseurl}}/images/odab/23.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 23번
+
+<img src="{{site.baseurl}}/images/odab/23.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 IPSec은 양방향 암호화…
 
 일방향은 해쉬…
 
-<img src="{{site.baseurl}}/images/odab/24.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
+### 24번
+
+<img src="{{site.baseurl}}/images/odab/24.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 Single Sign On - SSO
 
+### 25번
 
-<img src="{{site.baseurl}}/images/odab/25.png" alt="Image description" style="width: 60%; height: 60%; margin-bottom: 20px">
-
-
-
-
+<img src="{{site.baseurl}}/images/odab/25.png" alt="Image description" style="width: 100%; height: 100%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 
 4, 5과목이 확실히 취약한듯 노트에 한번 싹 적어야하나…
 그리고 문제 옳은거 고르는건지 틀린거 고르는건지 확실하게 읽어야 함
 천천히 확실하게 읽는 습관 필요함
-

@@ -1,13 +1,18 @@
 ---
-layout: post
-title: '노션 단축키 정리'
-date: 2023-04-20 00:32:18 +0900
-image: hotkey.jpg
-tags: [Notion, Hotkey, MarkDown]
-categories: Free
+permalink: /etc/1
+title: "노션 단축키 정리"
+categories:
+  - etc
+tags:
+  - notion
+  - hotkey
+  - MarkDown
+toc: true
+toc_sticky: true
+toc_label: "노션 단축키 정리"
 ---
 
-# 노션 단축키 정리
+![img](/images/hotkey.jpg)
 
 ## 노션 단축키
 
@@ -19,11 +24,11 @@ categories: Free
 <hr/>
 
 ```jsx
-const notion = document.querySelector('.notion');
+const notion = document.querySelector(".notion");
 ```
 
 ```jsx
-import Notion from 'react-notion';
+import Notion from "react-notion";
 ```
 
 1.  슬래시( / ) 로 명령 호출하기

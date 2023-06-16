@@ -1,13 +1,20 @@
 ---
-layout: post
-title: '오라클 - 1'
-date: 2023-04-21 10:00:00 +0900
-image: database1.jpg
-tags: [Database, oracle, 데이터베이스, 오라클]
-categories: Oracle
+permalink: /oracle/1
+title: "오라클 - 사용자 생성부터 CRUD까지 - 1"
+categories:
+  - Oracle
+tags:
+  - Oracle
+  - DataBase
+  - DB
+  - 데이터베이스
+  - 오라클
+toc: true
+toc_sticky: true
+toc_label: "오라클 - 사용자 생성부터 CRUD까지 - 1"
 ---
 
-# '오라클 - 사용자 생성부터 CRUD까지'
+![img](/images/database1.jpg)
 
 <br/>
 

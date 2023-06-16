@@ -15,21 +15,7 @@ toc_label: "JAVA - 9"
 
 ### StringTokenizer.java
 
-```java
-import java.util.StringTokenizer;
-
-public class Ex_11 {
-    public static void main(String[] args) {
-        // StringTokenizer를 사용하여 문자열을 구분자 '/'를 기준으로 분리
-        StringTokenizer st = new StringTokenizer("홍길동/장화/홍련/콩쥐/팥쥐", "/");
-
-        // hasMoreTokens 메소드를 사용하여 다음 토큰이 있는지 확인하고, 있으면 출력
-        while (st.hasMoreTokens()) {
-            System.out.println(st.nextToken());
-        }
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/82b0014c19b8fc579881217e9dbea131.js"></script>
 
 **`StringTokenizer`** 클래스는 문자열을 지정된 구분자(delimiter)를 기준으로 분리하는 역할을 합니다. 위의 코드에서는 문자열 "홍길동/장화/홍련/콩쥐/팥쥐"를 구분자 '/'를 사용하여 분리합니다.
 
@@ -51,35 +37,7 @@ public class Ex_11 {
 
 ### StringTokenizer 및 HashMap
 
-```java
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.StringTokenizer;
-
-public class Ex_12 {
-    public static void main(String[] args) {
-        // StringTokenizer를 사용하여 문자열을 구분자 '&'를 기준으로 분리
-        StringTokenizer query = new StringTokenizer("name=kitae&addr=seoul&age=21", "&");
-        while (query.hasMoreTokens()) {
-            System.out.println(query.nextToken());
-        }
-
-        // HashMap을 사용하여 키-값 쌍으로 데이터 저장
-        HashMap<String, String> map = new HashMap<>();
-        map.put("name", "kitan");
-        map.put("addr", "seoul");
-        map.put("age", "21");
-
-        // entrySet을 사용하여 키-값 쌍의 집합(Set)을 얻고, iterator를 활용하여 요소들을 순차적으로 접근
-        Set<HashMap.Entry<String, String>> entrySet = map.entrySet();
-        Iterator<HashMap.Entry<String, String>> iterator = entrySet.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/7cf75bce347635de4c95311cd3979857.js"></script>
 
 먼저 **`StringTokenizer`**를 사용하여 문자열 "name=kitae&addr=seoul&age=21"을 구분자 '&'를 기준으로 분리합니다. **`hasMoreTokens`** 메소드로 다음 토큰이 있는지 확인하고, **`nextToken`** 메소드로 다음 토큰을 가져와 출력합니다.
 
@@ -105,32 +63,7 @@ age=21
 ### ArrayList.java
 
 ```java
-import java.util.ArrayList;
 
-public class ArrayListEx03 {
-
-	public static void main(String[] args) {
-		// ArrayList 객체 생성
-		ArrayList list = new ArrayList();
-		// ArrayList에 해당 값 순서대로 추가
-		list.add("MILK");
-		list.add("BREAD");
-		list.add("BUTTER");
-
-		// ArrayList의 해당 인덱스에 해당 값 추가 (나머지 뒤로 밀림)
-		list.add(1, "APPLE");
-
-		// ArrayList의 해당 인덱스의 값을 해당 값으로 변경
-		list.set(2, "GRAPE");
-
-		// ArrayList의 해당 인덱스의 값 삭제
-		list.remove(3);
-
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-	}
-}
 ```
 
 ArrayList를 사용해 이렇게 작성하면 에러는 나지 않지만 경고가 발생합니다.
@@ -142,36 +75,7 @@ ArrayList를 사용해 이렇게 작성하면 에러는 나지 않지만 경고�
 
 제네릭을 사용하여 수정한 ArrayList.java
 
-```java
-import java.util.ArrayList;
-
-public class ArrayListEx03 {
-
-	public static void main(String[] args) {
-		// ArrayList 객체 생성
-		ArrayList<String> list = new ArrayList<>();    // 제네릭을 사용해 타입을 지정
-		// ArrayList에 해당 값 순서대로 추가
-		list.add("MILK");
-		list.add("BREAD");
-		list.add("BUTTER");           // 문자열만 list에 추가할 수 있음! integer 등 불가
-
-		// ArrayList의 해당 인덱스에 해당 값 추가 (나머지 뒤로 밀림)
-		list.add(1, "APPLE");
-
-		// ArrayList의 해당 인덱스의 값을 해당 값으로 변경
-		list.set(2, "GRAPE");
-
-		// ArrayList의 해당 인덱스의 값 삭제
-		list.remove(3);
-
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/301aac38abed65b3280b4db0edd188eb.js"></script>
 
 ---
 
@@ -181,47 +85,13 @@ public class ArrayListEx03 {
 
 **`SimplePair`** 클래스는 제네릭 타입 **`T`**를 가지며, **`first`**와 **`second`**라는 두 개의 필드를 갖습니다. 이 클래스는 두 개의 값을 저장하고 조회할 수 있는 기능을 제공합니다.
 
-```java
-public class SimplePair<T> {
-    private T first;
-    private T second;
-
-    public SimplePair(T first, T second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    public T getFirst() {
-        return first;
-    }
-
-    public T getSecond() {
-        return second;
-    }
-
-    public void setSecond(T second) {
-        this.second = second;
-    }
-
-    public void setFirst(T first) {
-        this.first = first;
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/57cdf33af45b7882d661da2aba5d4d84.js"></script>
 
 위의 클래스에서 제네릭 타입 **`T`**는 실제 사용될 때 구체적인 타입으로 대체됩니다. 즉, **`SimplePair<String>`**으로 인스턴스를 생성하면 **`T`**는 **`String`**으로 대체됩니다.
 
 **`main`** 메소드에서는 **`SimplePair<String>`** 타입의 객체를 생성하여 "apple"과 "tomato" 값을 저장하고, **`getFirst()`**와 **`getSecond()`** 메소드를 통해 저장된 값을 조회하여 출력합니다.
 
-```java
-public class Ex_10_14 {
-    public static void main(String[] args) {
-        SimplePair<String> pair = new SimplePair<String>("apple", "tomato");
-        System.out.println(pair.getFirst());  // "apple" 출력
-        System.out.println(pair.getSecond()); // "tomato" 출력
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/cde5d4dcd25f3fc8eebd54887ffc2f06.js"></script>
 
 제네릭 클래스는 타입 파라미터 **`T`**를 사용하여 클래스 내부에서 사용되는 데이터의 타입을 일반화합니다. 이를 통해 클래스의 재사용성과 타입 안정성을 높일 수 있습니다. 예를 들어, **`SimplePair<Integer>`**로 인스턴스를 생성하면 **`T`**는 **`Integer`**로 대체되어 정수형 데이터를 저장하고 조회할 수 있습니다.
 

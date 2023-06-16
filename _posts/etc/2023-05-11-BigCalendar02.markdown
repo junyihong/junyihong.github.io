@@ -1,13 +1,18 @@
 ---
-layout: post
-title: 'Big Calendar 활용하기 2'
-date: 2023-05-11 11:41:00    +0900
-image: BigCalendar2.jpg
-tags: [리액트, React, BigCalenar]
-categories: React Component
+permalink: /etc/3
+title: "Big Calendar 활용하기 2"
+categories:
+  - etc
+tags:
+  - 리액트
+  - React.js
+  - Component
+toc: true
+toc_sticky: true
+toc_label: "Big Calendar 활용하기 2"
 ---
 
-# 'Big Calendar 활용하기 2'
+![img](/images/BigCalendar2.jpg)
 
 <br/>
 
@@ -31,25 +36,25 @@ categories: React Component
 ```javascript
 const initialEvents = [
   {
-    title: '프로젝트 2차 - 리액트',
-    name: '3조',
+    title: "프로젝트 2차 - 리액트",
+    name: "3조",
     start: new Date(2023, 4, 7, 0, 0, 0),
     end: new Date(2023, 4, 20, 0, 0, 0),
-    desc: '리액트를 활용한 팀 프로젝트 수행',
+    desc: "리액트를 활용한 팀 프로젝트 수행",
   },
   {
-    title: '국제커리어센터 방문',
-    name: '홍준이',
+    title: "국제커리어센터 방문",
+    name: "홍준이",
     start: new Date(2023, 4, 4, 0, 0, 0),
     end: new Date(2023, 4, 4, 0, 0, 0),
-    desc: '국민취업제도 상담 세번째',
+    desc: "국민취업제도 상담 세번째",
   },
   {
-    title: '취업특강',
-    name: '성남그린',
+    title: "취업특강",
+    name: "성남그린",
     start: new Date(2023, 4, 18, 0, 0, 0),
     end: new Date(2023, 4, 18, 0, 0, 0),
-    desc: '취업특강',
+    desc: "취업특강",
   },
 ];
 ```
@@ -60,7 +65,7 @@ const initialEvents = [
 useState를 통해 상태로써 관리한다.
 
 ```javascript
-import initialEvents from '../components/Calendar/events';
+import initialEvents from "../components/Calendar/events";
 
 const [events, setEvents] = useState(initialEvents);
 ```
@@ -123,7 +128,7 @@ const handleDeleteEvent = () => {
   newEvents.splice(index, 1);
   setEvents(newEvents);
   toggleModal();
-  return message.error('일정이 삭제되었습니다.');
+  return message.error("일정이 삭제되었습니다.");
 };
 ```
 
@@ -160,19 +165,19 @@ const sendData = (e) => {
   e.preventDefault();
   const name = e.target.elements.Name.value;
   const desc = e.target.elements.desc.value;
-  const date = moment(startDate).format('YYYY-MM-DD');
-  const endDay = moment(endDate).format('YYYY-MM-DD');
-  const startTime = moment(selectedStartTime, 'HH:mm').format('HH:mm');
-  const endTime = moment(selectedEndTime, 'HH:mm').format('HH:mm');
+  const date = moment(startDate).format("YYYY-MM-DD");
+  const endDay = moment(endDate).format("YYYY-MM-DD");
+  const startTime = moment(selectedStartTime, "HH:mm").format("HH:mm");
+  const endTime = moment(selectedEndTime, "HH:mm").format("HH:mm");
 
   // 필드가 모두 채워져 있는지 확인
   if (!name || !desc || !date || !startTime || !endTime || !endDay) {
     toggle();
-    return message.error('모든 필드를 입력해주세요.');
+    return message.error("모든 필드를 입력해주세요.");
   }
 
   const newEvent = {
-    title: name + ' ' + desc,
+    title: name + " " + desc,
     name: name,
     start: new Date(
       startDate.year(),
@@ -194,7 +199,7 @@ const sendData = (e) => {
   setEvents([...events, newEvent]);
   toggle();
   console.log(newEvent);
-  return message.success('일정이 추가되었습니다.');
+  return message.success("일정이 추가되었습니다.");
 };
 ```
 

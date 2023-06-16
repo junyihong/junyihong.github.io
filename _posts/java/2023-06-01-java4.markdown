@@ -25,43 +25,7 @@ toc_label: "JAVA - 4"
 
 ### final 사용 예시
 
-```java
-import java.util.Scanner;
-
-public class Ex01 {
-
-	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-
-		System.out.printf("목표금액 입력 : ");
-		final int aim = sc.nextInt();
-
-//		바뀌지 않을 값이기에 final
-
-		System.out.printf("목표금액 : %d\n", aim );
-		System.out.printf("실적 입력 : ");
-//		result 입력값을 받는다
-		int result = sc.nextInt();
-//		정수형 bonus선언
-		int bonus;
-
-
-//		만약에 실적에 aim값보다 크면 밑에 문장 실행
-		if (result >= aim) {
-//			보너스 값을 10으로 나눠서 출력
-			bonus = (result - aim) / 10;
-			System.out.println("목표금액을 달성하였습니다!");
-			System.out.printf("보너스 : %d", bonus);
-//		실적이 aim 보다 작으면 아래 문장 실행
-		}else
-			System.out.println("목표금액 달성에 실패하였습니다. ");
-
-//		scanner함수를 닫아주는게 원칙
-		sc.close();
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/d45c9dc4cee6c75e799833574b189218.js"></script>
 
 1.  **`Scanner`** 클래스를 사용하여 사용자의 입력을 받습니다.
 2.  사용자로부터 목표 금액(**`aim`**)을 입력받습니다. 이 값은 **`final`**로 선언되어 있어서 나중에 변경되지 않는 값으로 고정됩니다.
@@ -72,126 +36,15 @@ public class Ex01 {
 
 ### 클래스 내부 메서드 활용
 
-```java
-public static void main(String[] args) {
-
-//		같은 클래스 안에 있는 내부 메서드 호출
-//    설정한 내부 메서드 : **print(), twice(), sum()**
-
-		print();
-		int a = twice(3);	// 두배로 만드는 twice()메서드
-		System.out.println(a);	//6
-
-		double b = sum(a, 5.8);	//11.8
-		System.out.println(b);
-		}
-
-		public static void print() {	// 먼저 실행이 된다.
-			System.out.println("안녕 ");
-		}
-
-		public static int twice(int k) {	//두번째
-			return k*2;
-		}
-
-		public static double sum(int m, double n ) {	//세번째
-			return m+n;
-		}
-}
-```
+<script src="https://gist.github.com/junyihong/a71012cedea6482548388fb64672520f.js"></script>
 
 ### 클래스 외부 메서드 활용
 
-```java
-class A {
-	void print() {
-		System.out.println("안녕 ");
-	}
-	int data() {
-		return 3;
-	}
-	double sum(int a, double b) {
-		return a+b;
-	}
-	void printMonth(int m ) {
-		if( m <= 0 || m > 12) {
-			System.out.println("잘못된 입력 ");
-			return;   // 아래까지 가지 않고 여기서 멈추게 하기 위한 return
-		}
-		System.out.println( m + " 월 입니다. ");
-	}
-}
-
-public class ExternalCallMethods {
-
-	public static void main(String[] args) { //entry point
-		//#2. 객체 생성
-		A a = new A(); // 외부에서 메서드를 불러올 때는 객체를 생성해서 받아와야함!!
-
-		//#3. 메서드 호출 ( 멤버 활용 )
-		a.print();		//안녕
-		int k = a.data();
-		System.out.println(k);		//3
-		double result = a.sum(3, 5.2);		//8.2
-		System.out.println(result);
-		a.printMonth(5);		//5월입니다.
-		a.printMonth(15);		//잘못된 입력
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/fe23b21acca0693f6dc226b8fa86bb2e.js"></script>
 
 ### 영화관 좌석 예약하기
 
-```java
-import java.util.Scanner;
-
-public class TheaterReserve {
-
-	public static void main(String[] args) {
-		Scanner scan01 = new Scanner(System.in);
-		final int size = 10;
-		int[] seats = new int[size];
-
-		while (true) {
-			System.out.println("-------------------");
-			for (int i = 0; i < size; i++)
-				System.out.print(i + 1 + " ");
-			System.out.println("\n-------------------");
-			for (int i = 0; i < size; i++)
-				System.out.print(seats[i] + " ");
-
-			System.out.println("\n-------------------");
-
-			System.out.println("원하는 좌석번호를 입력하세요(종료는 -1): ");
-			int s = scan01.nextInt();
-
-			if (s > 10) {
-				System.out.println("잘못된 입력 값입니다. 다시 입력해주세요.");
-				continue;
-			}
-
-			if (s == -1) {
-				System.out.println("프로그램이 종료되었습니다. 예약된 자리는 다음과 같습니다.");
-				for (int i = 0; i < size; i++) {
-					if (seats[i] == 1) {
-						System.out.print( i + 1 + "번  ");
-					}
-				}
-				break;
-			}
-
-			if (seats[s - 1] == 0) {
-				seats[s - 1] = 1;
-				System.out.println("예약되었습니다.");
-			} else {
-				System.out.println("이미 예약된 자리입니다.");
-			}
-		}
-		scan01.close();
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/f205f5d9c516289c16f1355a1ab8d8a6.js"></script>
 
 자바로 작성된 간단한 극장 예약 시스템을 구현한 프로그램입니다. 사용자는 원하는 좌석 번호를 입력하여 예약할 수 있습니다.
 
@@ -203,34 +56,7 @@ public class TheaterReserve {
 
 ### this 사용
 
-```java
-class F {
-	int m;
-	int n;
-	void init(int a, int b) {
-		int c;
-		c = 3;
-		this.m = a;		//this. 생략시 자동 추가, this.m은 class F의 int m을 의미
-		this.n = b;		//this. 생략시 자동 추가, this.n은 class F의 int n을 의미
-	}
-	void work() {
-		this.init(2, 3);	//this. 생략시 자동 추가, this.init()은 class F의 메서드 init을 의미
-	}
-}
-
-public class This {
-
-	public static void main(String[] args) {
-		//#2. 클래스 객체 생성
-		F f = new F();
-
-		//#3. 매서드 호출 / 필드값 활
-		f.work();	// work()호출 -> init(2,3)실행 -> m에 2를, n에 3을 저장
-		System.out.println(f.m); //2
-		System.out.println(f.n);  //3
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/31b25e4ac215900e0afddf568500183c.js"></script>
 
 **`F`** 클래스와 **`This`** 클래스를 포함한 예제입니다. 이 예제에서는 **`this`** 키워드의 사용 방법을 설명하고 있습니다.
 

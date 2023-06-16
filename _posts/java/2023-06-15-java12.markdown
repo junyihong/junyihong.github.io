@@ -16,56 +16,7 @@ toc_label: "JAVA - 12"
 
 ### BallGame.java
 
-```java
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-class MyPanel extends JPanel {
-	int img_X = 100;	// 원의 현재 위치 x
-	int img_Y = 100;
-
-	public MyPanel() {
-		setBackground(Color.WHITE);	// 패널의 배경색
-		addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				img_X = e.getX();
-				img_Y = e.getY();
-				repaint();	// 재호출하여 다시 그리기
-			}
-		});
-	}
-
-	// Graphics 객체를 사용하여 현재 위치에 빨간색 원을 그립니다.
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);	// JPanel의 paintComponent() 호출
-		g.setColor(Color.RED);
-		g.fillOval(img_X, img_Y, 50, 50);
-	} // 50x50 크기의 원, img_X와 img_Y는 원의 좌상단 모서리의 위치
-}
-
-public class BallGame extends JFrame {
-	public BallGame() {
-		setTitle("Ball 마우스로 움직이게 하기");
-		setSize(600, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		add(new MyPanel());			// MyPanel 클래스의 인스턴스를 생성하여
-		// 해당 컴포넌트에 추가하는 것이다.
-		// 즉, BallGame 프레임의 내부에는 MyPanel이라는 패널이 추가
-		// 패널의 paintComponent 메서드를 통해 그래픽이 그려지게 된다.
-
-		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		new BallGame();
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/6b8b258775a9c9d444ef8a862b2f4708.js"></script>
 
 **`MyPanel`** 클래스는 **`JPanel`**을 상속받아서 커스텀 패널을 정의합니다. 이 패널은 빨간색 원을 표시하고, 마우스 클릭 이벤트를 처리하여 원의 위치를 변경합니다. 원은 패널의 배경색이 흰색인 곳에서 마우스를 클릭한 위치로 이동합니다.
 
@@ -78,60 +29,14 @@ public class BallGame extends JFrame {
 실행 화면 :
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/java/3.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px;">
+	<img src="{{site.baseurl}}/images/java/3.png" alt="Image description" style="width: 50%; height: 50%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 ---
 
 ### CarGame.java
 
-```java
-class MyPanel3 extends JPanel {
-	private Image carImage;
-	private int img_X = 100;
-	private int img_Y = 100;
-
-	public MyPanel3() {
-		setBackground(Color.WHITE);
-
-		try {
-			carImage = new ImageIcon("C://temp//car1.gif").getImage();
-
-		} catch (Exception e) {
-			System.out.println("Failed to load image");
-			e.printStackTrace();
-		}
-
-		addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				img_X = e.getX();
-				img_Y = e.getY();
-				repaint();
-			}
-		});
-	}
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		if(carImage != null) {
-			g.drawImage(carImage, img_X, img_Y, null);
-		}
-	}
-}
-
-public class CarGame extends JFrame {
-		public CarGame() {
-			setTitle("Car 마우스로 움직이게 하기");
-			setSize(600, 600);
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			add(new MyPanel3());
-			setVisible(true);
-		}
-		public static void main(String[] args) {
-			CarGame game = new CarGame();
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/cab76b52350f44c1f1e35ee45c6e0086.js"></script>
 
 **`MyPanel3`** 클래스는 **`JPanel`**을 상속하여 커스텀 패널을 정의합니다. 이 패널은 자동차 이미지를 표시하고, 마우스 클릭 이벤트를 처리하여 자동차 이미지의 위치를 변경합니다.
 
@@ -146,97 +51,14 @@ public class CarGame extends JFrame {
 실행화면 :
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/java/4.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px;">
+	<img src="{{site.baseurl}}/images/java/4.png" alt="Image description" style="width: 50%; height: 50%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 ---
 
 ### CarGame_Keyboard.java
 
-```java
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-@SuppressWarnings("serial")
-class MyPanel2 extends JPanel implements KeyListener {
-    BufferedImage carImage = null;
-    int carX = 100;
-    int carY = 100;
-
-    public MyPanel2() {
-        try {
-            carImage = ImageIO.read(new File("C:/temp/car1.gif"));
-        } catch (IOException e) {
-            System.out.println("이미지를 불러오는데 실패했습니다.");
-            e.printStackTrace();
-        }
-
-        addKeyListener(this);
-        setFocusable(true);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (carImage != null) {
-            g.drawImage(carImage, carX, carY, null);
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.VK_UP:
-                carY -= 10;
-                break;
-            case KeyEvent.VK_DOWN:
-                carY += 10;
-                break;
-            case KeyEvent.VK_LEFT:
-                carX -= 10;
-                break;
-            case KeyEvent.VK_RIGHT:
-                carX += 10;
-                break;
-        }
-        repaint();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // 사용되지 않는 메서드
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        // 사용되지 않는 메서드
-    }
-}
-
-public class CarGame_Keyboard {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("키보드로 조작하는 자동차 게임");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        MyPanel2 panel = new MyPanel2();
-        frame.getContentPane().add(panel);
-
-        frame.setSize(1500, 600);
-        frame.setVisible(true);
-
-        panel.requestFocusInWindow();
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/0f5571d6fbef1a616e1973d18fad9cf3.js"></script>
 
 **`MyPanel2`** 클래스는 **`JPanel`**을 상속받아 커스텀 패널을 정의합니다. 이 패널은 자동차 이미지를 표시하고, 키보드 이벤트를 처리하여 자동차 이미지의 위치를 변경합니다.
 
@@ -258,124 +80,7 @@ public class CarGame_Keyboard {
 
 ### FlyingText.java
 
-```java
-import java.awt.Container;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-public class FlyingText extends JFrame {
-
-    // 한 번의 키 조작으로 이동하는 거리(픽셀)
-    private final int FLYING_UNIT = 10;
-    // 이동할 타겟의 문자열
-    private JLabel la = new JLabel("KeyBoard로");
-
-    public FlyingText() {
-        setTitle("상하좌우 키를 이용하여 텍스트 움직이기");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container c = getContentPane();
-
-        // 컨테이너 배치관리자 삭제
-        c.setLayout(null);
-
-        // JFrame 객체에 마우스 이벤트 설정
-        c.addKeyListener(new MyKeyListener());
-
-        // MyKeyListener 클래스의 인스턴스를 생성하여
-        // JLabel인 la 객체의 속성을 변경하는 메소드
-        la.setSize(100, 20);
-        la.setLocation(50, 50);
-        c.add(la);
-        setSize(500, 500);
-        setVisible(true);
-
-        // 키 이벤트 포커스를 받을 컴포넌트가 여러 개 일때 우선순위 지정
-        // 키 이벤트는 포커스가 위치해 있어야 발생한다.
-        c.setFocusable(true);
-    }
-
-    // key 리스너 구현, keyAdapter로 받았기에 다른 메서드는 적지 않아도 된다.
-    class MyKeyListener extends KeyAdapter {
-        private boolean upPressed = false;
-        private boolean downPressed = false;
-        private boolean leftPressed = false;
-        private boolean rightPressed = false;
-
-        public void keyPressed(KeyEvent e) {
-            // 입력된 키의 코드를 알아낸다.
-            int keyCode = e.getKeyCode();
-            // 상하좌우 키 상태 업데이트
-            switch (keyCode) {
-                case KeyEvent.VK_UP:
-                    upPressed = true;
-                    break;
-                case KeyEvent.VK_DOWN:
-                    downPressed = true;
-                    break;
-                case KeyEvent.VK_LEFT:
-                    leftPressed = true;
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    rightPressed = true;
-                    break;
-            }
-            // 대각선 이동 처리
-            if (upPressed && leftPressed) {
-                la.setLocation(la.getX() - FLYING_UNIT, la.getY() - FLYING_UNIT);
-            } else if (downPressed && leftPressed) {
-                la.setLocation(la.getX() - FLYING_UNIT, la.getY() + FLYING_UNIT);
-            } else if (downPressed && rightPressed) {
-                la.setLocation(la.getX() + FLYING_UNIT, la.getY() + FLYING_UNIT);
-            } else if (upPressed && rightPressed) {
-                la.setLocation(la.getX() + FLYING_UNIT, la.getY() - FLYING_UNIT);
-            } else {
-                // 코드 값에 따라 상하좌우 키를 판별하도록 la의 위치를 이동시킨다.
-                switch (keyCode) {
-                    case KeyEvent.VK_UP:
-                        la.setLocation(la.getX(), la.getY() - FLYING_UNIT);
-                        break;
-                    case KeyEvent.VK_DOWN:
-                        la.setLocation(la.getX(), la.getY() + FLYING_UNIT);
-                        break;
-                    case KeyEvent.VK_LEFT:
-                        la.setLocation(la.getX() - FLYING_UNIT, la.getY());
-                        break;
-                    case KeyEvent.VK_RIGHT:
-                        la.setLocation(la.getX() + FLYING_UNIT, la.getY());
-                        break;
-                }
-            }
-        }
-
-        public void keyReleased(KeyEvent e) {
-            // 입력된 키의 코드를 알아낸다.
-            int keyCode = e.getKeyCode();
-            // 상하좌우 키 상태 업데이트
-            switch (keyCode) {
-                case KeyEvent.VK_UP:
-                    upPressed = false;
-                    break;
-                case KeyEvent.VK_DOWN:
-                    downPressed = false;
-                    break;
-                case KeyEvent.VK_LEFT:
-                    leftPressed = false;
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    rightPressed = false;
-                    break;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        new FlyingText();
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/caf0e2f018e2ef8144605278c88facc0.js"></script>
 
 **`FlyingText`** 클래스는 **`JFrame`**을 상속받아 프레임을 생성하고, **`KeyListener`**를 구현하여 키 이벤트를 처리합니다.
 
@@ -395,81 +100,7 @@ public class FlyingText extends JFrame {
 
 ### LayoutManager_FlowLayout.java
 
-```java
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-public class LayoutManager_FlowLayout extends JFrame {
-	public LayoutManager_FlowLayout() {
-		// JFrame 제목 설정
-		setTitle("Action 이벤트 리스너 예제");
-
-		// JFrame 창 종료 시 프로그램도 같이 종료
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// container c = getContentPane() : 최악관 컨테이너를 ㅛ현하는 객체
-		// 이 c 객체에 다른 컨테이너 (panel 이나 label 객체) 를 추가하는 방식
-		// container 클래스는 JFrame 클래스의 조상 클래스가 된다.
-		Container c = getContentPane();
-
-		// setLayout : 컴포넌트가 배치되는 방식
-		// FlowLayout : 왼쪽에서 오른쪽, 위에서 아래로 배치된다.
-		c.setLayout(new FlowLayout());
-
-		// addActionListener : 이벤트를 추가함
-		// MyActionListener 클래스의 생성자를 이벤트로 추가
-		JButton btn = new JButton("Action");
-		btn.addActionListener(new MyActionListener());
-
-		// 버튼 객체를 컨테이너에 추가함
-		c.add(btn);
-
-		// 컨테이너 (JFrame 객체)의 크기를 결정 , 즉 프레임 사이즈 설정
-		setSize(350, 150);
-
-		// setVisible : 초기 전시여부를 결정한다. 프레임 보이게 설정 (반드시 true);
-		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		// Swing GUI 작업은 메인 스레드에서 실행되어야 합니다.
-		// 이를 위해 이벤트 디스패치 스레드를 사용하여 GUI 작업을 실행합니다.
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new LayoutManager_FlowLayout();
-			}
-		});
-	}
-
-	// ActionListener 구현을 위한 내부 클래스
-	class MyActionListener implements ActionListener {
-		// 이벤트 발생 시 전달받은 ActionEvent 객체 e는
-		// Action 이벤트 발생하면 호출된다.
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JButton b = (JButton) e.getSource();
-			// 만약 버튼이 눌렸는데 문구가 "Action"이라면
-			if(b.getText().equals("Action"))
-				//문자를 액션으로 바꾸며
-				b.setText("액션");
-			// 누른 후 "액션"으로 출력되었다면 다시 "Action"이라고 바꾼다.
-			else
-				b.setText("Action");
-			System.out.println("Action Performed");
-		}
-	}
-	// 배치관리자 FlowLayout BorderLayout GridLayout CardLayout
-	// FlowLayout 컨테이너 공간내에 왼쪽에서 오른쪽으로 배치한다.
-	// 배치관리자가 없는 컨테이너, Container.setLayout(null)
-	// Container.setLayout(LayoutManager lm) 컨테이너에 새로운 배치관리자를 설정
-	// lm을 새로운 배치관리자로 설정
-}
-```
+<script src="https://gist.github.com/junyihong/16acfd2c821d6331a3db81cc241d48e3.js"></script>
 
 **`FlowLayout`**를 사용하여 컴포넌트를 왼쪽에서 오른쪽으로 배치하는 예시입니다.
 
@@ -494,59 +125,14 @@ public class LayoutManager_FlowLayout extends JFrame {
 실행화면 :
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/java/5.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px;">
+	<img src="{{site.baseurl}}/images/java/5.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 ---
 
 ### GridLayout_ex.java
 
-```java
-import java.awt.Container;
-import java.awt.GridLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-public class GridLayout_ex extends JFrame {
-	public GridLayout_ex() {
-		// JFrame 타이틀, 닫기 설정
-		setTitle("GridLayout 테스트 입니다.");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// 4행 2열의 그리드 레이아웃 객체 생성
-		GridLayout grid = new GridLayout(4,2);
-
-		// 각 행의 간격을 5 픽셀로 설정
-		grid.setVgap(5);
-
-		// JFrame에 컴포넌트 넣을 ContentPane 가져오기
-		Container c = getContentPane();
-
-		// 레이아웃 적용
-		c.setLayout(grid);
-
-		// JFrame에 각 컴포넌트 삽입
-		c.add(new JLabel(" 이름"));	// 컨테트 팬에 JLabel 컴포넌트를 추가합니다.
-		c.add(new JTextField(""));
-		c.add(new JLabel(" 학번"));
-		c.add(new JTextField(" "));
-		c.add(new JLabel(" 학과"));
-		c.add(new JTextField(" "));
-		c.add(new JLabel(" 과목"));
-		c.add(new JTextField(" "));
-
-		// JFrame 사이즈, 가시성 설정
-		setSize(300, 200);
-		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		new GridLayout_ex();
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/05feb926cd61d8767f03a9795353bfcc.js"></script>
 
 **`GridLayout`**을 사용하여 그리드 형태의 레이아웃을 구성하는 예시입니다.
 
@@ -569,6 +155,6 @@ public class GridLayout_ex extends JFrame {
 실행화면 :
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/java/6.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px;">
+	<img src="{{site.baseurl}}/images/java/6.png" alt="Image description" style="width: 40%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 ---

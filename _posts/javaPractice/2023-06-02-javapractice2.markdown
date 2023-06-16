@@ -1,11 +1,21 @@
 ---
-layout: post
-title: 'JavaPractice - 2'
-date: 2023-06-02 09:30:00 +0900
-image: /javapractice/door.jpg
-tags: [java, javapractice, 자바실습]
-categories: JAVA-Practice
+permalink: /javapractice/2
+title: "JavaPractice - 2"
+categories:
+  - JavaPractice
+tags:
+  - Gradle
+  - TDC
+  - javapractice
+  - 자바실습
+  - IntelliJ
+toc: true
+toc_sticky: true
+toc_label: "JavaPractice - 2"
 ---
+
+![img](/images/javapractice/door.jpg)
+
 <hr/>
 ### Gradle(빌드 자동화 도구) 소개
 
@@ -51,18 +61,17 @@ JUnit은 개발자들이 자동화된 테스트 스위트를 작성하여 코드
 
 ### 도커 및 도커 컴포즈 소개
 
-
 - 도커
-    - 컨테이너 기반의 가상화 플랫폼
-    - 컨테이너 기반의 가상화 vs 하이퍼바이저 기반의 가상화 (OS 가상화)
+  - 컨테이너 기반의 가상화 플랫폼
+  - 컨테이너 기반의 가상화 vs 하이퍼바이저 기반의 가상화 (OS 가상화)
 - 도커 허브
-    - 도커에서 제공하는 이미지 저장소
-    - https://hub.docker.com/
+  - 도커에서 제공하는 이미지 저장소
+  - https://hub.docker.com/
 - 도커 컴포즈
-    - 다중 컨테이너를 정의하고 실행하기 위한 도구
-    - YAML 파일을 사용하여 다중 컨테이너를 구성함
-    - https://docs.docker.com/compose/
-    
+  - 다중 컨테이너를 정의하고 실행하기 위한 도구
+  - YAML 파일을 사용하여 다중 컨테이너를 구성함
+  - https://docs.docker.com/compose/
+
 <hr/>
 
 ## 객체지향 패러다임
@@ -103,29 +112,28 @@ JUnit은 개발자들이 자동화된 테스트 스위트를 작성하여 코드
 <br/>
 
 - 요구사항
-    - 비밀번호는 최소 8자 이상 12자 이하여야 한다.
-    - 비밀번호가 8자 미만 또는 12자 초과인 경우 IllegalArgumentException 예외를 발생시킨다.
-    - 경계조건에 대해 테스트 코드를 작성해야 한다.
-    
+  - 비밀번호는 최소 8자 이상 12자 이하여야 한다.
+  - 비밀번호가 8자 미만 또는 12자 초과인 경우 IllegalArgumentException 예외를 발생시킨다.
+  - 경계조건에 대해 테스트 코드를 작성해야 한다.
+
 1. 새로운 프로젝트를 gradle로 빌드하고 Test 폴더의 구조를 java 폴더와 맞춰준다.
 2. 의존성 설치
-    
-    ```java
-    dependencies {
-        implementation 'org.passay:passay:1.6.1'
-        //패스워드 유효성 검사 라이브러리
-    
-        testImplementation platform('org.junit:junit-bom:5.9.1')
-        testImplementation 'org.junit.jupiter:junit-jupiter'
-    
-        testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
-        // JUnit Jupiter 프레임워크의 확장 모듈로, 매개 변수화된 테스트를 지원하는 기능
-    
-        testImplementation 'org.assertj:assertj-core:3.23.1'
-        // 테스트 코드의 가독성과 유지 보수성을 향상시키기 위해 설계된 오픈 소스 라이브러리
-    }
-    ```
-    
+
+   ```java
+   dependencies {
+       implementation 'org.passay:passay:1.6.1'
+       //패스워드 유효성 검사 라이브러리
+
+       testImplementation platform('org.junit:junit-bom:5.9.1')
+       testImplementation 'org.junit.jupiter:junit-jupiter'
+
+       testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+       // JUnit Jupiter 프레임워크의 확장 모듈로, 매개 변수화된 테스트를 지원하는 기능
+
+       testImplementation 'org.assertj:assertj-core:3.23.1'
+       // 테스트 코드의 가독성과 유지 보수성을 향상시키기 위해 설계된 오픈 소스 라이브러리
+   }
+   ```
 
 3. **비밀번호 유효성 검사 테스트코드 작성**
 
@@ -164,13 +172,12 @@ public class PasswordValidatorTest {
 
 ```
 
-   1. 패키지 및 필요한 임포트: **`org.example`** 패키지에 테스트 클래스를 작성하며, JUnit Jupiter 및 AssertJ의 관련 클래스들을 임포트합니다.
-   2. **`validatePasswordTest`** 메서드: 비밀번호가 최소 8자 이상, 12자 이하인 경우 예외가 발생하지 않는지를 검증하는 테스트입니다. **`assertThatCode`** 메서드를 사용하여 **`PasswordValidator.validate`** 메서드를 호출하는 코드 블록을 검증하고, 어떠한 예외도 발생하지 않아야 함을 검사합니다.
-   3. **`validatePasswordTest2`** 메서드: 비밀번호가 8자 미만 또는 12자를 초과하는 경우 **`IllegalArgumentException`** 예외가 발생하는지를 검증하는 테스트입니다. **`@ParameterizedTest`** 어노테이션을 사용하여 경계값 테스트를 수행하며, **`@ValueSource`** 어노테이션을 사용하여 테스트에 사용할 여러 입력 값을 제공합니다. **`assertThatCode`** 메서드를 사용하여 **`PasswordValidator.validate`** 메서드를 호출하는 코드 블록을 검증하고, **`IllegalArgumentException`** 예외가 발생하며, 해당 예외의 메시지가 "비밀번호는 최소 8자 이상 12자 이하여야 한다."인지를 확인합니다.
-   4. **`@DisplayName`** 어노테이션: 테스트 메서드의 이름을 지정하는 어노테이션입니다. 테스트 실행 시 보여질 테스트 이름을 지정할 수 있습니다.
+1.  패키지 및 필요한 임포트: **`org.example`** 패키지에 테스트 클래스를 작성하며, JUnit Jupiter 및 AssertJ의 관련 클래스들을 임포트합니다.
+2.  **`validatePasswordTest`** 메서드: 비밀번호가 최소 8자 이상, 12자 이하인 경우 예외가 발생하지 않는지를 검증하는 테스트입니다. **`assertThatCode`** 메서드를 사용하여 **`PasswordValidator.validate`** 메서드를 호출하는 코드 블록을 검증하고, 어떠한 예외도 발생하지 않아야 함을 검사합니다.
+3.  **`validatePasswordTest2`** 메서드: 비밀번호가 8자 미만 또는 12자를 초과하는 경우 **`IllegalArgumentException`** 예외가 발생하는지를 검증하는 테스트입니다. **`@ParameterizedTest`** 어노테이션을 사용하여 경계값 테스트를 수행하며, **`@ValueSource`** 어노테이션을 사용하여 테스트에 사용할 여러 입력 값을 제공합니다. **`assertThatCode`** 메서드를 사용하여 **`PasswordValidator.validate`** 메서드를 호출하는 코드 블록을 검증하고, **`IllegalArgumentException`** 예외가 발생하며, 해당 예외의 메시지가 "비밀번호는 최소 8자 이상 12자 이하여야 한다."인지를 확인합니다.
+4.  **`@DisplayName`** 어노테이션: 테스트 메서드의 이름을 지정하는 어노테이션입니다. 테스트 실행 시 보여질 테스트 이름을 지정할 수 있습니다.
 
 위의 코드 예제는 비밀번호 유효성 검사기의 특정 동작을 검증하는 JUnit Jupiter 테스트의 예시입니다. 테스트 메서드에서 **`assertThatCode`** 메서드를 사용하여 예상되는 예외 발생 여부나 예외 메시지를 검증하고 있습니다.
-
 
 <span>4.</span> **비밀번호 유효성 검사 코드 작성**
 
@@ -212,24 +219,24 @@ public class PasswordValidator {
 
 테스트 주도 개발(Test-Driven Development, TDD)은 테스트 코드를 먼저 작성하고 그 다음에 실제 구현 코드를 작성하는 방식입니다.
 
-   - TDD에서는 다음과 같은 이점이 있습니다:
+- TDD에서는 다음과 같은 이점이 있습니다:
 
-   1. 명확한 요구사항 정의: 테스트를 먼저 작성하면 구현해야 할 기능이 무엇인지 명확하게 정의할 수 있습니다.
-     각 테스트는 하나의 기능 또는 요구사항을 대표하며, 테스트 코드를 작성하면서 요구되는 동작을 명확히 이해하고 구현에 반영할 수 있습니다.
-<br/>
+1. 명확한 요구사항 정의: 테스트를 먼저 작성하면 구현해야 할 기능이 무엇인지 명확하게 정의할 수 있습니다.
+   각 테스트는 하나의 기능 또는 요구사항을 대표하며, 테스트 코드를 작성하면서 요구되는 동작을 명확히 이해하고 구현에 반영할 수 있습니다.
+   <br/>
 
-   1.  안정적인 코드: 테스트를 먼저 작성하면 테스트 가능한 코드를 작성하게 됩니다.
-     테스트 코드는 코드의 동작을 명시적으로 검증하므로, 테스트 가능한 코드를 작성하면 오류를 줄이고 안정적인 코드를 구현할 수 있습니다.
-<br/>
+1. 안정적인 코드: 테스트를 먼저 작성하면 테스트 가능한 코드를 작성하게 됩니다.
+   테스트 코드는 코드의 동작을 명시적으로 검증하므로, 테스트 가능한 코드를 작성하면 오류를 줄이고 안정적인 코드를 구현할 수 있습니다.
+   <br/>
 
-   1. 리팩토링 용이성: 테스트 코드를 먼저 작성하고 나서 구현 코드를 작성하면, 기능이 동작하는지를 테스트 코드로 검증할 수 있습니다.
-     따라서 리팩토링을 수행할 때도 테스트를 실행하여 코드 변경이 기능에 영향을 주지 않는지 확인할 수 있습니다.
-      이는 코드의 구조 개선, 가독성 향상, 성능 최적화 등을 더 쉽게 수행할 수 있도록 도와줍니다.
-<br/>
+1. 리팩토링 용이성: 테스트 코드를 먼저 작성하고 나서 구현 코드를 작성하면, 기능이 동작하는지를 테스트 코드로 검증할 수 있습니다.
+   따라서 리팩토링을 수행할 때도 테스트를 실행하여 코드 변경이 기능에 영향을 주지 않는지 확인할 수 있습니다.
+   이는 코드의 구조 개선, 가독성 향상, 성능 최적화 등을 더 쉽게 수행할 수 있도록 도와줍니다.
+   <br/>
 
-   1. 신뢰성 있는 변경: 테스트 코드가 있으면 새로운 기능을 추가하거나 기존 기능을 수정할 때 신뢰성 있는 변경이 가능합니다.
-    테스트 코드가 통과한다는 것은 해당 기능이 정상적으로 동작한다는 것을 의미하므로, 코드 변경 후에도 테스트가 통과되는지 확인함으로써 기능의 안정성을 보장할 수 있습니다.
-<br/>
+1. 신뢰성 있는 변경: 테스트 코드가 있으면 새로운 기능을 추가하거나 기존 기능을 수정할 때 신뢰성 있는 변경이 가능합니다.
+   테스트 코드가 통과한다는 것은 해당 기능이 정상적으로 동작한다는 것을 의미하므로, 코드 변경 후에도 테스트가 통과되는지 확인함으로써 기능의 안정성을 보장할 수 있습니다.
+   <br/>
 
-   1. 문서화 및 협업 도구: 테스트 코드는 소프트웨어의 동작을 설명하는 문서로서의 역할을 합니다.
-    테스트 코드를 작성하면 요구사항이나 기능에 대한 문서화를 자동으로 수행하게 되며, 코드를 읽는 다른 개발자나 팀원들에게 소프트웨어의 동작을 이해시키는 데 도움을 줍니다.
+1. 문서화 및 협업 도구: 테스트 코드는 소프트웨어의 동작을 설명하는 문서로서의 역할을 합니다.
+   테스트 코드를 작성하면 요구사항이나 기능에 대한 문서화를 자동으로 수행하게 되며, 코드를 읽는 다른 개발자나 팀원들에게 소프트웨어의 동작을 이해시키는 데 도움을 줍니다.

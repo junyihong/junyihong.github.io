@@ -1,13 +1,18 @@
 ---
-layout: post
-title: 'Big Calendar 활용하기'
-date: 2023-05-09 09:32:00    +0900
-image: BigCalendar.jpg
-tags: [리액트, React]
-categories: React Component
+permalink: /etc/2
+title: "Big Calendar 활용하기 1"
+categories:
+  - etc
+tags:
+  - 리액트
+  - React.js
+  - Component
+toc: true
+toc_sticky: true
+toc_label: "Big Calendar 활용하기 1"
 ---
 
-# 'Big Calendar 활용하기'
+![img](/images/BigCalendar.jpg)
 
 <br/>
 
@@ -27,7 +32,7 @@ npm install moment
 <br/>
 
 ```javascript
-moment.locale('ko');
+moment.locale("ko");
 BigCalendar.momentLocalizer(moment);
 ```
 
@@ -84,7 +89,7 @@ Object.keys() 함수를 사용하여 BigCalendar.Views 객체의 키(상수 이�
 추가로, BigCalendar에서 제공하는 기본적인 css 를 임포트해준다.
 
 ```javascript
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+import "react-big-calendar/lib/css/react-big-calendar.css";
 ```
 
 다음 게시글에는 BigCalendar에서 활용할 state와 function들에 대해 다룰 예정이다.

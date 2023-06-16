@@ -1,22 +1,31 @@
 ---
-layout: post
-title: 'JavaPractice - 1'
-date: 2023-05-30 11:10:00 +0900
-image: /javapractice/door.jpg
-tags: [java, javapractice, 자바실습]
-categories: JAVA-Practice
+permalink: /javapractice/1
+title: "JavaPractice - 1"
+categories:
+  - JavaPractice
+tags:
+  - tomcat
+  - javapractice
+  - 자바실습
+  - IntelliJ
+toc: true
+toc_sticky: true
+toc_label: "JavaPractice - 1"
 ---
 
+![img](/images/javapractice/door.jpg)
+
 ## 웹 프로젝트 환경 구성
+
 <hr/>
-준비물 
+준비물
 
 - JDK11
-    - https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html
+  - https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html
 - 인텔리 J ultimate
-    - https://www.jetbrains.com/ko-kr/idea/download/#section=windows   // 윈도우
+  - https://www.jetbrains.com/ko-kr/idea/download/#section=windows // 윈도우
 - tomcat 9
-    - https://tomcat.apache.org/download-90.cgi    // Core 의 zip파일을 다운
+  - https://tomcat.apache.org/download-90.cgi // Core 의 zip파일을 다운
 
 <hr/>
 
@@ -49,7 +58,7 @@ tomcat은 잠시 놔두고, 인텔리제이를 실행합니다.
 <img src="{{site.baseurl}}/images/javapractice/3.png" alt="Image description" style="width: 220px; height: 600px; margin-bottom: 20px">
 
 Gradle의 빌드가 끝나면 이러한 프로젝트의 형태가 만들어지고, 그 안에 Main 클래스가 생성됩니다.
- WebApplicationServer를 만들 것이기 때문에 의미부여를 위해 Main클래스의 이름을 WebApplicationServer로 변경해줍니다.
+WebApplicationServer를 만들 것이기 때문에 의미부여를 위해 Main클래스의 이름을 WebApplicationServer로 변경해줍니다.
 
 tomcat을 활용하기 위해, 목록에 있던 build.gradle파일을 열어서 dependencies를 추가해주어야 합니다.
 
@@ -66,7 +75,7 @@ tomcat을 활용하기 위해, 목록에 있던 build.gradle파일을 열어서 
   // log 출력 관련
 ```
 
-우측 상단에 
+우측 상단에
 
 <img src="{{site.baseurl}}/images/javapractice/4.png" alt="Image description" style="width: 10%; height: 10%; margin-bottom: 20px">
 

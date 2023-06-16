@@ -15,60 +15,7 @@ toc_label: "JAVA - 11"
 
 ### Vector.java
 
-```java
-// Vector와 ArrayList는 모두 동적 배열(dynamic array)를 구현
-// 차이점 :
-// 동기화 지원 : Vector는 스레드 동기화(thread-safe)를 지원
-// 용량 증가 : Vector는 요소가 추가될 때 내부 배열의 크기를 자동으로 증가
-// 초기 용량 설정 : Vector는 생성할 때 초기 용량(capacity)를 설정
-// 레거시 클래스 : Vector는 자바 초기 버전부터 존재하던 클래스
-
-import java.util.Vector;
-
-// Vector에 객체 삽입
-// - add(value) 메소드로 벡터의 맨 뒤에 객체 추가
-// - add(index, value) 메소드로 벡터의 원하는 위치에 객체 추가
-// Vector에서 객체 삭제
-// - remove(index)메소드로 임의의 위치에 있는 객체 삭제
-// (삭제 후 빈 공간은 자동으로 하나씩 땡겨짐)
-public class VectorTest {
-	public static void main(String[] args) {
-		// Vector 인스턴스 생성
-		Vector<String> vector = new Vector<>();
-		// 요소추가
-		vector.add("사과");
-		vector.add("바나나");
-		vector.add("체리");
-
-		//요소 개수 출력
-		System.out.println("요소 개수 : " + vector.size());
-
-		//요소 접근
-		System.out.println("첫 번째 요소 : " + vector.get(0));
-
-		//요소 순회
-		for(String element : vector) {
-			System.out.println(element);
-		}
-
-		//요소 삭제
-		vector.remove(1);
-		System.out.println("요소 개수 : " + vector.size());
-
-		//Vector 객체 생성 (제네릭 타입 명시)
-		Vector<String> v = new Vector<>();
-		v.add("홍길동");
-		v.addElement("이순신");
-		v.addElement("홍길동");
-		System.out.println(v);
-		for(int i = 0; i < v.size(); i++){
-			System.out.println(v.get(i));
-		}
-
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/92b63e800e008429063b167e4fd0ac63.js"></script>
 
 Vector 클래스를 사용하여 동적 배열을 구현하고 활용하는 예제입니다.
 
@@ -105,60 +52,7 @@ Vector는 자바의 레거시 클래스로, 스레드 동기화를 지원하며 
 
 ### HashSet과 HashMap
 
-```java
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
-public class Fruit_Hash{
-    public static void main(String[] args) {
-        String[] fruit = { "사과", "바나나", "귤", "수박", "사과", "사과", "귤", "수박", "수박", "바나나", "귤", "사과", "사과", "수박", "귤",
-                "바나나", "바나나", "사과", "귤", "귤" };
-
-        Map<String, Integer> map = new HashMap<>();
-        Set<String> set = new HashSet<>();
-
-        // HashSet은 값(value)만을 저장하는 컬렉션
-        // 중복을 제거하는 용도로 사용.
-        for (int i = 0; i < fruit.length; i++) {
-        	set.add(fruit[i]);
-        }
-
-        System.out.printf("과일 종류 :   ");
-        Iterator<String> iterator = set.iterator();
-        while (iterator.hasNext()) {
-        	String fruitItem = iterator.next();
-        	System.out.print(fruitItem + " /  ");
-        }
-
-        System.out.println();
-        System.out.println();
-
-        // HashMap은 키 : 값 쌍으로 데이터를 저장하는 자료구조
-        // 여기서는 과일이름 : 카운트 로 데이터를 저장하도록 함.
-        for (String s : fruit) {	// 배열 fruit의 각 요소를 s에 할당하여 순회
-            // containsKey(s) : map에 key s가 이미 존재하는지 확인
-            if (map.containsKey(s)) {
-                // 이미 존재하면 기존 카운트 값에 1 증가
-                int count = map.get(s);		// key s 의 value를 가져와서 count에 저장
-                map.put(s, count + 1);		// count를 1 증가시킨 후 s의 value를 갱신
-            } else {
-                // 존재하지 않으면 카운트 값을 1로 설정
-                map.put(s, 1);
-            }
-        }
-
-        // 과일 개수 출력
-        System.out.println("과일 개수 출력하기");
-        System.out.println("====================");
-
-        // 중복 요소와 카운트 출력
-        map.forEach((fruitName, count) -> System.out.println(fruitName + ": " + count));
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/df0a4e36ba955b44feb7ad90c6f2a3a2.js"></script>
 
 먼저, HashSet을 사용하여 중복을 제거합니다. HashSet은 값을 저장하는 컬렉션으로, 중복된 값을 허용하지 않습니다. 따라서, for문을 통해 주어진 과일 배열을 순회하면서 각 과일을 HashSet에 추가합니다.
 
@@ -185,34 +79,7 @@ public class Fruit_Hash{
 
 ### NumUtil.java
 
-```java
-// Comparable<T> 인터페이스 : compareTo(T obj) 추상 메서드를 활용할 수 있음
-// NumUtil 은 Comparable 을 상속받는 타입만 전달받을 수 있고, 인터페이스 Maximum을 구현
-
-public class NumUtil<T extends Comparable<T>>  implements Maximum<T>{
-	// 제네릭 타입 배열 Field
-	T[] value;
-
-	// 생성자 : 멤버 변수 초기화
-	NumUtil(T[] value){
-		this.value = value;
-	}
-	//상속 받은 인터페이스 day_020_Maximum의 max() 메소드 구현
-	// 배열 요소 중 가장 큰 값을 찾는 메소드
-	public T max() {
-	// 변수 v에 멤버 변수 value 배열의 첫 번째 값을 저장
-		T v = value[0];
-		for (int i = 0; i < value.length; i++) {
-			if(value[i].compareTo(v) > 0 )
-				v = value[i];
-		// value[i]의 값이 더 크면 변수 v의 값이 저장, 가장 큰 값 추출
-		// compareTo 메소드는 현재 객체와 매개변수로 전달받은 객체의 유니코드 순서를 비교하여
-		// 작으면 음수, 같으면 0 , 크면 양수로 변환
-		}
-		return v;
-	}
-}
-```
+<script src="https://gist.github.com/junyihong/beea630beb48ec389a3682d56a7e4934.js"></script>
 
 Comparable<T> 인터페이스와 Maximum 인터페이스를 활용하여 NumUtil 클래스를 구현한 예제입니다.
 
@@ -228,51 +95,7 @@ NumUtil 클래스는 Comparable 인터페이스를 구현하여 객체 간의 �
 
 ### toString, equals, hashCode - Overriding
 
-```java
-import java.util.Objects;
-
-class Card{
-	String kind;
-	int number;
-
-	Card() {
-		this("SPADE",1);
-	}
-	Card(String kind, int number){
-		this.kind = kind;
-		this.number = number;
-	}
-	@Override
-	public String toString() {
-		return "kind : " + kind + ", number : " + number;
-	}
-	@Override
-	public boolean equals (Object obj) {
-		if(!(obj instanceof Card))
-			return false;
-
-		Card c = (Card)obj;
-		return this.kind.equals(c.kind) && this.number == c.number;
-	}
-	@Override 	// equals()를 오버라이딩하면 hashCode()도 오버라이딩 해야한다.
-	public int hashCode() {
-		return Objects.hash(kind, number);
-	}
-}
-public class toStringOverrideing {
-	public static void main(String[] args) {
-		Card c1 = new Card();
-		Card c2 = new Card();
-		System.out.println(c1.toString());
-		System.out.println(c1.equals(c2));
-		System.out.println(c1.hashCode());
-		System.out.println(c2.hashCode());
-
-
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/cd621b9655c05a65434cff0e45c874e4.js"></script>
 
 Card 클래스는 kind와 number라는 두 개의 멤버 변수를 가지고 있습니다. 생성자를 통해 kind와 number를 초기화하는 기능을 제공합니다. 또한, toString() 메소드를 오버라이딩하여 객체의 정보를 문자열로 표현할 수 있도록 구현하였습니다.
 
@@ -295,32 +118,7 @@ true
 
 ### HashSet_sort.java
 
-```java
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
-public class HashSet_Sort {
-
-	public static void main(String[] args) {
-		Set<Integer> set = new HashSet<Integer>();
-
-		// set의 크기가 6보다 작은 동안 1 ~ 45사이의 난수를 저장
-		for(int i = 0; set.size() < 6; i++) {
-			int num = (int)(Math.random()*45) + 1;
-			set.add(num);
-		}
-
-		List<Integer> list = new LinkedList<Integer>(set);	// set은 순서를 가질 수 없으므로 LinkedList를 이용해 list에 넣는다.
-		Collections.sort(list);								// Collections의 정렬(sort) 메서드를 사용해 list를 정렬한다.
-		System.out.println(list);
-
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/a889cbc143c1275572658f38f1e23198.js"></script>
 
 HashSet을 사용하여 1부터 45까지의 난수 중 6개를 중복 없이 선택하여 저장하고, 그 값을 정렬하여 출력하는 예제입니다.
 
@@ -351,66 +149,7 @@ Collections 클래스의 **`sort()`** 메소드를 사용하여 **`list`**를 �
 
 ### HashSet_Check.java
 
-```java
-import java.util.HashSet;
-import java.util.Objects;
-
-// HashSet은 객체를 저장하기 전에 기존에 같은 객체가 있는지 확인해야한다.
-// 같은 객체가 없으면 저장하고, 있으면 저장 x
-// boolean add(Object o)는 저장할 객체의 equals()와 hashCode()를 호출한다.
-// equals()와 hashCode()가 오버라이딩 되어 있어야 한다.
-public class HashSet_Check {
-
-	public static void main(String[] args) {
-		HashSet set = new HashSet();
-
-		set.add("abc");
-		set.add("abc");
-		set.add(new Person("David", 10));
-		set.add(new Person("David", 10));
-
-		System.out.println(set);
-	}
-}
-// equals()와 hashCode()를 오버라이딩을 하지않으면 HashSet이 제대로 동작하지 않음.
-class Person {
-	String name;
-	int age;
-
-	Person(String name, int age) {
-		this.name = name;
-		this.age = age;
-	}
-
-	public String toString() {
-		return name + ":" + age;
-	}
-
-	// equals()와 hashCode()를 오버라이딩
-	@Override
-	public int hashCode() {
-		return Objects.hash(name, age);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Person)) return false;
-		Person p = (Person)obj;
-		// 나 자신(this)의 이름과 나이를 p와 비교
-		return this.name.equals(p.name) && this.age == p.age;
-
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Person other = (Person) obj;
-//		return age == other.age && Objects.equals(name, other.name);
-	}
-
-}
-```
+<script src="https://gist.github.com/junyihong/0b53bddd584c8ea2c97bc07422c33f55.js"></script>
 
 HashSet을 사용하여 객체를 저장하고, 저장하기 전에 동일한 객체가 있는지 확인하는 예제입니다.
 

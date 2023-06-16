@@ -1,11 +1,19 @@
 ---
-layout: post
-title: 'JavaPractice - 4'
-date: 2023-06-15 09:40:00 +0900
-image: /javapractice/door.jpg
-tags: [java, javapractice, 자바실습]
-categories: JAVA-Practice
+permalink: /javapractice/4
+title: "JavaPractice - 4"
+categories:
+  - JavaPractice
+tags:
+  - 계산기
+  - javapractice
+  - 자바실습
+  - IntelliJ
+toc: true
+toc_sticky: true
+toc_label: "JavaPractice - 4"
 ---
+
+![img](/images/javapractice/door.jpg)
 
 ### 객체지향 개념 다지기
 
@@ -47,21 +55,7 @@ TDD(테스트 주도 개발)를 연습하기 위해 테스트 코드 먼저 작�
 
 ### CalculateTest.java
 
-```java
-@DisplayName("덧셈 연산을 수행한다.")
-    @Test
-    void additionTest(){
-        int result = Calculator.calculate(1, "+", 2);
-        assertThat(result).isEqualTo(3);
-    }
-
-    @DisplayName("뺄셈 연산을 수행한다.")
-    @Test
-    void subtractionTest2(){
-        int result = Calculator.calculate(1, "-", 2);
-        assertThat(result).isEqualTo(-1);
-    }
-```
+<script src="https://gist.github.com/junyihong/eed09e03bcc371262e0f97ee739a747f.js"></script>
 
 첫 번째 테스트 케이스는 "덧셈 연산을 수행한다"라는 이름으로 작성되었습니다. 이 테스트 케이스에서는 **`Calculator.calculate(1, "+", 2)`**를 호출하여 1과 2를 더한 결과가 3인지 확인합니다. 예상 결과와 실제 결과를 **`assertThat`**을 사용하여 비교하고, 두 값이 같은지를 **`isEqualTo`**을 사용하여 검증합니다.
 
@@ -77,29 +71,7 @@ TDD(테스트 주도 개발)를 연습하기 위해 테스트 코드 먼저 작�
 
 ### CalculateTest.java - 수정 후
 
-```java
-public class CalculatorTest {
-
-    // 1 + 2 ----> Calculator
-    //   3   <----
-    @DisplayName("덧셈 연산을 수행한다.")
-    @ParameterizedTest
-    @MethodSource("formulaAndResult")
-    void calculateTest(int operand1, String operator, int operand2, int result) {
-        int calculateResult = Calculator.calculate(operand1, operator, operand2);
-        assertThat(calculateResult).isEqualTo(result);
-    }
-
-    private static Stream<Arguments> formulaAndResult() {
-        return Stream.of(
-                arguments(1, "+", 2, 3),
-                arguments(1, "-", 2, -1),
-                arguments(4, "*", 2, 8),
-                arguments(4, "/", 2, 2)
-        );
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/cc42f4fa9174c46707be7c5d4a2d2c8e.js"></script>
 
 **`@ParameterizedTest`** 어노테이션을 사용하여 여러 개의 테스트 케이스를 한 번에 실행할 수 있도록 하였습니다.
 
@@ -111,60 +83,13 @@ public class CalculatorTest {
 
 ### main 폴더 속 Calculate.java
 
-```java
-public class Calculator {
-    public static int calculate(int operand1, String operator, int operand2) {
-       return ArithmeticOperator.calculate(operand1, operator, operand2);
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/5622d39b7c98fc5ec80acfee0e3e33f4.js"></script>
 
 ---
 
 ### ArithmeticOperator.java - 열거형 클래스 (enum)
 
-```java
-public enum ArithmeticOperator {
-    ADDITION("+") {
-        @Override
-        public int arithmeticCalculate(int operand1, int operand2) {
-            return operand1 + operand2;
-        }
-    }, SUBTRACTION("-") {
-        @Override
-        public int arithmeticCalculate(int operand1, int operand2) {
-            return operand1 - operand2;
-        }
-    }, MULTIPLICATION("*") {
-        @Override
-        public int arithmeticCalculate(int operand1, int operand2) {
-            return operand1 * operand2;
-        }
-    }, DIVISION("/") {
-        @Override
-        public int arithmeticCalculate(int operand1, int operand2) {
-            return operand1 / operand2;
-        }
-    };
-
-    private final String operator;
-
-    ArithmeticOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public abstract int arithmeticCalculate(final int operand1, final int operand2);
-
-    public static int calculate(int operand1, String operator, int operand2) {
-        ArithmeticOperator arithmeticOperator = Arrays.stream(values())
-                .filter(v -> v.operator.equals(operator))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("올바른 사칙연산이 아닙니다."));
-       return arithmeticOperator.arithmeticCalculate(operand1, operand2);
-    }
-
-}
-```
+<script src="https://gist.github.com/junyihong/95b52265f5b48ee225685b0141ff7d5c.js"></script>
 
 네 가지의 산술 연산(**`+`**, **`-`**, **`*`**, **`/`**)에 대한 동작을 구현하고 있습니다.
 

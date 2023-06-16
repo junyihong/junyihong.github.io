@@ -1,40 +1,25 @@
 ---
-layout: post
-title: 'JavaPractice - 3'
-date: 2023-06-03 12:30:00 +0900
-image: /javapractice/door.jpg
-tags: [java, javapractice, 자바실습]
-categories: JAVA-Practice
+permalink: /javapractice/3
+title: "JavaPractice - 3"
+categories:
+  - JavaPractice
+tags:
+  - 비밀번호 테스트
+  - javapractice
+  - 자바실습
+  - IntelliJ
+toc: true
+toc_sticky: true
+toc_label: "JavaPractice - 3"
 ---
+
+![img](/images/javapractice/door.jpg)
 
 ### 비밀번호 초기화 메서드에 대한 테스트 - BDD ( 행위 주도 개발 )
 
 - **User.java**
 
-```java
-package org.example;
-
-public class User {
-    private String password;
-    public void initPassword(PasswordGenerator passwordGenerator) {
-        // as-is 방식 ( 강한결합 )
-        // RandomPasswordGenerator randomPasswordGenerator = new RandomPasswordGenerator();
-
-        // to-be 방식 ( 약한 결합 )
-        // String password = passwordGenerator.generatePassword();
-
-        String password = passwordGenerator.generatePassword();
-        // 비밀번호는 최소 8자 이상 12자 이하여야 한다.
-        if(password.length() >= 8 && password.length() <= 12){
-            this.password = password;
-        }
-    }
-
-    public String getPassword() {
-        return password;
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/e4522162b042061756033962fe2a64e4.js"></script>
 
 **`User`** 클래스는 비밀번호 초기화를 담당하는 클래스입니다. **`initPassword`** 메서드를 통해 비밀번호를 초기화할 수 있습니다. 이 메서드는 **`PasswordGenerator`** 인터페이스를 매개변수로 받아 비밀번호를 생성합니다.
 
@@ -46,53 +31,7 @@ public class User {
 
 - RandomPasswordGenerator.java (랜덤 비밀번호 생성기)
 
-```java
-package org.example;
-
-import org.passay.CharacterData;
-import org.passay.CharacterRule;
-import org.passay.EnglishCharacterData;
-import org.passay.PasswordGenerator;
-
-public class RandomPasswordGenerator implements org.example.PasswordGenerator {
-    /**
-     * Special characters allowed in password.
-     * */
-    public static final String ALLOWED_SPL_CHARACTERS = "!@#$%^&*()-+";
-
-    public static final String ERROR_CODE = "ERRONEOUS_SPECIAL_CHARS";
-
-    public String generatePassword() {
-        PasswordGenerator gen = new PasswordGenerator();
-
-        CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
-        CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
-        lowerCaseRule.setNumberOfCharacters(2);
-
-        CharacterData upperCaseChars = EnglishCharacterData.UpperCase;
-        CharacterRule upperCaseRule = new CharacterRule(upperCaseChars);
-        lowerCaseRule.setNumberOfCharacters(2);
-
-        CharacterData digitChars = EnglishCharacterData.Digit;
-        CharacterRule digitRule = new CharacterRule(digitChars);
-        digitRule.setNumberOfCharacters(2);
-
-        CharacterData specialChars = new CharacterData() {
-            public String getErrorCode() {
-                return ERROR_CODE;
-            }
-            public String getCharacters() {
-                return ALLOWED_SPL_CHARACTERS;
-            }
-        };
-        CharacterRule splCharRule = new CharacterRule(specialChars);
-        splCharRule.setNumberOfCharacters(2);
-
-        // 0 ~ 12
-        return gen.generatePassword((int)(Math.random() * 13), splCharRule, lowerCaseRule, upperCaseRule, digitRule);
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/19706fc72714bf899847111982ce1277.js"></script>
 
 **`RandomPasswordGenerator`** 클래스는 비밀번호 생성을 담당하는 클래스입니다. 해당 클래스는 **`org.example.PasswordGenerator`** 인터페이스를 구현하고 있습니다.
 
@@ -108,13 +47,7 @@ public class RandomPasswordGenerator implements org.example.PasswordGenerator {
 
 **PasswordGenerator.java** (인터페이스)
 
-```java
-package org.example;
-
-public interface PasswordGenerator {
-    String generatePassword();
-}
-```
+<script src="https://gist.github.com/junyihong/d653316f699ac819f24a60ae0e185a97.js"></script>
 
 **`PasswordGenerator`** 인터페이스는 비밀번호를 생성하는 기능을 정의한 인터페이스입니다.
 
@@ -140,37 +73,7 @@ public interface PasswordGenerator {
 
 - **UserTest.java**
 
-```java
-package org.example;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-class UserTest {
-    @DisplayName("패스워드를 초기화한다.")
-    @Test
-    void passwordTest() {
-        // given
-        User user = new User();
-        // when
-        user.initPassword(new CorrectFixedPasswordGenerator());
-        // then
-        assertThat(user.getPassword()).isNotNull();
-    }
-    @DisplayName("패스워드가 요구사항에 부합되지 않아 초기화가 되지 않는다.")
-    @Test
-    void passwordTest2() {
-        // given
-        User user = new User();
-        // when
-        user.initPassword(new WrongFixedPasswordGenerator());
-        // then
-        assertThat(user.getPassword()).isNull();
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/1637c8ca37bcae4c0bc0124899f9da59.js"></script>
 
 **`UserTest`** 클래스는 **`User`** 클래스의 비밀번호 초기화 메서드를 테스트하는 코드입니다.
 
@@ -182,18 +85,9 @@ class UserTest {
 
 ---
 
-- CorrectFixedPasswordGenerator.java
+### CorrectFixedPasswordGenerator.java
 
-```java
-package org.example;
-
-public class CorrectFixedPasswordGenerator implements PasswordGenerator{
-    @Override
-    public String generatePassword() {
-        return "abcdefgh";
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/d8bcb59b1fd9204dbc2a5e4a06557862.js"></script>
 
 `**"abcdefgh"**` 로 고정된 비밀번호를 설정해서 테스트합니다.
 
@@ -201,18 +95,9 @@ public class CorrectFixedPasswordGenerator implements PasswordGenerator{
 
 ---
 
-- WrongFixedPasswordGenerator.java
+### WrongFixedPasswordGenerator.java
 
-```java
-package org.example;
-
-public class WrongFixedPasswordGenerator implements PasswordGenerator{
-    @Override
-    public String generatePassword() {
-        return "ab";
-    }
-}
-```
+<script src="https://gist.github.com/junyihong/67e48148d3a7d856c1741772041d6bdf.js"></script>
 
 `**"ab"**` 로 고정된 비밀번호를 설정해서 테스트합니다.
 

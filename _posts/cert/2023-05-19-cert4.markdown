@@ -1,11 +1,19 @@
 ---
-layout: post
-title: '소프트웨어 설계 - 4'
-date: 2023-05-19 17:50:43 +0900
-image: cert4.jpg
-tags: [imformation, process, certificate, 정보처리기사, 정처기]
-categories: certificate
+permalink: /cert/cert4
+title: "소프트웨어 설계 - 4"
+categories:
+  - certificate
+tags:
+  - information
+  - certificate
+  - 정보처리기사
+  - 정처기
+toc: true
+toc_sticky: true
+toc_label: "소프트웨어 설계 - 4"
 ---
+
+![img](/images/cert4.jpg)
 
 # 소프트웨어 설계 4
 
@@ -164,4 +172,3 @@ categories: certificate
 액티비티 수행을 담당하는 주체를 구분하는 선.
 
 가로 또는 세로 실선을 그어 구분함.
-

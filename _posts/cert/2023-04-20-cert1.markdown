@@ -1,11 +1,19 @@
 ---
-layout: post
-title: '소프트웨어 설계 - 1'
-date: 2023-04-21 00:51:43 +0900
-image: papers.jpg
-tags: [imformation, process, certificate, 정보처리기사, 정처기]
-categories: certificate
+permalink: /cert/cert1
+title: "소프트웨어 설계 - 1"
+categories:
+  - certificate
+tags:
+  - information
+  - certificate
+  - 정보처리기사
+  - 정처기
+toc: true
+toc_sticky: true
+toc_label: "소프트웨어 설계 - 1"
 ---
+
+![img](/images/papers.jpg)
 
 # 소프트웨어 설계 - 1
 
