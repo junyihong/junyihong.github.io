@@ -2,7 +2,7 @@
 permalink: /javapractice/1
 title: "JavaPractice - 1"
 categories:
-  - JavaPractice
+  - javapractice
 tags:
   - tomcat
   - javapractice

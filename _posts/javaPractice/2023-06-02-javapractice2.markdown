@@ -2,7 +2,7 @@
 permalink: /javapractice/2
 title: "JavaPractice - 2"
 categories:
-  - JavaPractice
+  - javapractice
 tags:
   - Gradle
   - TDC

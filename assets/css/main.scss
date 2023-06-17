@@ -7,3 +7,211 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// ----------kakaotalk_Clone------------//
+// -------------------------------------------------iframe
+#iframeURL,
+#iframeWidth,
+#iframeHeight {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  box-shadow: inset 0px 0px 3px black;
+  padding-left: 5px;
+}
+#iframeURL {
+  width: 300px;
+  height: 30px;
+}
+#iframeWidth,
+#iframeHeight {
+  width: 150px;
+  height: 30px;
+}
+.phone {
+  border: 40px solid #ddd;
+  border-width: 55px 7px;
+  width: 400px;
+  border-radius: 40px;
+  margin: 50px auto;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.phone iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+/*Different Perspectives*/
+
+.phone.view_1 {
+  height: 710px;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  box-shadow: 0px 3px 0 #bbb, 0px 4px 0 #bbb, 0px 5px 0 #bbb, 0px 7px 0 #bbb,
+    0px 10px 20px #666;
+}
+.phone.view_2 {
+  transform: rotateX(0deg) rotateY(-60deg) rotateZ(0deg);
+  height: 710px;
+  box-shadow: 5px 1px 0 #bbb, 9px 2px 0 #bbb, 12px 3px 0 #bbb, 15px 4px 0 #bbb,
+    0 7px 20px #999;
+}
+.phone.view_3 {
+  transform: rotateX(50deg) rotateY(0deg) rotateZ(-50deg);
+  height: 710px;
+  box-shadow: -3px 3px 0 #bbb, -6px 6px 0 #bbb, -9px 9px 0 #bbb,
+    -12px 12px 0 #bbb, -14px 10px 20px #666;
+}
+/*Controls*/
+#wrapper {
+  margin-bottom: 100px;
+}
+#controls {
+  font-size: 0.9em;
+  color: #333;
+}
+
+#controls div {
+  margin: 10px;
+}
+
+#controls div label {
+  width: 120px;
+  display: block;
+}
+
+#views {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#views button {
+  width: 198px;
+  border: none;
+  background-color: rgb(212, 212, 212);
+  height: 40px;
+  margin: 10px 0;
+  color: #444;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#views button:hover {
+  color: #444;
+  background-color: #fae100;
+}
+
+@media (max-width: 900px) {
+  #wrapper {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+@media (max-width: 700px) {
+  #wrapper {
+    transform: scale(0.6, 0.6);
+  }
+}
+
+@media (max-width: 500px) {
+  #wrapper {
+    transform: scale(0.4, 0.4);
+  }
+}
+// ------------------------------------------------//
+
+// ---------------OP.GG_Clone----------------------//
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+.talkggContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 15px 50px 15px;
+  background-color: #0a0a0a;
+}
+
+.talkggheading {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 2.5px;
+  padding: 30px 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px #000;
+}
+
+.talkggheading span {
+  display: block;
+}
+
+.laptop {
+  box-sizing: border-box;
+  width: 900px;
+  max-width: 100%;
+  height: 550px;
+  margin: 0 auto;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  background-image: url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1100&h=550&fit=crop&fp-y=.12);
+}
+
+.screen-overlay {
+  width: 600px;
+  height: 500px;
+  background-color: #191919;
+
+  /* Transform screen overlay to cover laptop screen image */
+  transform: matrix3d(
+    1.11008,
+    0.108202,
+    0,
+    0.000394192,
+    0.224001,
+    0.803852,
+    0,
+    -8.80428e-5,
+    0,
+    0,
+    1,
+    0,
+    40,
+    34,
+    0,
+    1
+  );
+  transform-origin: 0 0 0;
+}
+
+.live-view {
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: top left;
+
+  /* Prevent user interaction with iframe content */
+  /* pointer-events: none; */
+}
+
+
+// ----------------------------------------------------//

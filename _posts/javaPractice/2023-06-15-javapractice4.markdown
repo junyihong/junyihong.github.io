@@ -2,7 +2,7 @@
 permalink: /javapractice/4
 title: "JavaPractice - 4"
 categories:
-  - JavaPractice
+  - javapractice
 tags:
   - 계산기
   - javapractice

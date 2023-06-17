@@ -2,7 +2,7 @@
 permalink: /javapractice/3
 title: "JavaPractice - 3"
 categories:
-  - JavaPractice
+  - javapractice
 tags:
   - 비밀번호 테스트
   - javapractice

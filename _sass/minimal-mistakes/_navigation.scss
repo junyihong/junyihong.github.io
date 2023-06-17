@@ -516,9 +516,9 @@
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color: #000;
     font-size: $type-size-6;
-    background: #6f777d; // toc 타이틀 배경
+    background: #88c4fc; // toc 타이틀 배경
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
   }
