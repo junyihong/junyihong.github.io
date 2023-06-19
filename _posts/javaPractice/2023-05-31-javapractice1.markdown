@@ -7,7 +7,7 @@ tags:
   - tomcat
   - javapractice
   - 자바실습
-  - IntelliJ
+  - 인텔리제이
 toc: true
 toc_sticky: true
 toc_label: "JavaPractice - 1"

@@ -4,8 +4,8 @@ title: "JAVA - 11"
 categories:
   - java
 tags:
-  - java
-  - eclipse
+  - 자바
+  - 이클립스
 toc: true
 toc_sticky: true
 toc_label: "JAVA - 11"
