@@ -32,6 +32,6 @@ last_modified_at: 2023-06-17
 </div>
     <a href="https://junyihong.github.io/game-community-opgg/" target="_blank"><h1 class="talkggheading">Go to Page</h1></a>
 
-    <iframe src="https://junyihong.github.io/game-community-opgg/" width="1000px" height="1000px"></iframe>
+    <iframe src="https://junyihong.github.io/game-community-opgg/" width="100%" height="1000px"></iframe>
 
 </div>
