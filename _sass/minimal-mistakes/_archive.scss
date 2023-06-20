@@ -39,7 +39,7 @@
   border-bottom: 1px solid $border-color;
 
   + .list__item .archive__item-title {
-    margin-top: 0.5em;
+    margin-top: 0.8em;
   }
 }
 
@@ -128,9 +128,16 @@
   .page__meta {
     margin: 0 0 4px;
     font-size: 0.6em;
+    margin-bottom: 12px;
   }
 }
-
+.page__taxonomy-item-category{ 
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 8px;
+  border-right: 2px solid black;
+  margin-right: 8px;
+}
 /*
    Grid view
    ========================================================================== */
