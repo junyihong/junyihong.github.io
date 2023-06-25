@@ -135,7 +135,7 @@ footer:
     - label: "Instagram" # 표시되는 이름입니다.
       icon: "fab fa-fw fa-instagram" # fab fa-fw fa-{SNS NAME} 으로 해주세요.
       url: "https://www.instagram.com/" # 개인 SNS 계정 링크를 기재하면 됩니다.
-//
+
 # Reading Files
 include:
   - .htaccess
