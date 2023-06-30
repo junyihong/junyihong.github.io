@@ -1,16 +1,17 @@
 ---
-permalink: /cert/cert1
 title: "소프트웨어 설계 - 1"
 categories:
-  - certificate
+  - info-process
 tags:
   - information
-  - certificate
+  - info-process
   - 정보처리기사
   - 정처기
 toc: true
 toc_sticky: true
 toc_label: "소프트웨어 설계 - 1"
+date: 2023-04-20
+last_modified_at: 2023-06-30
 ---
 
 ![img](/images/papers.jpg)

@@ -41,8 +41,8 @@
             <span class="nav__sub-title">자격증</span>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "certificate" %}
-                <li><a href="/categories/cert" class="">정보처리기사 ({{category[1].size}})</a></li>
+                {% if category[0] == "info-process" %}
+                <li><a href="/categories/info-process" class="">정보처리기사 ({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

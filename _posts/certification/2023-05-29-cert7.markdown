@@ -1,16 +1,17 @@
 ---
-permalink: /cert/cert7
-title: "정보처리기사 오답노트 2"
+title: "정보처리기사 오답노트2"
 categories:
-  - certificate
+  - info-process
 tags:
   - information
-  - certificate
+  - info-process
   - 정보처리기사
   - 정처기
 toc: true
 toc_sticky: true
-toc_label: "정보처리기사 오답노트 2"
+toc_label: "정보처리기사 오답노트2"
+date: 2023-05-29
+last_modified_at: 2023-06-30
 ---
 
 ![img](/images/cert7.jpg)

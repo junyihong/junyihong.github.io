@@ -1,16 +1,17 @@
 ---
-permalink: /cert/cert4
 title: "소프트웨어 설계 - 4"
 categories:
-  - certificate
+  - info-process
 tags:
   - information
-  - certificate
+  - info-process
   - 정보처리기사
   - 정처기
 toc: true
 toc_sticky: true
 toc_label: "소프트웨어 설계 - 4"
+date: 2023-05-19
+last_modified_at: 2023-06-30
 ---
 
 ![img](/images/cert4.jpg)

@@ -1,19 +1,20 @@
 ---
-permalink: /cert/cert301
 title: "소프트웨어 설계 - 301"
 categories:
-  - certificate
+  - info-process
 tags:
   - information
-  - certificate
+  - info-process
   - 정보처리기사
   - 정처기
 toc: true
 toc_sticky: true
 toc_label: "소프트웨어 설계 - 301"
+date: 2023-05-18
+last_modified_at: 2023-06-30
 ---
 
-![img](/images/cert-note.jpg)
+![img](/images/certification-note.jpg)
 
 # 소프트웨어 설계 필기노트
 
