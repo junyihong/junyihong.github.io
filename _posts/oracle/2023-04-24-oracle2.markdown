@@ -1,6 +1,6 @@
 ---
-permalink: /oracle/2
-title: "오라클 - 사용자 생성부터 CRUD까지 - 2"
+permalink: /oracle/3
+title: "SQL문 연습 1"
 categories:
   - Oracle
 tags:
@@ -11,169 +11,130 @@ tags:
   - 오라클
 toc: true
 toc_sticky: true
-toc_label: "오라클 - 사용자 생성부터 CRUD까지 - 2"
+toc_label: "SQL문 연습 1"
 ---
 
 ![img](/images/database2.jpg)
 
-### **⭐ Primary Key**
-
-// topic 테이블을 생성할 때 제약조건을 건다.
+1. <student> 테이블을 참고하여 ‘name’속성으로 ‘idx_name’이라는 인덱스를 생성하는 SQL 문을 작성하시오
 
 ```sql
-CREATE TABLE topic (
-    id NUMBER NOT NULL,
-    title VARCHAR2(50) NOT NULL,
-description VARCHAR2(2000),
-    created DATE NOT NULL,
-    CONSTRAINT PK_TOPIC PRIMARY KEY(id)
+CREATE INDEX 'idx_name' ON student(name);
+```
+
+1. 아래의 요구사항을 만족하는 테이블 <patient> 정의하는 SQL문을 작성하시오
+    - id(문자 5), name(문자 10), sex(문자 1) phone(문자 20) 속성을 가진다.
+    - id 속성을 기본키이다.
+    - sex 속성은 f 또는 m 값만 가지도록 한다. (제약조건명 : sex_ck)
+    - id 는 <doctor> 테이블에 있는  doc_id를 참조한다. (제약조건명 : id_fk)
+
+```sql
+CREATE TABLE patient (
+id CHAR(5) PRIMARY KEY,
+name CHAR(10),
+sex CHAR(1),
+phone CHAR(20),
+CONSTRAINT sex_ch CHECK(sex = 'f' OR sex = 'm'),
+CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES doctor (doc_id)
 );
 ```
 
-프라이머리키를 지정하는것은 굉장히 중요하다.
-검색할 때 시간이 비약적으로 단축된다.
+1. 아래의 요구사항을 만족하는 테이블 <instructor>를 정의하는 SQL문을 작성하시오
+    - id(문자 5), name(문자 15), dept(문자 15)
+    - id는 기본키이다.
+    - name은 속성 NULL이 올수 없다.
+    - dept 속성은 Department테이블의 dept 속성을 참조하는 외래키이다.
+    - Department 테이블에서 튜플이 삭제되면 관련된  모든 튜플의 dept 속성의 값은 NULL로 변경되어야 한다.
+    - Department 테이블의 dept 속성이 변경되면 instructor 테이블의 관련된 모든 속성 값도 같은 값으로 변경되어야 한다.
 
 ```sql
-INSERT INTO topic
-    (id, title, description, created)
-VALUES
-    (1, 'ORACLE', 'ORACLE is ...', SYSDATE);
+CREATE TABLE instructor (
+id CHAR(5) PRIMARY KEY,
+name CHAR(15) NOT NULL,
+dept CHAR(15) FOREIGN KEY 
+	REFERENCES Department (dept)
+		ON DELETE SET NULL
+		ON UPDATE CASCADE
+);
 ```
 
-동일하게 추가해주면 됨
-
-<br/>
-
-<hr/>
-
-### **⭐시퀀스 추가하기**
+1. 아래의 요구사항을 만족하는 뷰 <CC>를  정의하는 SQL문을 작성하시오.
+    - <Course>와 <Instructor> 릴레이션을 이용한다.
+    - <Course>의 ‘instructor’ 속성 값과 <Instructor>의 ‘id’속성이  같은 자료에 대한 view를 정의한다.
+    - <cc> 뷰는 ‘ccid’, ‘ccname’, ‘instname’속성을 갖는다.
+    - <cc> 뷰는 <Course> 테이블의 ‘id’, ‘name’, <Instructor> 테이블의 ‘name’속성을 사용한다.
 
 ```sql
-CREATE SEQUENCE SEQ_TOPIC;
+CREATE VIEW cc (ccid, ccname, instname)
+AS SELECT Course.id, Course.name, Instructor.name
+FROM Course, Instructor
+WHERE Course.instructor = Instructor.id;
 ```
 
-시퀀스 : 고유한 숫자 값을 자동으로 생성해주는 객체이다.
-시퀀스는 일련번호를 자동으로 생성하기 위해 사용한다.
+1. <Student> 테이블의 ssn 속성에 대해, 중복을 허용하지 않도록 ‘Stud_idx’라는 이름으로 오름차순 인덱스를 정의하는 SQL문을 작성하시오
 
 ```sql
-INSERT INTO topic
-      (id, title, description, created)
-      VALUES
-      (SEQ_TOPIC.NEXTVAL, 'ORACLE', 'ORACLE is ...', SYSDATE);
-INSERT INTO topic
-      (id, title, description, created)
-      VALUES
-      (SEQ_TOPIC.NEXTVAL, 'MySQL', 'MySQL is ...', SYSDATE);
-INSERT INTO topic
-      (id, title, description, created)
-      VALUES
-      (SEQ_TOPIC.NEXTVAL, 'SQL Server', 'SQL Server is ...', SYSDATE);
-INSERT INTO topic
-      (id, title, description, created)
-      VALUES
-      (SEQ_TOPIC.NEXTVAL, 'MongoDB', 'MongoDB is ...', SYSDATE);
+CREATE UNIQUE INDEX Stud_idx
+ON Student(ssn Asc);
 ```
 
-`SEQ_TOPIC.NEXTVAL` -> 시퀀스가 갖고있던 숫자에서 1을 더해서 자동으로 지정된다.
+1. 다음은 기본키인 ‘직위’ 속성의 값으로 사원, 대리, 과장, 부장, 이사, 사장 만을 허용하고, 기본 값으로 사원을 취하는 도메인 무결성 제약 조건을 설정하기 위한 SQL문이다. 괄호를 채워 SQL문을 완성하시오.
 
-현재 시퀀스 알아보기
-`SELECT SEQ_TOPIC.CURRVAL FROM topic;`
-근데 이 방법을 사용하면 3일때는 시퀀스가 333이 출력되고 4일때는 4444가, 5일때는 55555가 출력된다.
+CREATE DOMAIN 직위 VARCHAR2(10)
 
-`SELECT SEQ_TOPIC.CURRVAL FROM DUAL;`
+( 1 )
 
-DUAL 일종의 가상 테이블. 시퀀스 값을 조회할때 DUAL 테이블을 사용하여 값을 조회함.
-이 방법을 사용하면 행의 수만큼 시퀀스가 출력되는것 을 방지할 수 있음.
-
-<hr/>
-<br/>
-
-### **⭐ 서버와 클라이언트**
-
-데이터베이스에서 정보를 제공하는 것이 서버,
-
-정보를 요청하는 것이 클라이언트.
-
-<br/>
-
----
-
-### **⭐ 관계형 데이터베이스**
-
-하나의 테이블에서, 한 행안에 여러 정보들이 담겨있을 것이다.
-topic 테이블에서 author가 junyihong이고 profile이 developer인 정보가 있는데,
-이러한 정보가 1억개 있고 직업을 수정하려 한다면, 우리는 1억개를 수정해야 한다.
-하지만 author 테이블을 따로만들어서 topic에 author_id를 지정한다면,
-topic은 그대로 두고 author테이블에서 junyihong의 profile만을 수정해주면된다.
-
-### **🎯 TOPIC**
-
-| ID  | TITLE      | DESCRIPTION    | CREATED  | AUTHOR_id |
-| --- | ---------- | -------------- | -------- | --------- |
-| 1   | ORACLE     | ORACLE is…     | 23/04/14 | 1         |
-| 2   | MySQL      | My SQL is…     | 23/04/14 | 1         |
-| 3   | SQL SERVER | SQL Server is… | 23/04/14 | 2         |
-| 4   | MongoDB    | MongoDB is…    | 23/04/14 | 3         |
-
-<br/>
-
-### **🎯 AUTHOR**
-
-| ID  | name      | PROFILE        |
-| --- | --------- | -------------- |
-| 1   | junyihong | developer      |
-| 2   | duru      | DBA            |
-| 3   | taeho     | Data Scientist |
-
-<br/>
-
-이렇게 정보를 테이블을 쪼개어 나누어넣는 것을 테이블 분해라 하고,
-이러한 데이터베이스 형태를 '관계형 데이터베이스' 라고 한다. <br/>
-`TOPIC.ID`와 `AUTHOR.ID`는 SEQ(시퀀스)를 통해 작성하였음.
-
-<br/>
-
-<hr/>
-
-### **⭐ 워크시트 사용하기**
-
-JUNYIHONG-ORACLE에서 우클릭 > SQL 워크시트 열기 클릭
+( 2 ) VALID-직위 ( 3 );
 
 ```sql
-INSERT INTO author (id, name, profile)
-VALUES (SEQ_AUTHOR.NEXTVAL, 'junyihong', 'developer');
+( 1 ) : DEFAULT '사원'
+( 2 ) : CONSTRAINT
+( 3 ) : CHECK VALUE IN('사원', '대리', '과장', '부장', '이사', '사장')
 ```
 
-<br/>
-
-<hr/>
-
-### **⭐ JOIN 사용하기**
-
-`SELECT * FROM topic LEFT JOIN author ON topic_author_id = autor.id;`
-// topic 테이블과 author 테이블을 결합
-// author_id가 동일한 것끼리 매칭
-// topic + author 의 형태로 나타남 / LEFT는 author 기준
+1. <직원> 테이블에 대해 ‘이름’ 속성으로 ‘직원_name’이라는 인덱스를 정의하는 SQL 문을 작성하시오
 
 ```sql
-SELECT
-    T.id TOPIC_ID,
-    title,
-    name
-FROM topic T
-    LEFT JOIN author A
-    ON T.author_id = A.id
-WHERE
-    T.id = 1
-   ;
+CREATE INDEX '직원_name'
+ON '직원'('이름');
 ```
 
-테이블 topic의 별명을 T로 설정하고 id와 title과 name을 선택해서 가져온다.
+1. 다음 <처리 조건>에 부합하는 SQL문이 완성되도록 괄호에 적합한 옵션을 쓰시오.
 
-이때 topic.id 는 출력시 TOPIC_id로 출력되도록 별명을 설정해둔다.
+<처리 조건>
 
-테이블 author 의 별명을 A로 설정하고 왼쪽으로 JOIN을 한다.
+- <학생> 테이블을 제거한다.
+- <학생> 테이블을 참조하는 모든 데이터도 함께 제거한다.
 
-조건은 테이블 topic의 author_id와 테이블 author의 id가 동일
+<SQL 문>
 
-WHERE은 추가조건으로, topic.id가 1인 것만 가져온다는 의미.
+- DROP TABLE 학생 (       );
+
+```sql
+DROP TABLE 학생 CASCADE; 
+```
+
+1. 데이터 언어는 데이터베이스를 구축하고 이용하기 위한 데이터베이스 관리 시스템과의 통신 수단이다. 데이터 언어는 데이터베이스는 구조를 정의 및 변경하는 DDL, 데이터를 조작하는 DML, 보안 및 무결성, 병행 제어 등을 위한 DCL로 구분된다. 다음 <보기>에서 DDL에 속하는 명령어들을 골라 적으시오.
+
+<보기>
+
+| COMMIT, TABLE, INSERT, DOMAIN, UPDATE, QUERY, CREATE, TRIGGER, ALTER, ROLLBACK, PROCEDURE, DROP, SELECT, GRANT, DELETE, REVOKE, VIEW |
+| --- |
+
+```sql
+CREATE, ALTER, DROP
+```
+
+1. 빈칸을 채우시오
+
+| CREATE TABLE 사원 ( 
+직원코드 NUMBER NOT NULL,
+성명 CHAR(10) UNIQUE,
+직책 CHAR(10) ( 1 ) (직책 ( 2 ) (사원, 대리, 과장, 팀장 ),
+연봉 NUMBER); |
+| --- |
+
+```sql
+1 : CHECK
+2 : IN
+```

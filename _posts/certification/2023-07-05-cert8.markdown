@@ -1,0 +1,163 @@
+---
+title: "SQL문 연습 - 1"
+categories:
+  - info-process
+tags:
+  - information
+  - info-process
+  - 정보처리기사
+  - 정처기
+toc: true
+toc_sticky: true
+toc_label: "SQL문 연습 1"
+date: 2023-07-05
+last_modified_at: 2023-07-05
+---
+
+![img](/images/cert7.jpg)
+
+### 1번
+
+ `<student>` 테이블을 참고하여 ‘name’속성으로 ‘idx_name’이라는 인덱스를 생성하는 SQL 문을 작성하시오
+
+```sql
+CREATE INDEX 'idx_name' ON student(name);
+```
+
+### 2번
+
+ 아래의 요구사항을 만족하는 테이블 `<patient>` 정의하는 SQL문을 작성하시오
+    - id(문자 5), name(문자 10), sex(문자 1) phone(문자 20) 속성을 가진다.
+    - id 속성을 기본키이다.
+    - sex 속성은 f 또는 m 값만 가지도록 한다. (제약조건명 : sex_ck)
+    - id 는 `<doctor>` 테이블에 있는  doc_id를 참조한다. (제약조건명 : id_fk)
+
+```sql
+CREATE TABLE patient (
+id CHAR(5) PRIMARY KEY,
+name CHAR(10),
+sex CHAR(1),
+phone CHAR(20),
+CONSTRAINT sex_ch CHECK(sex = 'f' OR sex = 'm'),
+CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES doctor (doc_id)
+);
+```
+
+### 3번
+
+ 아래의 요구사항을 만족하는 테이블 `<instructor>`를 정의하는 SQL문을 작성하시오
+    - id(문자 5), name(문자 15), dept(문자 15)
+    - id는 기본키이다.
+    - name은 속성 NULL이 올수 없다.
+    - dept 속성은 Department테이블의 dept 속성을 참조하는 외래키이다.
+    - Department 테이블에서 튜플이 삭제되면 관련된  모든 튜플의 dept 속성의 값은 NULL로 변경되어야 한다.
+    - Department 테이블의 dept 속성이 변경되면 instructor 테이블의 관련된 모든 속성 값도 같은 값으로 변경되어야 한다.
+
+```sql
+CREATE TABLE instructor (
+id CHAR(5) PRIMARY KEY,
+name CHAR(15) NOT NULL,
+dept CHAR(15) FOREIGN KEY 
+	REFERENCES Department (dept)
+		ON DELETE SET NULL
+		ON UPDATE CASCADE
+);
+```
+
+### 4번
+
+아래의 요구사항을 만족하는 뷰 `<CC>`를  정의하는 SQL문을 작성하시오.
+
+    - `<Course>`와 `<Instructor>` 릴레이션을 이용한다.
+    - `<Course>`의 ‘instructor’ 속성 값과 `<Instructor>`의 ‘id’속성이  같은 자료에 대한 view를 정의한다.
+    - `<cc>` 뷰는 ‘ccid’, ‘ccname’, ‘instname’속성을 갖는다.
+    - `<cc>` 뷰는 `<Course>` 테이블의 ‘id’, ‘name’, `<Instructor>` 테이블의 ‘name’속성을 사용한다.
+
+```sql
+CREATE VIEW cc (ccid, ccname, instname)
+AS SELECT Course.id, Course.name, Instructor.name
+FROM Course, Instructor
+WHERE Course.instructor = Instructor.id;
+```
+
+### 5번
+
+`<Student>` 테이블의 ssn 속성에 대해, 중복을 허용하지 않도록 ‘Stud_idx’라는 이름으로 오름차순 인덱스를 정의하는 SQL문을 작성하시오
+
+```sql
+CREATE UNIQUE INDEX Stud_idx
+ON Student(ssn Asc);
+```
+
+### 6번
+
+다음은 기본키인 ‘직위’ 속성의 값으로 사원, 대리, 과장, 부장, 이사, 사장 만을 허용하고, 기본 값으로 사원을 취하는 도메인 무결성 제약 조건을 설정하기 위한 SQL문이다. 괄호를 채워 SQL문을 완성하시오.
+
+CREATE DOMAIN 직위 VARCHAR2(10)
+
+( 1 )
+
+( 2 ) VALID-직위 ( 3 );
+
+```sql
+( 1 ) : DEFAULT '사원'
+( 2 ) : CONSTRAINT
+( 3 ) : CHECK VALUE IN('사원', '대리', '과장', '부장', '이사', '사장')
+```
+
+### 7번
+
+`<직원>` 테이블에 대해 ‘이름’ 속성으로 ‘직원_name’이라는 인덱스를 정의하는 SQL 문을 작성하시오. <br/>
+
+```sql
+  CREATE INDEX '직원_name'
+  ON '직원'('이름');
+```
+
+### 8번
+
+다음 <처리 조건>에 부합하는 SQL문이 완성되도록 괄호에 적합한 옵션을 쓰시오.
+
+`<처리 조건>`
+
+- <학생> 테이블을 제거한다.
+- <학생> 테이블을 참조하는 모든 데이터도 함께 제거한다.
+
+`<SQL 문>`
+
+- DROP TABLE 학생 (       );
+
+```sql
+DROP TABLE 학생 CASCADE; 
+```
+
+<br/>
+
+### 9번
+
+데이터 언어는 데이터베이스를 구축하고 이용하기 위한 데이터베이스 관리 시스템과의 통신 수단이다.<br/> 데이터 언어는 데이터베이스는 구조를 정의 및 변경하는 DDL, 데이터를 조작하는 DML, 보안 및 무결성, 병행 제어 등을 위한 DCL로 구분된다.<br/> 다음 <보기>에서 DDL에 속하는 명령어들을 골라 적으시오.<br/>
+
+`<보기>`<br/>
+
+COMMIT, TABLE, INSERT, DOMAIN, UPDATE, QUERY, CREATE, TRIGGER, ALTER, ROLLBACK, PROCEDURE, DROP, SELECT, GRANT, DELETE, REVOKE, VIEW<br/>
+
+
+```sql
+CREATE, ALTER, DROP
+```
+
+### 10번 
+
+빈칸을 채우시오.<br/>
+
+CREATE TABLE 사원 ( <br/>
+직원코드 NUMBER NOT NULL,<br/>
+성명 CHAR(10) UNIQUE,<br/>
+직책 CHAR(10) ( 1 ) (직책 ( 2 ) (사원, 대리, 과장, 팀장 ),<br/>
+연봉 NUMBER); <br/>
+<br/>
+
+```sql
+1 : CHECK
+2 : IN
+```
