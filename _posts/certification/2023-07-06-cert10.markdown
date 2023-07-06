@@ -1,5 +1,5 @@
 ---
-title: "SQL문 연습 - 3"
+title: "SQL문 연습 - 3 / DML - JOIN"
 categories:
   - info-process
 tags:
@@ -9,7 +9,7 @@ tags:
   - 정처기
 toc: true
 toc_sticky: true
-toc_label: "SQL문 연습 3"
+toc_label: "SQL문 연습 3 / DML - JOIN"
 date: 2023-07-06
 last_modified_at: 2023-07-06
 ---

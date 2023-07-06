@@ -1,5 +1,5 @@
 ---
-title: "SQL문 연습 - 1"
+title: "SQL문 연습 - 1 / DDL"
 categories:
   - info-process
 tags:
@@ -9,7 +9,7 @@ tags:
   - 정처기
 toc: true
 toc_sticky: true
-toc_label: "SQL문 연습 1"
+toc_label: "SQL문 연습 1 / DDL"
 date: 2023-07-05
 last_modified_at: 2023-07-05
 ---
