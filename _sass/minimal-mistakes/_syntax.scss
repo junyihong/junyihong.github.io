@@ -66,11 +66,11 @@ figure.highlight {
   }
   .err {
     /* Error */
-    color: $base08;
+    color: white;
   }
   .k {
     /* Keyword */
-    color: $base0e;
+    color: #ffca00;
   }
   .l {
     /* Literal */
@@ -78,7 +78,7 @@ figure.highlight {
   }
   .n {
     /* Name */
-    color: $base05;
+    color: #02effd;
   }
   .o {
     /* Operator */
@@ -86,7 +86,7 @@ figure.highlight {
   }
   .p {
     /* Punctuation */
-    color: $base05;
+    color: white;
   }
   .cm {
     /* Comment.Multiline */
@@ -225,7 +225,7 @@ figure.highlight {
   }
   .nv {
     /* Name.Variable */
-    color: $base08;
+    color: #a8ff60;
   }
   .ow {
     /* Operator.Word */
