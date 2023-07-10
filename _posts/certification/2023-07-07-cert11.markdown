@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 toc_label: "프로그래밍 언어 활용 / 연산자"
 date: 2023-07-06
-last_modified_at: 2023-07-06
+last_modified_at: 2023-07-10
 ---
 
 ![img](/images/cert8.jpg)
