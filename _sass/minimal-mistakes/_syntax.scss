@@ -1,23 +1,36 @@
 /* ==========================================================================
    Syntax highlighting
    ========================================================================== */
-
+div.highlighter-rouge>pre,
+div.highlighter-rouge pre.highlight{
+    margin: 0;
+    padding: 1em;
+    background: rgb(250, 255, 255);
+    margin-top: 21px;
+}
 div.highlighter-rouge,
 figure.highlight {
   position: relative;
   margin-bottom: 1em;
-  background: $base00;
+  background: #88c4fcd8;
   color: $base05;
   font-family: $monospace;
   font-size: $type-size-6;
   line-height: 1.8;
   border-radius: $border-radius;
+  padding-top: 12px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+}
 
-  > pre,
-  pre.highlight {
-    margin: 0;
-    padding: 1em;
-  }
+div.highlighter-rouge::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: " ";
+  height: 12px;
+  left: 12px;
+  position: absolute;
+  width: 12px;
 }
 
 .highlight table {
@@ -66,7 +79,7 @@ figure.highlight {
   }
   .err {
     /* Error */
-    color: white;
+    color: black;
   }
   .k {
     /* Keyword */
@@ -78,15 +91,15 @@ figure.highlight {
   }
   .n {
     /* Name */
-    color: #02effd;
+    color: #02348a;
   }
   .o {
     /* Operator */
-    color: $base0c;
+    color: #e91dd3;
   }
   .p {
     /* Punctuation */
-    color: white;
+    color: black;
   }
   .cm {
     /* Comment.Multiline */
