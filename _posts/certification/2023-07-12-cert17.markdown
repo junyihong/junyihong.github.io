@@ -1,0 +1,155 @@
+---
+title: "정보처리기사 실기 기출문제 - 3"
+categories:
+  - info-process
+tags:
+  - information
+  - info-process
+  - 정보처리기사
+  - 정처기
+toc: true
+toc_sticky: true
+toc_label: "정보처리기사 실기 기출문제 - 3"
+date: 2023-07-12
+last_modified_at: 2023-07-12
+---
+
+![img](/images/cert8.jpg)
+
+## 정보처리기사 실기 기출문제 - 3
+
+<br/>
+
+### 문제 41.
+
+**다음 중 헝가리안 표기법(Hungarian Notation)에 대해서 서술하시오.**
+
+**⭐ 정답 : 식별자 표기 시 접두어에 자료형을 붙이는 표기법**
+
+<br/>
+
+### 문제 42.
+
+**테스트의 종류 중, 동치 분할 테스트, 경계값 분석 테스트 등의 종류가 있는 테스트 기법을 쓰시오.**
+
+**⭐ 정답 : 블랙박스 테스트 (명세 기반 테스트)**
+
+<br/>
+
+### 문제 43.
+
+**다음은 C언어 소스 코드이다. 출력 결과를 쓰시오.**
+
+```c
+#include <studio.h>
+int r1(){
+	return 4;
+}
+int r10(){
+	return (30+r1());
+}
+int r100(){
+	return (200+r10());
+}
+int main(){
+	printf("%dn", r100());
+    return 0;
+}
+```
+
+<br/>
+
+**⭐ 정답 : 234**
+
+### 문제 44.
+
+**데이터베이스에서 스키마(Schema)에 대해 간략히 설명하시오.**
+
+**⭐ 정답 : 데이터베이스의 전체적인 구조와 제약조건에 대한 명세로, 내부 스키마와 개념 스키마, 외부 스키마로 나뉜다.**
+
+<br/>
+
+### 문제 45.
+
+**다음은 자바(Java) 코드이다. 출력 결과를 쓰시오.**
+
+```java
+abstract class vehicle{
+    private String name;
+    abstract public String getName(String val);
+    public String getName(){
+    	return "vehicle name:" + name;
+    }
+	public void setName(String val){
+    	name = val;
+    }
+}
+
+class Car extends Vehicle{
+	public Car(String val){
+    	setName(val);
+   }
+public String getName(String val){
+	return "Car name : " + val;
+   }
+public String getName(byte val[]){
+	return "Car name : " + val;
+   }
+}
+
+public class good {
+	public Static void main(String[] args){
+    Vehicle obj = new Car("Spark");
+    System.out.print(obj.getName());
+    }
+}
+```
+
+**⭐ 정답 :** vehicle name : Spark
+
+<br/>
+
+### 문제 46.
+
+**다음은 자바(Java) 코드이다. 출력 결과를 쓰시오.**
+
+```java
+public class Test{
+    public static void main(String []args){
+        int i=0;
+        int sum=0;
+        while (i＜10){
+            i++;
+            if(i%2==1)
+              continue;
+        sum += i;
+        }
+    System.out.print(sum);
+    }
+}
+```
+
+**⭐ 정답 : 30**
+
+<br/>
+
+### 문제 47.
+
+**EAI 유형에는 메세지 버스(Message bus) 유형, 하이브리드(Hybrid) 유형, ( A ) 유형, ( B ) 유형이 있다. 괄호안에 들어갈 말을 적으시오.**
+
+**⭐ 정답 : A. 포인트 투 포인트(Point-to-point) B. 허브 앤 스포크(Hub & Spoke)**
+
+→ 
+
+**(1) EAI ( Enterprise Application Integration )**
+
+| 유형 | 개념 | 특징 |
+| --- | --- | --- |
+| Point - to - Point | - 중간 미들웨어를 두지 않고 App간 직접 연결하는 방식 <br/> - 상대적으로 저렴한 가격으로 구축 가능- 변경, 재사용이 어려움 |
+| Hub & Spoke | - 허브 시스템을 단일 접점으로 둔 중앙 집중적 방식 <br/> - 모든 데이터의 전송이 보장되지만 허브 장애 시 전체 시스템에 영향- 확장 및 유지 보수 용이 |
+| Message Bus <br/>(ESB의 방식) | - App사이 미들웨어(Bus)를 두어 통합하여 처리하는 방식 <br/> - 뛰어난 확장성, 대용량 처리가 가능 |
+| Hybrid | - 그룹 내에서는 Hub & Spoke방식을,그룹 간에는 Message Bus방식을 사용 <br/> - 표준 통합 기술- 데이터 병목 현상의 최소화 |
+
+**(2) ESB ( Enterprise Service Bus )**
+
+개념 : App간 통합 측면에서 EAI와 비슷하지만 App보다는 Service를 중심으로 통합하는 것을 지향하는 아키텍처 혹은 기술. Message Bus 유형으로써 Bus를 중심으로 각각 프로토콜이 호환되게끔 변환이 가능하고 서비스 중심으로 메시지 이동을 라우팅 할 수 있다.
