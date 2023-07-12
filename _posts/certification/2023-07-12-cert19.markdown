@@ -16,7 +16,7 @@ last_modified_at: 2023-07-12
 
 ![img](/images/cert8.jpg)
 
-## 소프트웨어 개발 보안 구축 - 2
+## 소프트웨어 개발 보안 구축 2
 
 <br/>
 
