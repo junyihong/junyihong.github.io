@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "네트워크 관련 신기술"
-date: 2023-07-17
-last_modified_at: 2023-07-17
+date: 2023-07-15
+last_modified_at: 2023-07-15
 ---
 
 ![img](/images/cert8.jpg)

@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "SW 관련 신기술"
-date: 2023-07-20
-last_modified_at: 2023-07-20
+date: 2023-07-18
+last_modified_at: 2023-07-18
 ---
 
 ![img](/images/cert8.jpg)
