@@ -1,15 +1,15 @@
 ---
-title: "스프링 부트 구현과정"
+title: "스프링 레거시 구현과정"
 categories:
-  - springboot
+  - springlegacy
 tags:
   - 스프링
-  - 부트
+  - 레거시
   - 프레임워크
-  - sts4
+  - sts3
 toc: true
 toc_sticky: true
-toc_label: "스프링 부트 구현과정"
+toc_label: "스프링 레거시 구현과정"
 date: 2023-07-24
 last_modified_at: 2023-07-24
 ---
@@ -18,7 +18,7 @@ last_modified_at: 2023-07-24
 # **스프링 부트 (Spring Boot)**
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/springboot/1.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+	<img src="{{site.baseurl}}/images/springlegacy/1.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 <br/>
@@ -26,7 +26,7 @@ last_modified_at: 2023-07-24
 ## 계층적 구조
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/springboot/3.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+	<img src="{{site.baseurl}}/images/springlegacy/3.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 스프링 부트에서는 전통적인 웹 애플리케이션의 구조를 일반적으로 퍼시스턴스 계층, 서비스 계층, 프레젠테이션 계층으로 분리합니다. 이러한 구조는 애플리케이션의 레이어를 각각의 역할과 책임에 맞게 분리하여 유지보수와 확장성을 향상시키기 위해 사용됩니다. 스프링 부트에서는 이러한 구조를 쉽게 구현하고 관리할 수 있도록 지원합니다.
@@ -49,7 +49,7 @@ last_modified_at: 2023-07-24
 애플리케이션의 코드를 계층적 구조로 작성한다면 계층 간 데이터를 전달하기 위해 데이터에 접근하는 것이 먼저입니다. 도메인 객체 > 퍼시스턴스 계층 > 서비스 계층 > 프레젠테이션 계층(컨트롤러 → 뷰) 순으로 개발을 진행합니다.
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/springboot/4.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+	<img src="{{site.baseurl}}/images/springlegacy/4.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 <br/>

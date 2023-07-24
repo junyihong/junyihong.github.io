@@ -6,7 +6,7 @@ tags:
   - 스프링
   - 부트
   - 프레임워크
-  - sts
+  - sts4
 toc: true
 toc_sticky: true
 toc_label: "스프링 부트 개요"
@@ -18,7 +18,7 @@ last_modified_at: 2023-07-24
 # **스프링 부트 (Spring Boot)**
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/spring/1.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+	<img src="{{site.baseurl}}/images/springboot/1.jpg" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 <br/>
@@ -32,7 +32,7 @@ last_modified_at: 2023-07-24
 ## 구조
 
 <div style=" display : flex; justify-content: center;">
-	<img src="{{site.baseurl}}/images/spring/2.png" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+	<img src="{{site.baseurl}}/images/springboot/2.png" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
 </div>
 
 스프링 프레임워크의 런타임 구조를 이해하기 위해서는 주요 구성 요소와 그들 간의 상호작용을 살펴볼 필요가 있습니다. 스프링 프레임워크는 다양한 모듈로 구성되어 있으며, 이러한 모듈은 애플리케이션 개발 시에 필요한 다양한 기능과 라이브러리를 제공합니다. 아래는 스프링 프레임워크의 주요 런타임 구조를 설명한 것입니다:
