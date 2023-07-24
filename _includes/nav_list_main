@@ -30,6 +30,13 @@
                 {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "springboot" %}
+                <li><a href="/categories/springboot" class="">스프링 부트 ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
             <span class="nav__sub-title">데이터베이스</span>
             <ul>
                 {% for category in site.categories %}
