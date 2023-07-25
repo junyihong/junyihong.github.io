@@ -1,5 +1,5 @@
 ---
-title: "스프링 레거시 공통 모듈 만들기"
+title: "스프링 레거시 - 도서 쇼핑몰 공통 모듈 만들기"
 categories:
   - springlegacy
 tags:
@@ -9,13 +9,10 @@ tags:
   - sts3
 toc: true
 toc_sticky: true
-toc_label: "스프링 레거시 공통 모듈 만들기"
-date: 2023-07-24
-last_modified_at: 2023-07-24
+toc_label: "스프링 레거시 - 도서 쇼핑몰 공통 모듈 만들기"
+date: 2023-07-25
+last_modified_at: 2023-07-25
 ---
-
-
-# **스프링 레거시 (Spring Legacy)**
 
 <div style=" display : flex; justify-content: center;">
 	<img src="{{site.baseurl}}/images/springlegacy/1.png" alt="Image description" style="width: 80%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
