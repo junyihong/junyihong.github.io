@@ -1,12 +1,12 @@
 /* ==========================================================================
    Syntax highlighting
    ========================================================================== */
-div.highlighter-rouge>pre,
-div.highlighter-rouge pre.highlight{
-    margin: 0;
-    padding: 1em;
-    background: rgb(250, 255, 255);
-    margin-top: 21px;
+div.highlighter-rouge > pre,
+div.highlighter-rouge pre.highlight {
+  margin: 0;
+  padding: 1em;
+  background: rgb(250, 255, 255);
+  margin-top: 21px;
 }
 div.highlighter-rouge,
 figure.highlight {
@@ -19,7 +19,7 @@ figure.highlight {
   line-height: 1.8;
   border-radius: $border-radius;
   padding-top: 12px;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 div.highlighter-rouge::before {
@@ -155,7 +155,6 @@ div.highlighter-rouge::before {
   .kd {
     /* Keyword.Declaration */
     color: #5901a1;
-
   }
   .kn {
     /* Keyword.Namespace */
@@ -303,7 +302,7 @@ div.highlighter-rouge::before {
   }
   .s1 {
     /* Literal.String.Single */
-    color: $base0b;
+    color: #219807;
   }
   .ss {
     /* Literal.String.Symbol */
@@ -332,7 +331,8 @@ div.highlighter-rouge::before {
 }
 
 .gist {
-  th, td {
+  th,
+  td {
     border-bottom: 0;
   }
 }

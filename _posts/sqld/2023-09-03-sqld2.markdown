@@ -18,7 +18,7 @@ last_modified_at: 2023-08-28
 	<img src="{{site.baseurl}}/images/sqld/Door.jpg" alt="-" style="width: 80%; height: 80%; margin-bottom: 40px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4); border-radius: 15px;">
 </div>
 
-# 개념적, 논리적, 물리적 데이터 모델링 상세내용
+# 1-2. 개념적, 논리적, 물리적 데이터 모델링 상세내용
 
 <br/>
 

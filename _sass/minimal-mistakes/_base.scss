@@ -64,7 +64,7 @@ small,
 }
 
 p {
-  margin-bottom: 1.0em;
+  margin-bottom: 1em;
 }
 
 u,
@@ -111,7 +111,7 @@ blockquote {
   padding-left: 1em;
   padding-right: 1em;
   font-style: italic;
-  border-left: 0.25em solid #b2b9bc;
+  border-left: 0.25em solid #006dd7;
 
   cite {
     font-style: italic;
@@ -136,7 +136,7 @@ a {
   }
 
   &:hover {
-    color: #88c4fc;
+    color: #006dd7;
     outline: 0;
   }
 }
@@ -337,4 +337,8 @@ input[type="submit"],
 .archive__item-teaser {
   -webkit-transition: $global-transition;
   transition: $global-transition;
+}
+
+* {
+  cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), auto !important;
 }

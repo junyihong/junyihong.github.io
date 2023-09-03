@@ -1,7 +1,7 @@
 /* ==========================================================================
    Variables
    ========================================================================== */
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
 /*
    Typography
    ========================================================================== */
@@ -14,7 +14,7 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: "omyu_pretty", "Roboto", "Segoe UI", "Helvetica Neue",
+$sans-serif: "Noto Sans KR", "Roboto", "Segoe UI", "Helvetica Neue",
   "Lucida Grande", Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
