@@ -1,0 +1,83 @@
+---
+title: "데이터 모델링의 이해 (3)"
+categories:
+  - sqld
+tags:
+  - SQLD
+  - 데이터
+  - 데이터 모델링
+toc: true
+toc_sticky: true
+toc_label: "데이터 모델링의 이해 (3)"
+date: 2023-09-02
+last_modified_at: 2023-09-02
+---
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/Door.jpg" alt="-" style="width: 80%; height: 80%; margin-bottom: 40px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4); border-radius: 15px;">
+</div>
+
+# 1-3. 관계
+
+## 1. 관계 ( RelationShip )
+
+- 엔터티와 엔터티 사이의 연관성을 나타낸다.
+- 관계 정의 시 체크사항
+  1. 두 엔터티 사이에 관심 있는 연관 규칙이 존재하는가?
+  2. 두 엔터티 사이에 정보의 조합이 발생하는가?
+  3. 업무 기술서, 장표에 관계연결을 가능하게 하는 동사가 있는가?
+  4. 업무 기술서, 장표에 관계연결에 대한 규칙이 서술되어 있는가?
+
+## 2. 관계의 분류 2가지
+
+- 2-1) 존재에 의한 관계 : 존재 여부의 관계
+  : EX) 컴퓨터 학과에 홍길동이라는 사람이 있다. / 어떠한 행위로 인한 것이 아니라 존재 여부로 인한 관계
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/relation1.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+- 2-2) 행위에 의한 관계 : 어떤 행위로 인한 관계
+: EX) 홍길동 학생이 SQLD 기초 과목을 수강 신청한다. / 수강신청으로 생성된 관계
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/relation2.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+## 3. 관계의 표기법
+
+- 3-1) 관계 차수 : 두 엔터티 관계에 참여하는 수
+
+  - 일대일 ( 1:1 ) 관계
+    : EX) 1명의 수험생은 1개의 수험번호를 가진다.
+
+  <div style=" display : flex; justify-content: center;">
+  	<img src="{{site.baseurl}}/images/sqld/relation3.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+  </div>
+
+  - 일대다 ( 1:N ) 관계
+  : EX) 1개의 컴퓨터 학과는 여러명의 학생이 존재한다.
+  <div style=" display : flex; justify-content: center;">
+  	<img src="{{site.baseurl}}/images/sqld/relation4.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+  </div>
+
+  - 다대다 ( M:N ) 관계
+  : EX) 다수의 학생들은 다수의 과목을 수강신청 할 수 있다.
+  <div style=" display : flex; justify-content: center;">
+  	<img src="{{site.baseurl}}/images/sqld/relation5.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+  </div>
+
+<br/>
+
+- 3-2) 관계선택사양 (Optionality) : 필수적 관계, 선택적 관계
+
+  - 필수적 관계 - 반드시 있어야 하는 관계 / ' I ‘ 로 표현한다.
+  : EX) 수험생이 있어야 수험번호가 생성된다.
+  <div style=" display : flex; justify-content: center;">
+  	<img src="{{site.baseurl}}/images/sqld/relation6.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+  </div>
+
+  - 선택적 관계 - 없을 수도 있는 관계 / ' O ‘ 로 표현한다.
+  : EX) 컴퓨터 학과가 있지만 홍길동 학생이 있을 수도, 없을 수도 있다.
+  <div style=" display : flex; justify-content: center;">
+  	<img src="{{site.baseurl}}/images/sqld/relation7.jpg" alt="-" style="width: 40%; height: 20%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+  </div>
