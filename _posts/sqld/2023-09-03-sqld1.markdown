@@ -1,0 +1,142 @@
+---
+title: "데이터 모델링의 이해 (1)"
+categories:
+  - sqld
+tags:
+  - SQLD
+  - 데이터
+  - 데이터 모델링
+toc: true
+toc_sticky: true
+toc_label: "데이터 모델링의 이해 (1)"
+date: 2023-09-02
+last_modified_at: 2023-09-02
+---
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/Door.jpg" alt="-" style="width: 80%; height: 80%; margin-bottom: 40px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4); border-radius: 15px;">
+</div>
+
+# 1) 데이터 모델링의 이해
+
+## **모델링**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+- 정의 : 현실세계를 단순화하여 표현하는 것
+- 특징
+  - 추상화 : 일정한 형식에 맞춰 표현 ( = 모형화, 가설적)
+  - 단순화 : 제한된 표기법이나 언어로 표현 → 이해하기 쉽게 표현
+  - 명확성 : 이해하기 쉽게 표현하기 위해 애매모호함 제거, 정확하게 현상을 기술
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/view-of-modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+- 관점
+  - 데이터 관점 : 업무와 데이터 또는 데이터 사이의 관계 (what, data)
+  - 프로세스 관점 : 진행되고 있거나 진행되어야 하는 업무 (how, process)
+  - 상관 관점 : 데이터에 대한 업무 처리 방식의 영향 (interaction)
+
+<br/>
+
+## **데이터 모델링**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/data-modeling-def.jpg" alt="-" style="width: 60%; height: 30%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+- 정의 : 정보 시스템 구축을 위한 데이터 관점의 업무 분석 기법
+- 목적 :
+  1. 정보에 대한 표기법을 통일하여 업무 내용 분석의 정확도 증대
+  2. 데이터 모델을 기초로 DB 생성
+- 기능
+  - 시스템 가시화, 시스템 구조화 행동 명세화, 시스템 구축의 구조화된 틀 제공
+  - 문서화, 세부 사항은 숨기는 다양한 관점 제공, 상세 수준의 표현방법 제공 (구체화)
+
+<br/>
+
+## **데이터 모델링의 중요성과 유의점**
+
+- 중요성
+  - 파급효과: 만약 시스템 구축이 완성되어 가는 시점에 데이터 모델의 변경이 불가피한 상황이 발생했다고 가정해 보자. 데이터 모델의 변경에 의해 표준 영향 분석, 응용 변경 영향 분석 등 많은 영향 분석이 일어나고 그 이후에 해당 분야의 실제적인 변경 작업이 발생하게 된다. 다시 말해, 이 시기의 데이터 구조 변경은 프로젝트에서 아주 큰 위험요소가 될 수 있다.
+  - 복잡한 정보 요구사항의 간결한 표현(Conciseness): 데이터 모델은 구축할 시스템의 정보 요구사항과 한계를 가장 명확하고 간결하게 표현할 수 있는 도구이다.
+  - 데이터 품질(Data Quality): 데이터 품질의 문제가 야기되는 중대한 이유 중 하나가 바로 데이터 구조의 문제이다. 중복 데이터의 미정의, 데이터 구조의 비즈니스 정의의 불충분, 동일한 성격의 데이터를 통합하지 않고 분리함으로써 나타나는 데이터 불일치 등의 데이터 구조의 문제로 인한 데이터 품질의 문제는 치유하기에 불가능한 경우가 대부분이다.
+- 유의점
+
+  - 중복(Duplication) : 데이터 모델은 같은 데이터를 사용하는 사람, 시간, 그리고 장소를 파악하는데 도움을 준다. 이러한 지식 응용은 데이터베이스가 여러 장소에 같은 정보를 저장하는 잘못을 하지 않도록 한다.
+
+  - 비유연성(Inflexibility) : 데이터 모델을 어떻게 설계했느냐에 따라 사소한 업무변화에도 데이터 모델이 수시로 변경됨으로써 유지보수의 어려움을 가중시킬 수 있다. 데이터의 정의를 데이터의 사용 프로세스와 분리함으로써 데이터 모델링은 데이터 혹은 프로세스의 작은 변화가 애플리케이션과 데이터베이스에 중대한 변화를 일으킬 수 있는 가능성을 줄인다.
+
+  - 비일관성(Inconsistency) : 데이터의 중복이 없더라도 비일관성은 발생한다. 예를 들어 신용 상태에 대한 갱신 없이 고객의 납부 이력 정보를 갱신하는 것이다. 개발자가 다른 데이터와 모순된다는 고려 없이 일련의 데이터를 수정할 수 있기 때문이다. 데이터 모델링을 할 때 데이터와 데이터간 상호 연관 관계에 대한 명확한 정의는 이러한 위험을 사전에 예방할 수 있도록 해준다.
+
+## **데이터 모델링 3단계 ( & 프로젝트 생명 주기)**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/data-modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+- 개념적 모델링 (in계획, 분석 단계) : 추상적, 업무 중심적이고 포괄적인 수준의 모델링. EA 수립시 사용
+- 논리적 모델링 (in 분석 단계) : 시스템으로 구축하고자 하는 업무에 대해 key, 속성, 관계 등을 정확하게 표현. 높은 재사용성. 정규화
+- 물리적 모델링 (in 설계 단계) : 실제로 데이터베이스에 이식할 수 있도록 성능, 저장 등 물리적인 성격을 고려
+
+## **데이터 모델링에서 독립성의 이해**
+
+- 데이터 독립성의 필요성
+  : 유지보수 비용 증가, 데이터 복잡도 증가, 데이터 중복성 증가, 요구사항 대응 저하
+- DB의 3단계 구조 : 데이터 독립성 확보를 목표로 한다.
+
+  - 3층 스키마 (3-level Schema)
+    <div style="display : flex; justify-content: center;">
+      <img src="{{site.baseurl}}/images/sqld/schema.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+    </div>
+
+    - 외부 스키마 : 각 사용자 단계의 개인적 DB 스키마. 사용자 관점. 응용프로그램이 접근하는 DB를 정의
+    - 개념 스키마 : 조직 전체의 통합된 DB 스키마. 설계자 관점. 데이터 모델링의 자향점
+    - 내부 스키마 : 물리적으로 데이터가 저장되는 방법을 표현하는 스키마. 개발자 관점. 물리적 저장 구조.
+
+- 데이터 독립성
+    <div style="display : flex; justify-content: center;">
+      <img src="{{site.baseurl}}/images/sqld/DB-independent.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+    </div>
+  - 논리적 독립성 : 외부와 개념 스키마가 서로 변화에 무관
+  - 물리적 독립성 : 개념과 내부 스키마가 서로 변화에 무관
+
+- 사상 (Mapping) : 상호 독립적인 개념을 연결시켜주는 다리
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/mapping.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+  - 외부적 / 개념적 사상 ( 논리적 사상)
+  - 개념적 / 내부적 사상 (물리적 사상)
+
+## **데이터 모델링의 3요소**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/entity-word.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+- Thing : 엔터티
+- Relationships : 관계
+- Attributes : 속성
+
+## **데이터 모델 표기법 : ERD**
+
+- IE, Baker 기법이 많이 쓰임
+- ERD 작업 순서 : 엔터티 그림 → 엔터티 배치 → 엔터티 관계 설정 → 관계별 기술 → 관계의 참여도 기술 → 관계 필수 여부
+- Entity-relationship model(E-R Model) : 엔터티를 사각형으로 표현하고 관계를 마름모, 속성을 타원형으로 표기
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/e-r-model-writing.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 8px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+## **좋은 데이터 모델의 요소**
+
+- 완전성 : 업무에 필요한 모든 데이터가 모델에 정의
+- 중복 배제 : 하나의 DB 내에 동일한 사실은 한번만
+- 업무 규칙 : 많은 규칙을 사용자가 공유하도록 제공
+- 데이터 재사용 : 데이터가 독립적으로 설계되어야 한다.
+- 의사소통 : 업무 규칙은 엔터티, 서브타입, 속성, 관계 등의 형태로 최대한 자세히 표현
+- 통합성 : 동일한 데이터는 한번만 정의, 참조 활용
+
+<hr/>
