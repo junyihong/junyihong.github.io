@@ -1,0 +1,54 @@
+---
+title: "데이터 모델링의 이해 (2)"
+categories:
+  - sqld
+tags:
+  - SQLD
+  - 데이터
+  - 데이터 모델링
+toc: true
+toc_sticky: true
+toc_label: "데이터 모델링의 이해 (2)"
+date: 2023-09-02
+last_modified_at: 2023-09-02
+---
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/Door.jpg" alt="-" style="width: 80%; height: 80%; margin-bottom: 40px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4); border-radius: 15px;">
+</div>
+
+# 개념적, 논리적, 물리적 데이터 모델링 상세내용
+
+<br/>
+
+## **1. 개념적 데이터 모델링(Conceptual Data Modeling)**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/conceptual-modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+**개념 데이터 모델링**은 조직, 사용자의 데이터 요구사항을 찾고 분석하는데서 시작한다. 이 과정은 어떠한 자료가 중요하며 또 어떠한 자료가 유지되어야 하는지를 결정하는 것도 포함한다. 이 단계에 있어서의 주요한 활동은 핵심 엔터티와 그들 간의 관계를 발견하고, 그것을 표현하기 위해서 엔터티-관계 다이어그램을 생성하는 것이다. 엔터티-관계 다이어그램은 조직과 다양한 데이터베이스 사용자에게 어떠한 데이터가 중요한지 나타내기 위해서 사용된다. 데이터 모델링 과정이 전 조직에 걸쳐 이루어진다면, 그것은 **전사적 데이터 모델(Enterprise Data Model)**이라고 불린다.
+
+개념 데이터 모델을 통해 조직의 데이터 요구를 공식화하는 것은 두 가지의 중요한 기능을 지원한다. 첫째, 개념 데이터 모델은 사용자와 시스템 개발자가 데이터 요구 사항을 발견하는 것을 지원한다. 개념 데이터 모델은 사용자와 개발자가 시스템 기능에 대해서 논의할 수 있는 기반을 형성한다. 둘째, 개념 데이터 모델은 현 시스템이 어떻게 변형되어야 하는가를 이해하는데 유용하다.
+
+<br/>
+
+## **2. 논리적 데이터 모델링(Logical Data Modeling)**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/logical-modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+**논리 데이터 모델링**은 데이터베이스 설계 프로세스의 Input으로써 비즈니스 정보의 논리적인 구조와 규칙을 명확하게 표현하는 기법 또는 과정이라 할 수 있다. 논리 데이터 모델링의 핵심은 어떻게 데이터에 액세스하고, 누가 데이터에 액세스하며, 그러한 액세스의 전산화와는 독립적으로 비즈니스 데이터에 존재하는 사실들을 인식하여 기록하는 것이다.
+
+이 단계에서 수행하는 또 한가지 중요한 활동은 **정규화**이다. 정규화는 논리 데이터 모델 상세화 과정의 대표적인 활동으로, 논리 데이터 모델의 일관성을 확보하고 중복을 제거하여 속성들이 가장 적절한 엔터티에 배치되도록 함으로써 보다 신뢰성있는 데이터 구조를 얻는데 목적이 있다.
+
+<br/>
+
+## **3. 물리적 데이터 모델링(Physical Data Modeling)**
+
+<div style=" display : flex; justify-content: center;">
+	<img src="{{site.baseurl}}/images/sqld/physical-modeling.jpg" alt="-" style="width: 60%; height: 40%; margin-bottom: 20px; box-shadow: 3px 3px 6px rgba(0,0,0,0.4);">
+</div>
+
+**물리 데이터 모델링**은 논리 데이터 모델이 데이터 저장소로서 어떻게 컴퓨터 하드웨어에 표현될 것인가를 다룬다. 데이터가 물리적으로 컴퓨터에 어떻게 저장될 것인가에 대한 정의를 **물리적 스키마**라고 한다. 이 단계에서 결정되는 것은 테이블, 칼럼 등으로 표현되는 물리적인 저장구조와 사용될 저장 장치, 자료를 추출하기 위해 사용될 접근 방법 등이 있다.
