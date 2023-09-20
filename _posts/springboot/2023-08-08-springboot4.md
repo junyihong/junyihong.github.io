@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "게시판 서비스 만들기 - 필요한 기술 정리하기"
-date: 2023-08-07
-last_modified_at: 2023-08-07
+date: 2023-08-08
+last_modified_at: 2023-08-08
 ---
 
 ## 필요 세부 기술 목록을 뽑는 방법은

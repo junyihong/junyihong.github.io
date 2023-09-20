@@ -17,7 +17,6 @@ search: false
   font-style: normal;
 }
 
-
 // ----------kakaotalk_Clone------------//
 // -------------------------------------------------iframe
 #iframeURL,
@@ -149,7 +148,7 @@ search: false
 }
 
 .talkggheading {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 50px;
   font-weight: 500;
   line-height: 1.5;
@@ -213,5 +212,13 @@ search: false
   /* pointer-events: none; */
 }
 
-
 // ----------------------------------------------------//
+
+.sidebar__top {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.sidebar__top a {
+  color: white;
+}
