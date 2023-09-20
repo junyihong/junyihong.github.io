@@ -16,6 +16,11 @@ date: 2023-09-19
 last_modified_at: 2023-09-19
 ---
 
+# 게시판 서비스 만들기 - AuditingField 작성
+
+<br/>
+<br/>
+
 ## /domain/AuditingFields.java
 
 <script src="https://gist.github.com/junyihong/af169c7e1a6fbb5b2ffd53be495fb24a.js"></script>
@@ -45,3 +50,10 @@ last_modified_at: 2023-09-19
 ## /domain/ArticleComment.java
 
 <script src="https://gist.github.com/junyihong/bc8f2d48b5e3b69d1861ce6edbb5d0fe.js"></script>
+
+AuditingFields를 상속받았으니 중복되는 부분들을 제거합니다.
+
+<br/>
+<hr/>
+<br/>
+<br/>
