@@ -57,7 +57,7 @@
   p,
   li {
     font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-size: 0.88em;
     line-height: 1.5;
   }
 
@@ -129,6 +129,7 @@
 
   @include breakpoint($large) {
     display: block;
+    text-align: center;
     width: auto;
     height: auto;
   }

@@ -223,8 +223,12 @@ search: false
   color: white;
 }
 
-// ----------------------------------------------------//
+// -------------------페이지네이션 중앙정렬---------------------------------//
 .pagination ul {
   display: flex;
   justify-content: center;
+}
+// -------------------아카이브 아이템 margin-bottom------------------------//
+.archive-item div {
+  margin-bottom: 5px;
 }
