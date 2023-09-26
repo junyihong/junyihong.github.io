@@ -43,9 +43,15 @@ last_modified_at: 2023-09-19
 
 </aside>
 
+<br/>
+<br/>
+
 ## /domain/Article.java
 
 <script src="https://gist.github.com/junyihong/ba1401d7a510f307a7764a8c3819757d.js"></script>
+
+<br/>
+<br/>
 
 ## /domain/ArticleComment.java
 

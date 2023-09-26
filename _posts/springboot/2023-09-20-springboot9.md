@@ -31,6 +31,9 @@ last_modified_at: 2023-09-20
 4. **`@RepositoryRestResource`** 어노테이션은 Spring Data REST를 사용하여 Article 엔티티를 RESTful 웹 서비스로 노출하도록 설정합니다. 이렇게 하면 Article 엔티티와 관련된 REST 엔드포인트를 자동으로 생성하고 제공합니다.
 5. **`customize`** 메서드는 QuerydslBindings를 사용하여 동적 쿼리를 커스터마이징하는 메서드입니다. 이 메서드 내에서는 다양한 필드에 대한 바인딩 설정을 정의하고, 검색 조건을 지정합니다. 예를 들어, **`containsIgnoreCase`**를 사용하여 제목(title), 내용(content), 해시태그(hashtag) 등을 대소문자 구분 없이 검색할 수 있도록 설정하고, **`eq`**를 사용하여 생성일(createdAt)과 생성자(createdBy)에 정확한 값으로 검색할 수 있도록 설정합니다.
 
+<br/>
+<br/>
+
 ## repository/ArticleCommentRepository.java
 
 <script src="https://gist.github.com/junyihong/5a87e66fcc6f4811e79447f9be6eb862.js"></script>
@@ -41,6 +44,9 @@ last_modified_at: 2023-09-20
 4. **`@RepositoryRestResource`** 어노테이션은 Spring Data REST를 사용하여 ArticleComment 엔티티를 RESTful 웹 서비스로 노출하도록 설정합니다. 이렇게 하면 ArticleComment 엔티티와 관련된 REST 엔드포인트를 자동으로 생성하고 제공합니다.
 5. **`customize`** 메서드는 QuerydslBindings를 사용하여 동적 쿼리를 커스터마이징하는 메서드입니다. 이 메서드 내에서는 다양한 필드에 대한 바인딩 설정을 정의하고, 검색 조건을 지정합니다. 예를 들어, **`containsIgnoreCase`**를 사용하여 댓글 내용(content)을 대소문자 구분 없이 검색할 수 있도록 설정하고, **`eq`**를 사용하여 생성일(createdAt)과 생성자(createdBy)에 정확한 값으로 검색할 수 있도록 설정합니다.
 
+<br/>
+<br/>
+
 ## dto/ArticleDto.java
 
 <script src="https://gist.github.com/junyihong/8b6693e2b5c4f1cb951158a5698db1bb.js"></script>
@@ -50,6 +56,9 @@ last_modified_at: 2023-09-20
 1. **Serializable 인터페이스**: **`ArticleDto`** 클래스는 **`Serializable`** 인터페이스를 구현하고 있습니다. 이것은 객체 직렬화(serialization)를 지원하며, 객체를 이동하거나 저장하기 위해 필요한 인터페이스입니다.
 
 **`ArticleDto`** 클래스는 게시글 엔티티의 필요한 데이터를 포함하고 있으며, 해당 데이터를 전송하거나 전달하는 데 사용될 수 있습니다. 이 클래스를 사용하면 엔티티와 DTO 간의 데이터 전달 및 통신이 편리해집니다.
+
+<br/>
+<br/>
 
 ## controller/ArticleController.java
 
@@ -64,6 +73,9 @@ last_modified_at: 2023-09-20
      - **`map.addAttribute("article", "article")`**: "article"라는 속성에 문자열 "article"을 추가합니다. 이것은 실제 데이터로 대체해야 할 부분입니다.
      - **`map.addAttribute("articleComments", List.of())`**: "articleComments"라는 속성에 빈 리스트를 추가합니다. 이것도 더미 데이터로 빈 리스트를 사용하고 있습니다.
 4. 뷰 반환: 각 핸들러 메서드는 문자열 값을 반환하며, 이 값은 해당 뷰 템플릿을 나타냅니다. 예를 들어, "articles/index"는 "articles" 경로의 인덱스 뷰를 나타냅니다. "articles/detail"은 게시글 상세 정보를 보여주는 뷰를 나타냅니다.
+
+<br/>
+<br/>
 
 ## controller/ArticleControllerTest.java
 

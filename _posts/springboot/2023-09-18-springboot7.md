@@ -16,6 +16,9 @@ date: 2023-09-18
 last_modified_at: 2023-09-18
 ---
 
+<br/>
+<br/>
+
 ## /Config/JpaConfig.java
 
 <script src="https://gist.github.com/junyihong/0161c5ab00b67c8886c20c594c5b2eda.js"></script>
@@ -23,6 +26,9 @@ last_modified_at: 2023-09-18
 - **`@EnableJpaAuditing`** : Spring Data JPA의 감사 기능을 활성화하는 데 사용됩니다. 이것은 감사 기능을 사용하려는 JPA 리포지토리와 연결된 설정 클래스에 적용됩니다.
 - **`@Configuration`** : 이 어노테이션은 이 클래스가 Spring 애플리케이션의 설정 클래스임을 나타냅니다. 즉, 이 클래스는 Spring 컨테이너에 빈(bean)으로 등록됩니다
 - **`auditorAware()`** : **`AuditorAware`** 인터페이스를 구현하는 Bean을 반환합니다. **`AuditorAware`**는 JPA 감사 기능에서 사용되며, 데이터베이스 엔터티의 감사 정보를 제공합니다. 현재 코드에서는 감사자(Auditor) 정보로 "junyihong"을 사용하도록 설정했습니다. 나중에 Spring Security와 통합할 때 실제로 인증된 사용자 정보를 제공하도록 수정할 예정입니다.
+
+<br/>
+<br/>
 
 ## /domain/Article.java
 
@@ -33,6 +39,9 @@ last_modified_at: 2023-09-18
 - **`@GeneratedValue(strategy = GenerationType.IDENTITY)`**는 자동으로 생성되는 기본 키를 사용한다는 것을 나타냅니다.
 - **`articleComments`**: 이 속성은 게시글과 연결된 댓글(comment) 엔터티를 나타냅니다. **`@OneToMany`** 를 통해 게시글과 댓글 간의 일대다 관계를 정의하고, **`mappedBy`** 속성은 연관 관계의 주인이 댓글 엔터티임을 나타냅니다.
 - `of**()**` : 게시글 객체를 생성하기 위한 정적 팩토리 메서드입니다.
+
+<br/>
+<br/>
 
 ## /domain/ArticleComment.java
 
